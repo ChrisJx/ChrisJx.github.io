@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2017/4 | Coding for more love!</title>
+  <title>HTML5新标签和API（二） | Coding for more love!</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Coding for more love!">
-<meta property="og:url" content="http://yoursite.com/archives/2017/04/index.html">
+  <meta name="description" content="主要内容 Web储存 地理定位 全屏幕 网络连接事件 文件读取 文件拖拽  Web储存 虽然我们可以使用cookie保存微量数据,但是由于容量太小,且读取不便（因为它们由每个对服务器的请求来传递，这使得cookie传输慢而且效率不高）,HTML5推出了新的解决方案，在HTML5中，数据不是由每个服务器请求传递的，而只有在请求的时候使用数据。它使在不影响网站性能的情况下存储大量的数据成为可能。对于不">
+<meta name="keywords" content="HTML5">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTML5新标签和API（二）">
+<meta property="og:url" content="http://yoursite.com/2015/10/30/html5-02/index.html">
 <meta property="og:site_name" content="Coding for more love!">
+<meta property="og:description" content="主要内容 Web储存 地理定位 全屏幕 网络连接事件 文件读取 文件拖拽  Web储存 虽然我们可以使用cookie保存微量数据,但是由于容量太小,且读取不便（因为它们由每个对服务器的请求来传递，这使得cookie传输慢而且效率不高）,HTML5推出了新的解决方案，在HTML5中，数据不是由每个服务器请求传递的，而只有在请求的时候使用数据。它使在不影响网站性能的情况下存储大量的数据成为可能。对于不">
+<meta property="og:updated_time" content="2017-03-31T15:48:52.878Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Coding for more love!">
+<meta name="twitter:title" content="HTML5新标签和API（二）">
+<meta name="twitter:description" content="主要内容 Web储存 地理定位 全屏幕 网络连接事件 文件读取 文件拖拽  Web储存 虽然我们可以使用cookie保存微量数据,但是由于容量太小,且读取不便（因为它们由每个对服务器的请求来传递，这使得cookie传输慢而且效率不高）,HTML5推出了新的解决方案，在HTML5中，数据不是由每个服务器请求传递的，而只有在请求的时候使用数据。它使在不影响网站性能的情况下存储大量的数据成为可能。对于不">
   
     <link rel="alternative" href="/atom.xml" title="Coding for more love!" type="application/atom+xml">
   
@@ -149,106 +154,238 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-html5-02" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      HTML5新标签和API（二）
+    </h1>
+  
+
+        
+        <a href="/2015/10/30/html5-02/" class="archive-article-date">
+  	<time datetime="2015-10-29T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-10-30</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="主要内容"><a href="#主要内容" class="headerlink" title="主要内容"></a>主要内容</h1><ul>
+<li>Web储存</li>
+<li>地理定位</li>
+<li>全屏幕</li>
+<li>网络连接事件</li>
+<li>文件读取</li>
+<li>文件拖拽</li>
+</ul>
+<h1 id="Web储存"><a href="#Web储存" class="headerlink" title="Web储存"></a>Web储存</h1><blockquote>
+<p>虽然我们可以使用<code>cookie</code>保存微量数据,但是由于容量太小,且读取不便（因为它们由每个对服务器的请求来传递，这使得<code>cookie</code>传输慢而且效率不高）,<code>HTML5</code>推出了新的解决方案，在<code>HTML5</code>中，数据不是由每个服务器请求传递的，而只有在请求的时候使用数据。它使在不影响网站性能的情况下存储大量的数据成为可能。<br>对于不同的网站，数据存储于不同的区域，并且一个网站只能访问其自身的数据。</p>
+</blockquote>
+<h2 id="使用特点"><a href="#使用特点" class="headerlink" title="使用特点"></a>使用特点</h2><ul>
+<li>设置读取方便(通过键值对)</li>
+<li>容量较大,<code>sessionStorage</code>大约5m,<code>localStorage</code>大约20m</li>
+<li>如果要保存<code>json</code>数据,可以使用<code>JSON.stringify()</code>将对象编码后保存</li>
+</ul>
+<h2 id="window-sessionStorage"><a href="#window-sessionStorage" class="headerlink" title="window.sessionStorage"></a>window.sessionStorage</h2><ul>
+<li>生命周期为关闭浏览器标签页（一个session的数据存储）</li>
+</ul>
+<h2 id="window-localStorage"><a href="#window-localStorage" class="headerlink" title="window.localStorage"></a>window.localStorage</h2><ul>
+<li>永久生效， 除非手动删除 （没有时间限制的存储）</li>
+<li>可以多窗口共享</li>
+</ul>
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><blockquote>
+<p>两种储存方法，只是前缀不一样，调用的方法是一致的</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">setItem(key,value) 设置存储的内容</div><div class="line">getItem(key,value) 读取存储的内容</div><div class="line">removeItem(key) 删除键值为key的存储内容</div><div class="line">clear() 清空所有的存储内容</div><div class="line">key(n) 以索引值来获取存储的内容</div></pre></td></tr></table></figure>
+<ul>
+<li><p>用<code>localStorage</code>对用户访问页面的次数进行统计</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(localStorage.count)&#123;</div><div class="line">   localStorage.count++;</div><div class="line">&#125;<span class="keyword">else</span>&#123;</div><div class="line">   localStorage.count = <span class="number">1</span>;</div><div class="line">&#125;</div><div class="line"> <span class="built_in">console</span>.log(localStorage.count);</div></pre></td></tr></table></figure>
+</li>
+<li><p>用<code>sessionStorage</code>针对一个<code>session</code>进行数据存储，当关闭浏览器窗口后数据会被删除</p>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">      <span class="comment">// sessionStorage.username = 'zhang';</span></div><div class="line">      sessionStorage.setItem(<span class="string">'username'</span>,<span class="string">'zhang'</span>);</div><div class="line">      <span class="keyword">var</span> val = sessionStorage.getItem(<span class="string">'username'</span>);</div><div class="line">      <span class="built_in">console</span>.log(val);</div><div class="line">  <span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line">  &lt;a href=<span class="string">"session2.html"</span>&gt;跳转&lt;<span class="regexp">/a&gt;</span></div></pre></td></tr></table></figure>
+<p><code>session2</code>页面内容<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(sessionStorage.getItem(<span class="string">'username'</span>));</div></pre></td></tr></table></figure></p>
+<p><strong>结果：</strong> 当点击跳转到另外一个页面时，输出<code>session</code>中的数据，但是单独打开<code>session2</code>页面时输出<code>null</code>。对于不同的网站，数据存储在不同的区域，并且一个网站只能访问自身的数据。（这里只是在本地模拟）</p>
+<h1 id="地理定位"><a href="#地理定位" class="headerlink" title="地理定位"></a>地理定位</h1><blockquote>
+<p>在HTML规范中，增加了获取用户地理信息的API，这样使得我们可以基于用户位置开发互联网应用，即基于位置服务 (Location Base Service)</p>
+</blockquote>
+<h2 id="安全性"><a href="#安全性" class="headerlink" title="安全性"></a>安全性</h2><p>语义地理位置属于私密信息,所以浏览器会弹出提示框,在征得用户允许的情况下再获取位置</p>
+<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><p><code>navigator.geolocation.getCurrentPosition(successCallback, errorCallback, options)</code> 获取当前地理信息</p>
+<p><code>navigator.watchPosition(successCallback, errorCallback, options)</code> 重复获取当前地理信息<br>​<br>当成功获取地理信息后，会调用<code>succssCallback</code>，并返回一个包含位置信息的对象<code>position</code>。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">navigator.geolocation.getCurrentPosition(function(position)&#123;</div><div class="line">    // 定位成功会调用该方法</div><div class="line">    // position.coords.latitude 纬度</div><div class="line">    // position.coords.longitude 经度</div><div class="line">    // position.coords.accuracy 精度</div><div class="line">    // position.coords.altitude 海拔高度</div><div class="line">&#125;, function(error)&#123;</div><div class="line">    // 定位失败会调用该方法</div><div class="line">    // error 是错误信息</div><div class="line">&#125;, )</div></pre></td></tr></table></figure></p>
+<p><strong>注意：</strong><br>该方法在火狐浏览器中有效，谷歌中无法得到，关于<code>geolocation</code>的相关<code>api</code>一般用在移动端居多。配合百度地图或者谷歌地图的api接口进行开发。</p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Geolocation/Using_geolocation" target="_blank" rel="external">MDN文档介绍</a></p>
+<h2 id="开启全屏幕"><a href="#开启全屏幕" class="headerlink" title="开启全屏幕"></a>开启全屏幕</h2><ul>
+<li>基本语法</li>
+</ul>
+<p><code>requestFullScreen()</code> 开启全屏显示<br><code>cancleFullScreen()</code> 关闭全屏显示</p>
+<ul>
+<li>使用注意<br>不同的浏览器要加前缀，这个属性存在兼容性的问题。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">webkitRequestFullScreen、mozRequestFullScreen</div><div class="line">webkitCancleFullScreen、mozCancleFullScreen</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="网络连接事件"><a href="#网络连接事件" class="headerlink" title="网络连接事件"></a>网络连接事件</h2><blockquote>
+<p>网络连接和断开都会有一个事件触发</p>
+</blockquote>
+<h2 id="语法-1"><a href="#语法-1" class="headerlink" title="语法"></a>语法</h2><ul>
+<li>获取网络状态</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">window.navigator.onLine</div></pre></td></tr></table></figure>
+<ul>
+<li>网络连接,断开事件</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 网络连接</span></div><div class="line"><span class="built_in">window</span>.ononline = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		alert(<span class="string">'网络已连接'</span>);</div><div class="line">	&#125;</div><div class="line"><span class="comment">// 网络断开</span></div><div class="line"><span class="built_in">window</span>.onoffline= <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		alert(<span class="string">'网络已断开'</span>);</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>各浏览器对该属性的实现有些不同。</li>
+</ul>
+<p>在Chrome和Safari中，如果浏览器连接不上局域网 (LAN)或者路由器，就是离线状态；否则就是在线状态。所以当该属性值为false的时候，你可以说浏览器不能正常联网，但如果该属性值为true的时候，并不意味着浏览器一定能连接上互联网。还有其他一些可能引起误判的原因，比如你的电脑安装了虚拟化软件，可能会有一个虚拟网卡，这时它总是会显示正常联网。因此，如果你想得到浏览器确切的联网状态，应该使用其他额外的检查手段。</p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/NavigatorOnLine/onLine" target="_blank" rel="external">MDN文档</a></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/04/27/面试题03/" class="archive-article-date">
-  	<time datetime="2017-04-27T14:18:22.696Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-27</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">HTML5</a>
+        		</li>
+      		
+		</ul>
+	</div>
 
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/HTML/" class="article-tag-list-link color5">HTML</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2015/10/30/html5-02/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/04/27/面试题02/" class="archive-article-date">
-  	<time datetime="2017-04-27T14:18:10.143Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-27</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/04/27/面试题00/" class="archive-article-date">
-  	<time datetime="2017-04-27T11:16:39.512Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-27</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+<nav id="article-nav">
+  
+    <a href="/2015/10/18/html5-01/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          HTML5新标签和API（一）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/11/05/css3-01/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">CSS3新样式 (一)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/04/15/cc/" class="archive-article-date">
-  	<time datetime="2017-04-15T01:01:20.505Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-15</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+
+
+
   
   
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -271,8 +408,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

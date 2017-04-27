@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2017/4 | Coding for more love!</title>
+  <title>Coding for more love!</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="description" content="搭建案例自动刷新环境 创建一个package.json文件npm init -y 安装browser-sync 1234# npm install --save-dev browser-sync# 将 browser-sync 包保存到开发依赖中# 就可以执行 npm install 的时候加入 --production 选项不安装这个包npm i -D browser-sync  在packag">
+<meta name="keywords">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Coding for more love!">
-<meta property="og:url" content="http://yoursite.com/archives/2017/04/index.html">
+<meta property="og:url" content="http://yoursite.com/2017/04/15/cc/index.html">
 <meta property="og:site_name" content="Coding for more love!">
+<meta property="og:description" content="搭建案例自动刷新环境 创建一个package.json文件npm init -y 安装browser-sync 1234# npm install --save-dev browser-sync# 将 browser-sync 包保存到开发依赖中# 就可以执行 npm install 的时候加入 --production 选项不安装这个包npm i -D browser-sync  在packag">
+<meta property="og:updated_time" content="2017-04-15T10:40:33.953Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Coding for more love!">
+<meta name="twitter:description" content="搭建案例自动刷新环境 创建一个package.json文件npm init -y 安装browser-sync 1234# npm install --save-dev browser-sync# 将 browser-sync 包保存到开发依赖中# 就可以执行 npm install 的时候加入 --production 选项不安装这个包npm i -D browser-sync  在packag">
   
     <link rel="alternative" href="/atom.xml" title="Coding for more love!" type="application/atom+xml">
   
@@ -149,106 +154,148 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-cc" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="搭建案例自动刷新环境"><a href="#搭建案例自动刷新环境" class="headerlink" title="搭建案例自动刷新环境"></a>搭建案例自动刷新环境</h2><ul>
+<li>创建一个<code>package.json</code>文件<br><code>npm init -y</code></li>
+<li><p>安装<code>browser-sync</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span> npm install --save-dev browser-sync</div><div class="line"><span class="meta">#</span> 将 browser-sync 包保存到开发依赖中</div><div class="line"><span class="meta">#</span> 就可以执行 npm install 的时候加入 --production 选项不安装这个包</div><div class="line">npm i -D browser-sync</div></pre></td></tr></table></figure>
+</li>
+<li><p>在<code>package.json</code>中加入以下内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&quot;scripts&quot;: &#123;</div><div class="line">  &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;,</div><div class="line">  &quot;start&quot;: &quot;browser-sync start --server --directory --files \&quot;code/*.html, js/*.js\&quot;&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>打开终端，启动开发预览服务：</p>
+</li>
+</ul>
+<p><code>npm start</code></p>
+<ul>
+<li>通过指定<code>--depth=1</code>下载不包含提交历史的包</li>
+</ul>
+<p><code>git clone *** --depth=1</code></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/04/27/面试题03/" class="archive-article-date">
-  	<time datetime="2017-04-27T14:18:22.696Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-27</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/04/15/cc/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/04/27/面试题02/" class="archive-article-date">
-  	<time datetime="2017-04-27T14:18:10.143Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-27</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/04/27/面试题00/" class="archive-article-date">
-  	<time datetime="2017-04-27T11:16:39.512Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-27</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+<nav id="article-nav">
+  
+    <a href="/2016/12/04/node01/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Node学习（一）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/04/27/面试题00/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/04/15/cc/" class="archive-article-date">
-  	<time datetime="2017-04-15T01:01:20.505Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-15</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+
+
+
   
   
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -271,8 +318,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

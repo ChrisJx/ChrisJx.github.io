@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <link rel="dns-prefetch" href="http://yoursite.com">
+  <title>CSS3新样式 (一) | Coding for more love!</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="介绍CSS3 CSS3为我们提供了很多让人兴奋的新样式,但是由于浏览器的兼容性问题,所以并不是所有的浏览器都能够使用不过这并不影响我们学习以及使用它   前缀:   浏览器厂商在实现CSS3的效果时,有的还有的还在测试阶段,为了保证显示效果,我们在使用某些属性的时候需要添加额外的前缀 举个例子:我要使用属性xxx -ms-xxx:ie浏览器 -moz-xxx:FireFox浏览器 -o-xxx:O">
+<meta name="keywords" content="CSS3">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS3新样式 (一)">
+<meta property="og:url" content="http://yoursite.com/2015/11/05/css3-01/index.html">
+<meta property="og:site_name" content="Coding for more love!">
+<meta property="og:description" content="介绍CSS3 CSS3为我们提供了很多让人兴奋的新样式,但是由于浏览器的兼容性问题,所以并不是所有的浏览器都能够使用不过这并不影响我们学习以及使用它   前缀:   浏览器厂商在实现CSS3的效果时,有的还有的还在测试阶段,为了保证显示效果,我们在使用某些属性的时候需要添加额外的前缀 举个例子:我要使用属性xxx -ms-xxx:ie浏览器 -moz-xxx:FireFox浏览器 -o-xxx:O">
+<meta property="og:image" content="http://yoursite.com/2015/11/05/css3-01/imgs/css03/box1.png">
+<meta property="og:image" content="http://yoursite.com/2015/11/05/css3-01/imgs/css03/box1.png">
+<meta property="og:image" content="http://yoursite.com/2015/11/05/css3-01/imgs/css03/box2.png">
+<meta property="og:image" content="http://yoursite.com/2015/11/05/css3-01/imgs/css03/box3.png">
+<meta property="og:image" content="http://yoursite.com/2015/11/05/css3-01/imgs/css03/box4.png">
+<meta property="og:image" content="http://yoursite.com/2015/11/05/css3-01/imgs/css03/box5.png">
+<meta property="og:image" content="http://yoursite.com/2015/11/05/css3-01/imgs/css03/box6.png">
+<meta property="og:image" content="http://yoursite.com/2015/11/05/css3-01/imgs/css03/shaw1.png">
+<meta property="og:image" content="http://yoursite.com/2015/11/05/css3-01/imgs/css03/shaw2.png">
+<meta property="og:image" content="http://yoursite.com/2015/11/05/css3-01/imgs/css03/shaw3.png">
+<meta property="og:image" content="http://yoursite.com/2015/11/05/css3-01/imgs/css03/shaw4.png">
+<meta property="og:image" content="http://yoursite.com/2015/11/05/css3-01/imgs/css03/shaw5.png">
+<meta property="og:image" content="http://yoursite.com/2015/11/05/css3-01/imgs/字体阴影.png">
+<meta property="og:image" content="http://yoursite.com/2015/11/05/css3-01/imgs/字体阴影_模糊.png">
+<meta property="og:image" content="http://yoursite.com/2015/11/05/css3-01/imgs/字体阴影_多个阴影.png">
+<meta property="og:image" content="http://yoursite.com/2015/11/05/css3-01/imgs/凹凸字体实例.png">
+<meta property="og:image" content="http://yoursite.com/2015/11/05/css3-01/imgs/盒子模型.png">
+<meta property="og:image" content="http://yoursite.com/2015/11/05/css3-01/imgs/盒子模型预览.png">
+<meta property="og:updated_time" content="2017-03-31T15:49:15.673Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS3新样式 (一)">
+<meta name="twitter:description" content="介绍CSS3 CSS3为我们提供了很多让人兴奋的新样式,但是由于浏览器的兼容性问题,所以并不是所有的浏览器都能够使用不过这并不影响我们学习以及使用它   前缀:   浏览器厂商在实现CSS3的效果时,有的还有的还在测试阶段,为了保证显示效果,我们在使用某些属性的时候需要添加额外的前缀 举个例子:我要使用属性xxx -ms-xxx:ie浏览器 -moz-xxx:FireFox浏览器 -o-xxx:O">
+<meta name="twitter:image" content="http://yoursite.com/2015/11/05/css3-01/imgs/css03/box1.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Coding for more love!" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" type="text/css" href="/./main.f6a68c.css">
+  <style type="text/css">
+  
+    #container.show {
+      background: linear-gradient(200deg,#a0cfe4,#e8c37e);
+    }
+  </style>
+  
+
+  
+
+</head>
+
+<body>
+  <div id="container" q-class="show:isCtnShow">
+    <canvas id="anm-canvas" class="anm-canvas"></canvas>
+    <div class="left-col" q-class="show:isShow">
+      
+<div class="overlay" style="background: #4d4d4d"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			<img src="null" class="js-avatar">
+		</a>
+		<hgroup>
+		  <h1 class="header-author"><a href="/">ChrisJx</a></h1>
+		</hgroup>
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/tags/随笔/">随笔</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+    		
+    			
+    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
+    			
+            
+    			
+    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
+    			
+            
+    			
+    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于我</a>
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+		        
+					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+		        
+					<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
+		        
+					<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
+      
+<nav id="mobile-nav">
+  	<div class="overlay js-overlay" style="background: #4d4d4d"></div>
+	<div class="btnctn js-mobile-btnctn">
+  		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
+	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img src="null" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author js-header-author">ChrisJx</h1>
+			</hgroup>
+			
+			
+			
+				
+			
+				
+			
+			
+			
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
+			        
+				</div>
+			</nav>
+
+			<nav class="header-menu js-header-menu">
+				<ul style="width: 50%">
+				
+				
+					<li style="width: 50%"><a href="/">主页</a></li>
+		        
+					<li style="width: 50%"><a href="/tags/随笔/">随笔</a></li>
+		        
+				</ul>
+			</nav>
+		</header>				
+	</div>
+	<div class="mobile-mask" style="display:none" q-show="isShow"></div>
+</nav>
+
+      <div id="wrapper" class="body-wrap">
+        <div class="menu-l">
+          <div class="canvas-wrap">
+            <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
+          </div>
+          <div id="js-content" class="content-ll">
+            <article id="post-css3-01" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      CSS3新样式 (一)
+    </h1>
+  
+
+        
+        <a href="/2015/11/05/css3-01/" class="archive-article-date">
+  	<time datetime="2015-11-04T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-11-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="介绍CSS3"><a href="#介绍CSS3" class="headerlink" title="介绍CSS3"></a>介绍CSS3</h2><blockquote>
+<p>CSS3为我们提供了很多让人兴奋的新样式,但是由于浏览器的兼容性问题,所以并不是所有的浏览器都能够使用<br>不过这并不影响我们学习以及使用它</p>
+</blockquote>
+<ul>
+<li><strong>前缀:</strong></li>
+</ul>
+<ul>
+<li>浏览器厂商在实现CSS3的效果时,有的还有的还在测试阶段,为了保证显示效果,我们在使用某些属性的时候需要添加额外的前缀</li>
+<li>举个例子:我要使用属性<code>xxx</code><ul>
+<li>-ms-xxx:ie浏览器</li>
+<li>-moz-xxx:FireFox浏览器</li>
+<li>-o-xxx:Opera浏览器</li>
+<li>-webkit-xxx:Chrome以及Safari  </li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Trident内核(IE)： 前缀为 -ms</div><div class="line">Gecko内核(FireFox)： 前缀为 -moz</div><div class="line">Presto内核(Opera)： 前缀为 -o</div><div class="line">Webkit内核(Chrome,Safari)： 前缀为 -webkit</div></pre></td></tr></table></figure>
+<ul>
+<li>核心知识点<blockquote>
+<p>CSS3的所有样式都分为模块，其中最重要的是</p>
+</blockquote>
+</li>
+</ul>
+<ul>
+<li>选择器</li>
+<li>框模型</li>
+<li>背景和边框</li>
+<li>文本效果</li>
+<li>2D/3D 转换</li>
+<li>动画</li>
+<li>多列布局</li>
+<li>用户界面</li>
+</ul>
+<h2 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h2><blockquote>
+<p>CSS3中给了我们更多的选择器让我们来获取元素，极大程度提高了查找元素的精度以及准确性，值得庆幸的是绝大多数的选择器的语法跟<code>jQuery</code>中兼容</p>
+<h3 id="属性选择器"><a href="#属性选择器" class="headerlink" title="属性选择器"></a>属性选择器</h3><p>属性选择器的作用就是，根据标签的属性去筛选对应的元素，属性选择器从<code>CSS2</code>推出，在<code>CSS3</code>中增加了几个新的</p>
+</blockquote>
+<ul>
+<li><p><strong>选择器语法：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">下列的属性名都为att 这里就不单独写了</div><div class="line">E[att]:包含attr属性</div><div class="line">E[att=&quot;val&quot;]:属性值为val</div><div class="line">E[att~=&quot;val&quot;]:属性值使用空格进行分割,有一个为val</div><div class="line">E[att^=&quot;val&quot;]:属性值以val开头</div><div class="line">E[att$=&quot;val&quot;]:属性值以val结尾</div><div class="line">E[att*=&quot;val&quot;]:属性中包含val</div><div class="line">E[att|=&quot;val&quot;]:属性以‘-’分割，其中有val值（如果属性只有val 那么也会被选中哦）</div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>示例代码：</strong></p>
+<blockquote>
+<p>示例代码直接新建页面，运行即可</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span></div><div class="line">		li[skill]&#123;</div><div class="line">			background-color: red;</div><div class="line">		&#125;</div><div class="line">		li[color = "white"]&#123;</div><div class="line">			background-color: blue;</div><div class="line">		&#125;</div><div class="line">		li[color~="red"]&#123;</div><div class="line">			background-color: orange;</div><div class="line">		&#125;</div><div class="line">		li[color^="bla"]&#123;</div><div class="line">			border: 10px solid #0094ff;</div><div class="line">		&#125;</div><div class="line">		li[color$="ge"]&#123;</div><div class="line">			font-size: 32px;</div><div class="line">		&#125;</div><div class="line">		li[color*="orange"]&#123;</div><div class="line">			color:orange;</div><div class="line">		&#125;</div><div class="line">		li[color|="black"]&#123;</div><div class="line">			background-color: black;</div><div class="line">		&#125;</div><div class="line">	<span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">li</span> <span class="attr">skill</span>=<span class="string">"喷火"</span>&gt;</span>葫芦娃<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">li</span> <span class="attr">color</span> = <span class="string">"black"</span>&gt;</span>黑猫警长<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">li</span> <span class="attr">color</span> = <span class="string">"white"</span>&gt;</span>海尔兄弟<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">li</span> <span class="attr">color</span> = <span class="string">"blue red"</span>&gt;</span>舒克和贝塔<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">li</span> <span class="attr">color</span> = <span class="string">"white gray"</span>&gt;</span>喜羊羊与灰太狼<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">li</span> <span class="attr">color</span> = <span class="string">"black-orange"</span>&gt;</span>大头儿子小头爸爸<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+</blockquote>
+</li>
+</ul>
+<h3 id="兄弟选择器"><a href="#兄弟选择器" class="headerlink" title="兄弟选择器"></a>兄弟选择器</h3><blockquote>
+<p>兄弟选择器的作用是，选择相邻的兄弟节点</p>
+</blockquote>
+<ul>
+<li><p><strong>语法：</strong></p>
+<ul>
+<li>相同<code>父元素</code>中</li>
+<li>在选择器1<code>之后</code></li>
+<li>的所有满足选择器2的元素<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">选择器1~选择器2</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p><strong>示例代码：</strong></p>
+<blockquote>
+<p>在class为<code>.first</code>之后的所有class为<code>.meat</code>的元素背景颜色会变为红色<br>需要<strong>注意</strong>的是,之前的并不会获取到</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>兄弟选择器<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span></div><div class="line">		.first~.meat&#123;</div><div class="line">			background-color: red;</div><div class="line">		&#125;</div><div class="line">	<span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"meat"</span>&gt;</span>牛肉<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">h1</span> <span class="attr">class</span>=<span class="string">"first"</span>&gt;</span>我是h1<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>西兰花<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>西葫芦<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"meat"</span>&gt;</span>牛肉<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">h1</span>&gt;</span>我是h1<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>小白菜<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"meat"</span>&gt;</span>牛肉<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"meat"</span>&gt;</span>牛肉<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+</blockquote>
+</li>
+</ul>
+<h3 id="伪类选择器"><a href="#伪类选择器" class="headerlink" title="伪类选择器"></a>伪类选择器</h3><blockquote>
+<p>伪类选择器，CSS3中推出了一些新的<code>伪类选择器</code>，将常用的列举如下</p>
+</blockquote>
+<ul>
+<li><p><strong>语法：</strong></p>
+<blockquote>
+<p>使用注意：</p>
+<ul>
+<li>标签E,必须是某个元素的子元素(在界面上)</li>
+<li>如果通过<code>伪类选择器</code>找到的元素不是<code>E</code>则选择无效<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">结构伪类</div><div class="line"><span class="selector-tag">E</span><span class="selector-pseudo">:first-child</span>：第一个子元素</div><div class="line"><span class="selector-tag">E</span><span class="selector-pseudo">:last-child</span>：最后一个子元素</div><div class="line"></div><div class="line"><span class="selector-tag">E</span><span class="selector-pseudo">:nth-child(n)</span>： 第<span class="selector-tag">n</span>个子元素，计算方法是<span class="selector-tag">E</span>元素的全部兄弟元素；</div><div class="line"><span class="selector-tag">E</span><span class="selector-pseudo">:nth-last-child(n)</span>： 跟<span class="selector-tag">E</span><span class="selector-pseudo">:nth-child(n)</span>类似 ，只是倒着计算；</div><div class="line">    其中<span class="selector-tag">n</span>的取值范围是：0，1,2,3,4...线性累加</div><div class="line">    可以传入表达式，比如2<span class="selector-tag">n</span>,2<span class="selector-tag">n</span>+1等等</div><div class="line">    可以传入特殊字符：<span class="selector-tag">even</span>(偶数) <span class="selector-tag">odd</span>(奇数)</div><div class="line"></div><div class="line"><span class="selector-tag">E</span><span class="selector-pseudo">:empty</span> 指的是<span class="selector-tag">E</span>标签，并且内容为空</div><div class="line"><span class="selector-tag">E</span><span class="selector-pseudo">:not(</span>选择器)：指的是，不满足括号内选择器条件的元素<span class="selector-tag">E</span></div><div class="line"></div><div class="line">目标伪类</div><div class="line"><span class="selector-tag">E</span><span class="selector-pseudo">:target</span>:选中当前锚点</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>示例代码：</strong></p>
+<blockquote>
+<p>示例代码直接新建页面，运行即可</p>
+</blockquote>
+</li>
+</ul>
+<p><img src="imgs/css03/box1.png" alt="image_1ams02j601oqm1bc04fp1vlpl6t9.png-41.4kB"></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>选择器 - 伪类<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></div><div class="line">		<span class="selector-tag">body</span> &#123;</div><div class="line">			<span class="attribute">margin</span>: <span class="number">0</span>;</div><div class="line">			<span class="attribute">padding</span>: <span class="number">0</span>;</div><div class="line">			<span class="attribute">background-color</span>: <span class="number">#F7F7F7</span>;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		<span class="selector-tag">ul</span> &#123;</div><div class="line">			<span class="attribute">width</span>: <span class="number">560px</span>;</div><div class="line">			<span class="attribute">padding</span>: <span class="number">0</span>;</div><div class="line">			<span class="attribute">margin</span>: <span class="number">100px</span> auto;</div><div class="line">			<span class="attribute">list-style</span>: none;</div><div class="line">			<span class="attribute">border-right</span>: <span class="number">1px</span> solid <span class="number">#CCC</span>;</div><div class="line">			<span class="attribute">border-bottom</span>: <span class="number">1px</span> solid <span class="number">#CCC</span>;</div><div class="line">			<span class="attribute">overflow</span>: hidden;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		<span class="selector-tag">li</span> &#123;</div><div class="line">			<span class="attribute">width</span>: <span class="number">79px</span>;</div><div class="line">			<span class="attribute">height</span>: <span class="number">80px</span>;</div><div class="line">			<span class="attribute">text-align</span>: center;</div><div class="line">			<span class="attribute">line-height</span>: <span class="number">80px</span>;</div><div class="line">			<span class="attribute">border-left</span>: <span class="number">1px</span> solid <span class="number">#CCC</span>;</div><div class="line">			<span class="attribute">border-top</span>: <span class="number">1px</span> solid <span class="number">#CCC</span>;</div><div class="line">			<span class="attribute">background-color</span>: <span class="number">#FFF</span>;</div><div class="line">			<span class="attribute">font-size</span>: <span class="number">24px</span>;</div><div class="line">			<span class="attribute">font-weight</span>: bold;</div><div class="line">			<span class="attribute">color</span>: <span class="number">#333</span>;</div><div class="line">			<span class="attribute">float</span>: left;</div><div class="line">		&#125;</div><div class="line">		<span class="comment">/*第一个*/</span></div><div class="line">		<span class="selector-tag">li</span><span class="selector-pseudo">:first-child</span>&#123;</div><div class="line">			<span class="attribute">color</span>: red;</div><div class="line">		&#125;</div><div class="line">		<span class="selector-tag">li</span><span class="selector-pseudo">:last-child</span>&#123;</div><div class="line">			<span class="attribute">color</span>:red;</div><div class="line">		&#125;</div><div class="line">		<span class="selector-tag">li</span><span class="selector-pseudo">:nth-child(2)</span>&#123;</div><div class="line">			<span class="attribute">color</span>:blue;</div><div class="line">		&#125;</div><div class="line">		<span class="selector-tag">li</span><span class="selector-pseudo">:nth-child(2n)</span>&#123;</div><div class="line">			<span class="attribute">color</span>: blue;</div><div class="line">		&#125;</div><div class="line">		<span class="selector-tag">li</span><span class="selector-pseudo">:nth-child(2n+1)</span>&#123;</div><div class="line">			<span class="attribute">color</span>:red;</div><div class="line">		&#125;</div><div class="line">		<span class="selector-tag">li</span><span class="selector-pseudo">:nth-last-child(1)</span>&#123;</div><div class="line">			<span class="attribute">background-color</span>: pink;</div><div class="line">		&#125;</div><div class="line">		<span class="selector-tag">li</span><span class="selector-pseudo">:nth-last-child(2)</span>&#123;</div><div class="line">			<span class="attribute">background-color</span>: yellow;</div><div class="line">		&#125;</div><div class="line">		<span class="comment">/*奇数*/</span></div><div class="line">		<span class="selector-tag">li</span><span class="selector-pseudo">:nth-child(odd)</span>&#123;</div><div class="line">			<span class="attribute">background-color</span>: pink;</div><div class="line">		&#125;</div><div class="line">		<span class="comment">/*偶数*/</span></div><div class="line">		<span class="selector-tag">li</span><span class="selector-pseudo">:nth-child(even)</span>&#123;</div><div class="line">			<span class="attribute">background-color</span>: skyblue;</div><div class="line">		&#125;</div><div class="line">	<span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span>1<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span>2<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span>3<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span>4<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span>5<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span>6<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span>7<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span>8<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span>9<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span>10<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span>11<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span>12<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span>13<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span>14<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span>15<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span>16<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span>17<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span>18<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span>19<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span>20<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span>21<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span>22<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span>23<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span>24<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span>25<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span>26<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span>27<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span>28<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span>29<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span>30<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span>31<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span>32<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span>33<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span>34<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">li</span>&gt;</span>35<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="伪元素选择器"><a href="#伪元素选择器" class="headerlink" title="伪元素选择器"></a>伪元素选择器</h3><ul>
+<li>before&amp;after</li>
+</ul>
+<ul>
+<li><strong>语法：</strong><blockquote>
+<p>使用注意：</p>
+<ul>
+<li>需要配合<code>content</code>属性使用（如果没有就无效）</li>
+<li>可以用来制作图标</li>
+<li>部分图标框架使用的就是这种机制</li>
+<li>默认是行内元素，根据需求可能需要修<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">E:before：在元素E之前添加</div><div class="line">E:after：在元素E末尾添加</div><div class="line"></div><div class="line">也可以写为</div><div class="line">E::before</div><div class="line">E::after</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<ul>
+<li>first-letter</li>
+</ul>
+<ul>
+<li><strong>语法：</strong><ul>
+<li>获取的是内容的第一个文字</li>
+<li>根据语言不通，会有细微差别<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">E:first-letter等价于E::first-letter</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>first-line</li>
+</ul>
+<ul>
+<li><strong>语法：</strong><ul>
+<li>获取的是内容的第行的内容</li>
+<li>可以配合p标签使用<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">E:first-line等价于E::first-line</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>selection</li>
+</ul>
+<ul>
+<li><strong>语法：</strong><ul>
+<li>选中时的样式</li>
+<li>只能设置的属性有<code>background-color</code>,<code>color</code>,<code>text-shadow</code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">E::selection</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>placeholder<blockquote>
+<p>该属性处于测试阶段，需要配合浏览器前缀使用</p>
+</blockquote>
+</li>
+</ul>
+<ul>
+<li><p><strong>语法：</strong></p>
+<ul>
+<li>设置<code>input</code>标签<code>placeholder</code>属性的显示颜色<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">E::selection</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p><strong>示例代码：</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">placeholder</span>=<span class="string">"占位符"</span> /&gt;</span></div><div class="line"></div><div class="line">input::-webkit-input-placeholder &#123;</div><div class="line">	color: #999;</div><div class="line">&#125;</div><div class="line">input:-ms-input-placeholder &#123; // IE10+</div><div class="line">	color: #999;</div><div class="line">&#125;</div><div class="line">input:-moz-placeholder &#123; // Firefox4-18</div><div class="line">	color: #999;</div><div class="line">&#125;</div><div class="line">input::-moz-placeholder &#123; // Firefox19+</div><div class="line">	color: #999;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="关于颜色"><a href="#关于颜色" class="headerlink" title="关于颜色"></a>关于颜色</h2><blockquote>
+<p>新增了<code>RGBA</code>、<code>HSLA</code>模式，其中的<code>A</code> 表示透明度通道，即可以设置颜色值的透明度，跟<code>opacity</code>相比，它们不具有继承性，即不会影响子元素的透明度。</p>
+</blockquote>
+<ul>
+<li><p><strong>RGBA</strong></p>
+<ul>
+<li>Red：0-255</li>
+<li>Green：0-255</li>
+<li>Blue：0-255</li>
+<li>Alpha：0-1（小数）</li>
+<li>注意，不使用A那么认为没有透明度<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">color:RGBA(100,100,100,0.3);</div><div class="line">color:RGB(100,100,100);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p><strong>HSLA</strong>    </p>
+<ul>
+<li>Hue(色调):0-360</li>
+<li>Saturation(饱和度):0-100%</li>
+<li>Lightness(亮度):0-100%</li>
+<li>Alpha(透明度):0-1（小数）</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">color: hsla(308, 85%, 58%, 1);</div><div class="line">color: hsl(308, 85%, 58%);</div></pre></td></tr></table></figure>
+<p><strong>取色：</strong></p>
+<pre><code>* 使用浏览器内置的插件
+* 使用`FSCapture`进行取色
+</code></pre><ul>
+<li><p><strong>透明度说明：</strong></p>
+<ul>
+<li><code>opacity</code>只能针对整个盒子设置透明度，子盒子及内容会继承父盒子的透明度 ，他是作为<code>CSS</code>的属性来使用的</li>
+<li><code>transparent</code>始终完全透明，他是作为颜色的取值来使用<code>color:transparent</code></li>
+</ul>
+</li>
+<li><p><strong>适用范围：</strong></p>
+<ul>
+<li>所有可以使用颜色的地方，都能够使用<code>RGBA</code> 以及<code>HSLA</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="关于边框的圆角属性"><a href="#关于边框的圆角属性" class="headerlink" title="关于边框的圆角属性"></a>关于边框的圆角属性</h2><blockquote>
+<p>在早期如果想要制作四周有圆角的元素时,需要专门制作一张图片(这其实没什么),但是试想一下,如果要修改圆角的各种关系,比如颜色,半径等等,必须去重新修改图片才能够实现(十分麻烦).<br><br>在<code>html5</code>中针对这个效果专门推出了一个属性<code>border-radius</code><br><a href="http://www.w3school.com.cn/css3/css3_border.asp" target="_blank" rel="external">w3c_CSS3边框讲解页面</a></p>
+<h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法:"></a>使用方法:</h3><ul>
+<li><strong>属性名:</strong><ul>
+<li>border-radius</li>
+</ul>
+</li>
+<li><strong>赋值方法:</strong> <ul>
+<li>赋值的方法类似于<code>margin</code></li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<hr>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">background-color</span>: <span class="selector-tag">rebeccapurple</span>;</div><div class="line"><span class="selector-tag">border-radius</span><span class="selector-pseudo">:20px</span>;</div><div class="line"><span class="comment">/*设置四周的圆角*/</span></div></pre></td></tr></table></figure>
+<p><img src="imgs/css03/box1.png" alt="box1.png-2kB"></p>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">background-color: aqua;</div><div class="line">border-radius: 50px 10px;</div><div class="line">/*上左下右,上右下左 */</div></pre></td></tr></table></figure>
+<p><img src="imgs/css03/box2.png" alt="box2.png-2.3kB"></p>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">background-color: seagreen;</div><div class="line">border-radius: 50px 30px 10px;</div><div class="line">/*上左,上右下左,下右*/</div></pre></td></tr></table></figure>
+<p><img src="imgs/css03/box3.png" alt="box3.png-2.7kB"></p>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">background-color: chartreuse;</div><div class="line">border-radius: 50px 40px 30px 20px;</div><div class="line">/*上左,上右,下右,下左*/</div></pre></td></tr></table></figure>
+<p><img src="imgs/css03/box4.png" alt="box4.png-2.4kB"></p>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">background-color: magenta;</div><div class="line">border-radius: 50px/100px;</div><div class="line">/*上下的圆角/左右的圆角*/</div></pre></td></tr></table></figure>
+<p><img src="imgs/css03/box5.png" alt="box5.png-2.4kB"></p>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">background-color: palevioletred;</div><div class="line">border-top-left-radius: 40px;</div><div class="line">/*上左*/</div><div class="line">border-top-right-radius: 10px;</div><div class="line">/*上右*/</div><div class="line">border-bottom-left-radius: 20px;</div><div class="line">/*下左*/</div><div class="line">border-bottom-right-radius: 50px;</div><div class="line">/*下右*/</div></pre></td></tr></table></figure>
+<p><img src="imgs/css03/box6.png" alt="box6.png-2.8kB"></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结:"></a><strong>总结:</strong></h3><blockquote>
+<p>该属性的用法十分简单,只要搞清楚四边的对应关系,就能够制作各种精美组合效果</p>
+</blockquote>
+<h2 id="关于边框的阴影属性"><a href="#关于边框的阴影属性" class="headerlink" title="关于边框的阴影属性"></a>关于边框的阴影属性</h2><blockquote>
+<p>除了可以为元素的四周设置倒圆角以外,CSS3还为我们提供了阴影的功能,能够制作更为精美的外观<br> <a href="http://www.w3school.com.cn/css3/css3_border.asp" target="_blank" rel="external">w3c_CSS3边框讲解页面</a></p>
+</blockquote>
+<h3 id="使用方法-1"><a href="#使用方法-1" class="headerlink" title="使用方法"></a>使用方法</h3><ul>
+<li><strong>属性名:</strong><ul>
+<li>box-shadow</li>
+</ul>
+</li>
+<li><p><strong>可选值（6个）:</strong></p>
+<ul>
+<li>h-shadow:必需。水平阴影的位置。允许负值。</li>
+<li>v-shadow:必需。垂直阴影的位置。允许负值。</li>
+<li>blur:可选。模糊距离。</li>
+<li>spread:可选。阴影的尺寸</li>
+<li>color:可选。阴影的颜色。请参阅 CSS 颜色值。</li>
+<li>inset:可选。将外部阴影 (outset) 改为内部阴影。</li>
+</ul>
+</li>
+<li><p><strong>示例代码</strong></p>
+<ul>
+<li>这里<code>青色</code>的为<code>li</code>标签</li>
+</ul>
+</li>
+</ul>
+<hr>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">box-shadow</span><span class="selector-pseudo">:-10px</span> 20<span class="selector-tag">px</span> <span class="selector-tag">red</span>;</div></pre></td></tr></table></figure>
+<p><img src="imgs/css03/shaw1.png" alt="shaw1.png-1.2kB"></p>
+<hr>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">box-shadow</span>: 5<span class="selector-tag">px</span> 5<span class="selector-tag">px</span> 20<span class="selector-tag">px</span> <span class="selector-tag">pink</span>;</div><div class="line"><span class="comment">/*x偏移值,y偏移值,影子四周模糊程度,影子颜色*/</span></div></pre></td></tr></table></figure>
+<p><img src="imgs/css03/shaw2.png" alt="!\[\](img/shaw2.png)"></p>
+<hr>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">box-shadow</span>: 5<span class="selector-tag">px</span> 5<span class="selector-tag">px</span> 0<span class="selector-tag">px</span> 5<span class="selector-tag">px</span> <span class="selector-tag">red</span>;</div><div class="line"><span class="comment">/*x偏移值,y偏移值,影子四周模糊程度,影子额外的长度,影子颜色*/</span></div><div class="line"><span class="comment">/*影子默认跟元素一样大*/</span></div></pre></td></tr></table></figure>
+<p><img src="imgs/css03/shaw3.png" alt="shaw3.png-1.5kB"></p>
+<hr>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">box-shadow</span>: <span class="selector-tag">inset</span> 0<span class="selector-tag">px</span> 0<span class="selector-tag">px</span> 100<span class="selector-tag">px</span> <span class="selector-tag">yellow</span>;</div><div class="line"><span class="comment">/*添加了inset以后,影子会往内部伸展,其他的都是一样的*/</span></div></pre></td></tr></table></figure>
+<p><img src="imgs/css03/shaw4.png" alt="shaw4.png-15.5kB"></p>
+<hr>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">box-shadow</span>: 5<span class="selector-tag">px</span> 5<span class="selector-tag">px</span> <span class="selector-tag">yellow</span>,<span class="selector-tag">-5px</span> <span class="selector-tag">-5px</span> <span class="selector-tag">blue</span>,10<span class="selector-tag">px</span> 10<span class="selector-tag">px</span> <span class="selector-tag">green</span>;</div><div class="line"><span class="comment">/*多个影子的添加 只需要使用逗号分隔即可 */</span></div></pre></td></tr></table></figure>
+<p><img src="imgs/css03/shaw5.png" alt="shaw5.png-1.7kB"></p>
+<ul>
+<li><strong>注意:</strong><ul>
+<li>这里演示的只是基本用法,实际开发中配合更高的审美观,能够制作更为精美的页面</li>
+</ul>
+</li>
+</ul>
+<h2 id="关于文字阴影"><a href="#关于文字阴影" class="headerlink" title="关于文字阴影"></a>关于文字阴影</h2><blockquote>
+<p>这个属性的使用十分类似<code>box-shadow</code></p>
+<h3 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h3><ul>
+<li><strong>属性名:</strong> text-shadow</li>
+</ul>
+</blockquote>
+<ul>
+<li><p><strong>赋值方法_3个值:</strong></p>
+<ul>
+<li>5px 5px red</li>
+<li>x偏移值,y偏移值,阴影颜色<br><img src="imgs/字体阴影.png" alt="字体阴影.png-9.6kB"></li>
+</ul>
+</li>
+<li><p><strong>赋值方法_4个值:</strong></p>
+<ul>
+<li>5px 5px 10px pink</li>
+<li>x偏移值,y偏移值,阴影模糊程度,阴影颜色<br><img src="imgs/字体阴影_模糊.png" alt="字体阴影_模糊.png-20.4kB"></li>
+</ul>
+</li>
+<li><p>赋值方法_多个阴影</p>
+<ul>
+<li>5px 5px red,10px 10px yellow;</li>
+<li>通过<code>逗号</code>的来分隔不同的阴影<br><img src="imgs/字体阴影_多个阴影.png" alt="字体阴影_多个阴影.png-11.1kB"></li>
+</ul>
+</li>
+</ul>
+<h3 id="Demo-凹凸文字"><a href="#Demo-凹凸文字" class="headerlink" title="Demo(凹凸文字)"></a>Demo(凹凸文字)</h3><blockquote>
+<p>首先让我们来看看字体的具体外观</p>
+</blockquote>
+<p><img src="imgs/凹凸字体实例.png" alt="凹凸字体实例.png-20.4kB"></p>
+<ul>
+<li><strong>凹字体:</strong><ul>
+<li>参照上图,当阳光从左上角照射时,字体是<code>凹</code>进去时,内部的轮廓线会被照射为白色</li>
+</ul>
+</li>
+<li><strong>凸字体:</strong><ul>
+<li>参照上图,当阳光从左上角照射时,字体是<code>凸</code>起时,右上角的轮廓线会被照射为白色</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p><strong>分析:</strong></p>
+<ul>
+<li>阳光照射的轮廓线在上或者是在下就可以让我们产生这是<code>凹</code>,<code>凸</code>字体的错觉</li>
+</ul>
+</li>
+<li><p><strong>具体代码:</strong></p>
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></div><div class="line">        <span class="selector-tag">body</span>&#123;</div><div class="line">            <span class="attribute">background-color</span>:gray;</div><div class="line">        &#125;</div><div class="line">        <span class="selector-tag">a</span>&#123;</div><div class="line">            <span class="comment">/*字体阴影*/</span></div><div class="line">            <span class="comment">/*x偏移值  y偏移值 (阴影的面积不能给负值)  字体颜色 多个之间使用逗号分隔*/</span></div><div class="line">            <span class="attribute">text-decoration</span>: none;</div><div class="line">            <span class="attribute">font</span>:bolder <span class="number">3em</span> <span class="string">"微软雅黑"</span>;</div><div class="line">            <span class="attribute">color</span>: gray;</div><div class="line">        &#125;</div><div class="line">        <span class="selector-class">.ao</span>&#123;</div><div class="line">          <span class="attribute">text-shadow</span>: <span class="number">1px</span> <span class="number">1px</span> <span class="number">#fff</span>,-<span class="number">1px</span> -<span class="number">1px</span> <span class="number">#000</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="selector-class">.tu</span>&#123;</div><div class="line">            <span class="attribute">text-shadow</span>: <span class="number">1px</span> <span class="number">1px</span> <span class="number">#000</span>,-<span class="number">1px</span> -<span class="number">1px</span> <span class="number">#fff</span>;</div><div class="line">        &#125;</div><div class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">""</span> <span class="attr">class</span>=<span class="string">"ao"</span>&gt;</span>点击去看魔兽世界大电影_凹下<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">""</span> <span class="attr">class</span>=<span class="string">"tu"</span>&gt;</span>点击去看魔兽世界大电影_凸起<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="关于盒子模型"><a href="#关于盒子模型" class="headerlink" title="关于盒子模型"></a>关于盒子模型</h2><blockquote>
+<p>文档中的每个元素被描绘为矩形盒子。渲染引擎的目的就是判定大小，属性——比如它的颜色、背景、边框方面——及这些盒子的位置。<br><br>在CSS中，这些矩形盒子用 标准盒模型 来描述。这个模型描述了一个元素所占用的空间。每一个盒子有四条边界：外边距边界margin edge, 边框边界border edge, 内边距边界padding edge 与 内容边界content edge。<br><img src="imgs/盒子模型.png" alt="盒子模型.png-3.4kB"></p>
+</blockquote>
+<h3 id="盒子尺寸计算-默认状态"><a href="#盒子尺寸计算-默认状态" class="headerlink" title="盒子尺寸计算_默认状态"></a>盒子尺寸计算_默认状态</h3><ul>
+<li><strong>盒子width:</strong><ul>
+<li>width + border*2 + 左右padding</li>
+<li>虽然这样计算盒子的大小逻辑并不复杂,但是如果想要元素精确的是多少px需要修改的值较多</li>
+</ul>
+</li>
+</ul>
+<h3 id="box-sizing属性"><a href="#box-sizing属性" class="headerlink" title="box-sizing属性"></a>box-sizing属性</h3><blockquote>
+<p>box-sizing 属性用来改变默认的 CSS 盒模型 对元素宽高的计算方式</p>
+</blockquote>
+<ul>
+<li>属性取值:<ul>
+<li>content-box:<ul>
+<li>默认的取值就是<code>content-box</code></li>
+</ul>
+</li>
+<li>border-box:<ul>
+<li>修改为该值以后盒子的尺寸直接就是<code>宽度</code>跟<code>高度</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><strong>测试代码:</strong></li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>盒子模型<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></div><div class="line">        <span class="selector-tag">div</span>&#123;</div><div class="line">            <span class="attribute">width</span>: <span class="number">200px</span>;</div><div class="line">            <span class="attribute">height</span>: <span class="number">200px</span>;</div><div class="line">            <span class="attribute">background-color</span>: coral;</div><div class="line">        &#125;</div><div class="line">        <span class="selector-class">.top</span> &#123;</div><div class="line">            <span class="attribute">border</span>: <span class="number">10px</span> solid <span class="number">#0094ff</span>;</div><div class="line">            <span class="attribute">padding</span>: <span class="number">20px</span>;</div><div class="line">            <span class="attribute">margin</span>:<span class="number">20px</span>;</div><div class="line">            <span class="attribute">box-sizing</span>: content-box;</div><div class="line">        &#125;</div><div class="line">        <span class="selector-class">.second</span>&#123;</div><div class="line">            <span class="attribute">border</span>: <span class="number">10px</span> solid <span class="number">#0094ff</span>;</div><div class="line">            <span class="attribute">padding</span>: <span class="number">20px</span>;</div><div class="line">            <span class="attribute">margin</span>:<span class="number">20px</span>;</div><div class="line">            <span class="attribute">box-sizing</span>: border-box;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"top"</span>&gt;</span>top盒子</div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"second"</span>&gt;</span>second盒子<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<p><img src="imgs/盒子模型预览.png" alt="盒子模型预览.png-9.4kB"></p>
+<h2 id="关于渐变图像"><a href="#关于渐变图像" class="headerlink" title="关于渐变图像"></a>关于渐变图像</h2><blockquote>
+<p>注意渐变产生的是<code>图像</code>,换句话来说,所有可以设置<code>图像</code>的地方都能够使用它,能够减少我们页面图片的使用,兼容性不错.</p>
+</blockquote>
+<h2 id="线性渐变"><a href="#线性渐变" class="headerlink" title="线性渐变"></a>线性渐变</h2><blockquote>
+<p>顾名思义,就是朝着某个方向发生进行渐变</p>
+</blockquote>
+<ul>
+<li><strong>语法:</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">/*语法组合方式 可以添加多个颜色*/</div><div class="line">background-image: linear-gradient(方向,开始颜色 开始位置 ,颜色2 开始位置,颜色3 开始位置.....);</div><div class="line"></div><div class="line"></div><div class="line">/* 具体代码  */</div><div class="line">/* 朝着 右上角 从红色到黄色*/</div><div class="line">background-image: linear-gradient(to top left,red,yellow);</div><div class="line"></div><div class="line">/* 朝着 顺时针45度 从红色到黄色*/</div><div class="line">background-image: linear-gradient(45deg,red,yellow);</div><div class="line"></div><div class="line">/* 朝着 顺时针45度 红色,黄色,绿色*/</div><div class="line">background-image: linear-gradient(45deg,red,yellow,green);</div><div class="line"></div><div class="line">/* 朝着 顺时针45度 红色到 10px结束 黄色从 20px开始 */</div><div class="line">background-image: linear-gradient(45deg,red 10px,yellow 20px);</div><div class="line"></div><div class="line">/* 朝着 顺时针45度 红色到10%结束 黄色从 20%开始 */</div><div class="line">background-image: linear-gradient(45deg,red 10%,yellow 20%);</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>注意:</strong><ul>
+<li>如果上一个颜色的结束,跟下一个颜色的开始相等,那么不会出现过度</li>
+<li>比如:</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">background-image: linear-gradient(45deg,red 10%,yellow 10%);</div></pre></td></tr></table></figure>
+<h2 id="径向渐变"><a href="#径向渐变" class="headerlink" title="径向渐变"></a>径向渐变</h2><blockquote>
+<p>指的是以某个点作为圆心,向四周扩散的渐变</p>
+</blockquote>
+<ul>
+<li><strong>语法:</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">/* 圆形渐变写法 */</div><div class="line">background:radial-gradient(半径  ,颜色1,颜色2等等);</div><div class="line"></div><div class="line">/* 椭圆渐变写法 */</div><div class="line">background:radial-gradient(横向半径,竖向半径  ,颜色1,颜色2等等);</div><div class="line"></div><div class="line">/* 设置位置 */</div><div class="line">background:radial-gradient(横向半径,竖向半径  at 位置,颜色1,颜色2等等);</div><div class="line"></div><div class="line">/*具体代码*/</div><div class="line">/*半径100px 红色 绿色*/</div><div class="line">background:radial-gradient(100px,red,green);</div><div class="line"></div><div class="line">/*横向半径100px 竖向半径200px 红色 绿色*/</div><div class="line">background:radial-gradient(100px 200px,red,green);</div><div class="line"></div><div class="line">/*横向半径100px  红色10px 绿色 20px*/</div><div class="line">background:radial-gradient(100px 200px,red 10px,green 20px);</div><div class="line"></div><div class="line">/*横向半径100px  红色10% 绿色20%*/</div><div class="line">background:radial-gradient(100px 200px,red 10%,green 10%);</div><div class="line"></div><div class="line">/*横向半径100px  红色10% 绿色20% 在100px 100px位置*/</div><div class="line">background:radial-gradient(100px 200px at 100px 100px,red 10%,green 10%);</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>注意:</strong><ul>
+<li>跟线性渐变一样如果上一个颜色的结束,跟下一个颜色的开始相等,那么不会出现过度</li>
+<li>比如:</li>
+</ul>
+</li>
+</ul>
+<pre><code class="css3">background-image: radial-gradient(100px,red 10%,yellow 10%);
+</code></pre>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">CSS3</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/CSS/" class="article-tag-list-link color4">CSS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2015/11/05/css3-01/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2015/10/30/html5-02/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          HTML5新标签和API（二）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/11/09/css3-02/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">CSS3（二）</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+
+          </div>
+        </div>
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 ChrisJx
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		mathjax: false,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/",
+		innerArchive: true,
+		showTags: false
+	}
+</script>
+
+<script>!function(t){function n(r){if(e[r])return e[r].exports;var o=e[r]={exports:{},id:r,loaded:!1};return t[r].call(o.exports,o,o.exports,n),o.loaded=!0,o.exports}var e={};return n.m=t,n.c=e,n.p="./",n(0)}([function(t,n,e){"use strict";function r(t){return t&&t.__esModule?t:{default:t}}function o(t,n){var e=/\/|index.html/g;return t.replace(e,"")===n.replace(e,"")}function i(){for(var t=document.querySelectorAll(".js-header-menu li a"),n=window.location.pathname,e=0,r=t.length;e<r;e++){var i=t[e];o(n,i.getAttribute("href"))&&(0,d.default)(i,"active")}}function u(t){for(var n=t.offsetLeft,e=t.offsetParent;null!==e;)n+=e.offsetLeft,e=e.offsetParent;return n}function f(t){for(var n=t.offsetTop,e=t.offsetParent;null!==e;)n+=e.offsetTop,e=e.offsetParent;return n}function c(t,n,e,r,o){var i=u(t),c=f(t)-n;if(c-e<=o){var a=t.$newDom;a||(a=t.cloneNode(!0),(0,h.default)(t,a),t.$newDom=a,a.style.position="fixed",a.style.top=(e||c)+"px",a.style.left=i+"px",a.style.zIndex=r||2,a.style.width="100%",a.style.color="#fff"),a.style.visibility="visible",t.style.visibility="hidden"}else{t.style.visibility="visible";var s=t.$newDom;s&&(s.style.visibility="hidden")}}function a(){var t=document.querySelector(".js-overlay"),n=document.querySelector(".js-header-menu");c(t,document.body.scrollTop,-63,2,0),c(n,document.body.scrollTop,1,3,0)}function s(){document.querySelector("#container").addEventListener("scroll",function(t){a()}),window.addEventListener("scroll",function(t){a()}),a()}function l(){x.default.versions.mobile&&window.screen.width<800&&(i(),s())}var p=e(71),d=r(p),v=e(72),y=(r(v),e(84)),h=r(y),b=e(69),x=r(b),g=e(75),m=r(g),w=e(70);l(),(0,w.addLoadEvent)(function(){m.default.init()}),t.exports={}},function(t,n){var e=t.exports="undefined"!=typeof window&&window.Math==Math?window:"undefined"!=typeof self&&self.Math==Math?self:Function("return this")();"number"==typeof __g&&(__g=e)},function(t,n){var e={}.hasOwnProperty;t.exports=function(t,n){return e.call(t,n)}},function(t,n,e){var r=e(49),o=e(15);t.exports=function(t){return r(o(t))}},function(t,n,e){t.exports=!e(8)(function(){return 7!=Object.defineProperty({},"a",{get:function(){return 7}}).a})},function(t,n,e){var r=e(6),o=e(12);t.exports=e(4)?function(t,n,e){return r.f(t,n,o(1,e))}:function(t,n,e){return t[n]=e,t}},function(t,n,e){var r=e(10),o=e(30),i=e(24),u=Object.defineProperty;n.f=e(4)?Object.defineProperty:function(t,n,e){if(r(t),n=i(n,!0),r(e),o)try{return u(t,n,e)}catch(t){}if("get"in e||"set"in e)throw TypeError("Accessors not supported!");return"value"in e&&(t[n]=e.value),t}},function(t,n,e){var r=e(22)("wks"),o=e(13),i=e(1).Symbol,u="function"==typeof i,f=t.exports=function(t){return r[t]||(r[t]=u&&i[t]||(u?i:o)("Symbol."+t))};f.store=r},function(t,n){t.exports=function(t){try{return!!t()}catch(t){return!0}}},function(t,n,e){var r=e(35),o=e(16);t.exports=Object.keys||function(t){return r(t,o)}},function(t,n,e){var r=e(11);t.exports=function(t){if(!r(t))throw TypeError(t+" is not an object!");return t}},function(t,n){t.exports=function(t){return"object"==typeof t?null!==t:"function"==typeof t}},function(t,n){t.exports=function(t,n){return{enumerable:!(1&t),configurable:!(2&t),writable:!(4&t),value:n}}},function(t,n){var e=0,r=Math.random();t.exports=function(t){return"Symbol(".concat(void 0===t?"":t,")_",(++e+r).toString(36))}},function(t,n){var e=t.exports={version:"2.4.0"};"number"==typeof __e&&(__e=e)},function(t,n){t.exports=function(t){if(void 0==t)throw TypeError("Can't call method on  "+t);return t}},function(t,n){t.exports="constructor,hasOwnProperty,isPrototypeOf,propertyIsEnumerable,toLocaleString,toString,valueOf".split(",")},function(t,n){t.exports={}},function(t,n){t.exports=!0},function(t,n){n.f={}.propertyIsEnumerable},function(t,n,e){var r=e(6).f,o=e(2),i=e(7)("toStringTag");t.exports=function(t,n,e){t&&!o(t=e?t:t.prototype,i)&&r(t,i,{configurable:!0,value:n})}},function(t,n,e){var r=e(22)("keys"),o=e(13);t.exports=function(t){return r[t]||(r[t]=o(t))}},function(t,n,e){var r=e(1),o="__core-js_shared__",i=r[o]||(r[o]={});t.exports=function(t){return i[t]||(i[t]={})}},function(t,n){var e=Math.ceil,r=Math.floor;t.exports=function(t){return isNaN(t=+t)?0:(t>0?r:e)(t)}},function(t,n,e){var r=e(11);t.exports=function(t,n){if(!r(t))return t;var e,o;if(n&&"function"==typeof(e=t.toString)&&!r(o=e.call(t)))return o;if("function"==typeof(e=t.valueOf)&&!r(o=e.call(t)))return o;if(!n&&"function"==typeof(e=t.toString)&&!r(o=e.call(t)))return o;throw TypeError("Can't convert object to primitive value")}},function(t,n,e){var r=e(1),o=e(14),i=e(18),u=e(26),f=e(6).f;t.exports=function(t){var n=o.Symbol||(o.Symbol=i?{}:r.Symbol||{});"_"==t.charAt(0)||t in n||f(n,t,{value:u.f(t)})}},function(t,n,e){n.f=e(7)},function(t,n,e){var r=e(1),o=e(14),i=e(46),u=e(5),f="prototype",c=function(t,n,e){var a,s,l,p=t&c.F,d=t&c.G,v=t&c.S,y=t&c.P,h=t&c.B,b=t&c.W,x=d?o:o[n]||(o[n]={}),g=x[f],m=d?r:v?r[n]:(r[n]||{})[f];d&&(e=n);for(a in e)s=!p&&m&&void 0!==m[a],s&&a in x||(l=s?m[a]:e[a],x[a]=d&&"function"!=typeof m[a]?e[a]:h&&s?i(l,r):b&&m[a]==l?function(t){var n=function(n,e,r){if(this instanceof t){switch(arguments.length){case 0:return new t;case 1:return new t(n);case 2:return new t(n,e)}return new t(n,e,r)}return t.apply(this,arguments)};return n[f]=t[f],n}(l):y&&"function"==typeof l?i(Function.call,l):l,y&&((x.virtual||(x.virtual={}))[a]=l,t&c.R&&g&&!g[a]&&u(g,a,l)))};c.F=1,c.G=2,c.S=4,c.P=8,c.B=16,c.W=32,c.U=64,c.R=128,t.exports=c},function(t,n){var e={}.toString;t.exports=function(t){return e.call(t).slice(8,-1)}},function(t,n,e){var r=e(11),o=e(1).document,i=r(o)&&r(o.createElement);t.exports=function(t){return i?o.createElement(t):{}}},function(t,n,e){t.exports=!e(4)&&!e(8)(function(){return 7!=Object.defineProperty(e(29)("div"),"a",{get:function(){return 7}}).a})},function(t,n,e){"use strict";var r=e(18),o=e(27),i=e(36),u=e(5),f=e(2),c=e(17),a=e(51),s=e(20),l=e(58),p=e(7)("iterator"),d=!([].keys&&"next"in[].keys()),v="@@iterator",y="keys",h="values",b=function(){return this};t.exports=function(t,n,e,x,g,m,w){a(e,n,x);var O,S,_,j=function(t){if(!d&&t in A)return A[t];switch(t){case y:return function(){return new e(this,t)};case h:return function(){return new e(this,t)}}return function(){return new e(this,t)}},P=n+" Iterator",E=g==h,M=!1,A=t.prototype,T=A[p]||A[v]||g&&A[g],L=T||j(g),N=g?E?j("entries"):L:void 0,C="Array"==n?A.entries||T:T;if(C&&(_=l(C.call(new t)),_!==Object.prototype&&(s(_,P,!0),r||f(_,p)||u(_,p,b))),E&&T&&T.name!==h&&(M=!0,L=function(){return T.call(this)}),r&&!w||!d&&!M&&A[p]||u(A,p,L),c[n]=L,c[P]=b,g)if(O={values:E?L:j(h),keys:m?L:j(y),entries:N},w)for(S in O)S in A||i(A,S,O[S]);else o(o.P+o.F*(d||M),n,O);return O}},function(t,n,e){var r=e(10),o=e(55),i=e(16),u=e(21)("IE_PROTO"),f=function(){},c="prototype",a=function(){var t,n=e(29)("iframe"),r=i.length,o="<",u=">";for(n.style.display="none",e(48).appendChild(n),n.src="javascript:",t=n.contentWindow.document,t.open(),t.write(o+"script"+u+"document.F=Object"+o+"/script"+u),t.close(),a=t.F;r--;)delete a[c][i[r]];return a()};t.exports=Object.create||function(t,n){var e;return null!==t?(f[c]=r(t),e=new f,f[c]=null,e[u]=t):e=a(),void 0===n?e:o(e,n)}},function(t,n,e){var r=e(35),o=e(16).concat("length","prototype");n.f=Object.getOwnPropertyNames||function(t){return r(t,o)}},function(t,n){n.f=Object.getOwnPropertySymbols},function(t,n,e){var r=e(2),o=e(3),i=e(45)(!1),u=e(21)("IE_PROTO");t.exports=function(t,n){var e,f=o(t),c=0,a=[];for(e in f)e!=u&&r(f,e)&&a.push(e);for(;n.length>c;)r(f,e=n[c++])&&(~i(a,e)||a.push(e));return a}},function(t,n,e){t.exports=e(5)},function(t,n,e){var r=e(15);t.exports=function(t){return Object(r(t))}},function(t,n,e){t.exports={default:e(41),__esModule:!0}},function(t,n,e){t.exports={default:e(42),__esModule:!0}},function(t,n,e){"use strict";function r(t){return t&&t.__esModule?t:{default:t}}n.__esModule=!0;var o=e(39),i=r(o),u=e(38),f=r(u),c="function"==typeof f.default&&"symbol"==typeof i.default?function(t){return typeof t}:function(t){return t&&"function"==typeof f.default&&t.constructor===f.default&&t!==f.default.prototype?"symbol":typeof t};n.default="function"==typeof f.default&&"symbol"===c(i.default)?function(t){return"undefined"==typeof t?"undefined":c(t)}:function(t){return t&&"function"==typeof f.default&&t.constructor===f.default&&t!==f.default.prototype?"symbol":"undefined"==typeof t?"undefined":c(t)}},function(t,n,e){e(65),e(63),e(66),e(67),t.exports=e(14).Symbol},function(t,n,e){e(64),e(68),t.exports=e(26).f("iterator")},function(t,n){t.exports=function(t){if("function"!=typeof t)throw TypeError(t+" is not a function!");return t}},function(t,n){t.exports=function(){}},function(t,n,e){var r=e(3),o=e(61),i=e(60);t.exports=function(t){return function(n,e,u){var f,c=r(n),a=o(c.length),s=i(u,a);if(t&&e!=e){for(;a>s;)if(f=c[s++],f!=f)return!0}else for(;a>s;s++)if((t||s in c)&&c[s]===e)return t||s||0;return!t&&-1}}},function(t,n,e){var r=e(43);t.exports=function(t,n,e){if(r(t),void 0===n)return t;switch(e){case 1:return function(e){return t.call(n,e)};case 2:return function(e,r){return t.call(n,e,r)};case 3:return function(e,r,o){return t.call(n,e,r,o)}}return function(){return t.apply(n,arguments)}}},function(t,n,e){var r=e(9),o=e(34),i=e(19);t.exports=function(t){var n=r(t),e=o.f;if(e)for(var u,f=e(t),c=i.f,a=0;f.length>a;)c.call(t,u=f[a++])&&n.push(u);return n}},function(t,n,e){t.exports=e(1).document&&document.documentElement},function(t,n,e){var r=e(28);t.exports=Object("z").propertyIsEnumerable(0)?Object:function(t){return"String"==r(t)?t.split(""):Object(t)}},function(t,n,e){var r=e(28);t.exports=Array.isArray||function(t){return"Array"==r(t)}},function(t,n,e){"use strict";var r=e(32),o=e(12),i=e(20),u={};e(5)(u,e(7)("iterator"),function(){return this}),t.exports=function(t,n,e){t.prototype=r(u,{next:o(1,e)}),i(t,n+" Iterator")}},function(t,n){t.exports=function(t,n){return{value:n,done:!!t}}},function(t,n,e){var r=e(9),o=e(3);t.exports=function(t,n){for(var e,i=o(t),u=r(i),f=u.length,c=0;f>c;)if(i[e=u[c++]]===n)return e}},function(t,n,e){var r=e(13)("meta"),o=e(11),i=e(2),u=e(6).f,f=0,c=Object.isExtensible||function(){return!0},a=!e(8)(function(){return c(Object.preventExtensions({}))}),s=function(t){u(t,r,{value:{i:"O"+ ++f,w:{}}})},l=function(t,n){if(!o(t))return"symbol"==typeof t?t:("string"==typeof t?"S":"P")+t;if(!i(t,r)){if(!c(t))return"F";if(!n)return"E";s(t)}return t[r].i},p=function(t,n){if(!i(t,r)){if(!c(t))return!0;if(!n)return!1;s(t)}return t[r].w},d=function(t){return a&&v.NEED&&c(t)&&!i(t,r)&&s(t),t},v=t.exports={KEY:r,NEED:!1,fastKey:l,getWeak:p,onFreeze:d}},function(t,n,e){var r=e(6),o=e(10),i=e(9);t.exports=e(4)?Object.defineProperties:function(t,n){o(t);for(var e,u=i(n),f=u.length,c=0;f>c;)r.f(t,e=u[c++],n[e]);return t}},function(t,n,e){var r=e(19),o=e(12),i=e(3),u=e(24),f=e(2),c=e(30),a=Object.getOwnPropertyDescriptor;n.f=e(4)?a:function(t,n){if(t=i(t),n=u(n,!0),c)try{return a(t,n)}catch(t){}if(f(t,n))return o(!r.f.call(t,n),t[n])}},function(t,n,e){var r=e(3),o=e(33).f,i={}.toString,u="object"==typeof window&&window&&Object.getOwnPropertyNames?Object.getOwnPropertyNames(window):[],f=function(t){try{return o(t)}catch(t){return u.slice()}};t.exports.f=function(t){return u&&"[object Window]"==i.call(t)?f(t):o(r(t))}},function(t,n,e){var r=e(2),o=e(37),i=e(21)("IE_PROTO"),u=Object.prototype;t.exports=Object.getPrototypeOf||function(t){return t=o(t),r(t,i)?t[i]:"function"==typeof t.constructor&&t instanceof t.constructor?t.constructor.prototype:t instanceof Object?u:null}},function(t,n,e){var r=e(23),o=e(15);t.exports=function(t){return function(n,e){var i,u,f=String(o(n)),c=r(e),a=f.length;return c<0||c>=a?t?"":void 0:(i=f.charCodeAt(c),i<55296||i>56319||c+1===a||(u=f.charCodeAt(c+1))<56320||u>57343?t?f.charAt(c):i:t?f.slice(c,c+2):(i-55296<<10)+(u-56320)+65536)}}},function(t,n,e){var r=e(23),o=Math.max,i=Math.min;t.exports=function(t,n){return t=r(t),t<0?o(t+n,0):i(t,n)}},function(t,n,e){var r=e(23),o=Math.min;t.exports=function(t){return t>0?o(r(t),9007199254740991):0}},function(t,n,e){"use strict";var r=e(44),o=e(52),i=e(17),u=e(3);t.exports=e(31)(Array,"Array",function(t,n){this._t=u(t),this._i=0,this._k=n},function(){var t=this._t,n=this._k,e=this._i++;return!t||e>=t.length?(this._t=void 0,o(1)):"keys"==n?o(0,e):"values"==n?o(0,t[e]):o(0,[e,t[e]])},"values"),i.Arguments=i.Array,r("keys"),r("values"),r("entries")},function(t,n){},function(t,n,e){"use strict";var r=e(59)(!0);e(31)(String,"String",function(t){this._t=String(t),this._i=0},function(){var t,n=this._t,e=this._i;return e>=n.length?{value:void 0,done:!0}:(t=r(n,e),this._i+=t.length,{value:t,done:!1})})},function(t,n,e){"use strict";var r=e(1),o=e(2),i=e(4),u=e(27),f=e(36),c=e(54).KEY,a=e(8),s=e(22),l=e(20),p=e(13),d=e(7),v=e(26),y=e(25),h=e(53),b=e(47),x=e(50),g=e(10),m=e(3),w=e(24),O=e(12),S=e(32),_=e(57),j=e(56),P=e(6),E=e(9),M=j.f,A=P.f,T=_.f,L=r.Symbol,N=r.JSON,C=N&&N.stringify,k="prototype",F=d("_hidden"),q=d("toPrimitive"),I={}.propertyIsEnumerable,B=s("symbol-registry"),D=s("symbols"),W=s("op-symbols"),H=Object[k],K="function"==typeof L,R=r.QObject,J=!R||!R[k]||!R[k].findChild,U=i&&a(function(){return 7!=S(A({},"a",{get:function(){return A(this,"a",{value:7}).a}})).a})?function(t,n,e){var r=M(H,n);r&&delete H[n],A(t,n,e),r&&t!==H&&A(H,n,r)}:A,G=function(t){var n=D[t]=S(L[k]);return n._k=t,n},$=K&&"symbol"==typeof L.iterator?function(t){return"symbol"==typeof t}:function(t){return t instanceof L},z=function(t,n,e){return t===H&&z(W,n,e),g(t),n=w(n,!0),g(e),o(D,n)?(e.enumerable?(o(t,F)&&t[F][n]&&(t[F][n]=!1),e=S(e,{enumerable:O(0,!1)})):(o(t,F)||A(t,F,O(1,{})),t[F][n]=!0),U(t,n,e)):A(t,n,e)},Y=function(t,n){g(t);for(var e,r=b(n=m(n)),o=0,i=r.length;i>o;)z(t,e=r[o++],n[e]);return t},Q=function(t,n){return void 0===n?S(t):Y(S(t),n)},X=function(t){var n=I.call(this,t=w(t,!0));return!(this===H&&o(D,t)&&!o(W,t))&&(!(n||!o(this,t)||!o(D,t)||o(this,F)&&this[F][t])||n)},V=function(t,n){if(t=m(t),n=w(n,!0),t!==H||!o(D,n)||o(W,n)){var e=M(t,n);return!e||!o(D,n)||o(t,F)&&t[F][n]||(e.enumerable=!0),e}},Z=function(t){for(var n,e=T(m(t)),r=[],i=0;e.length>i;)o(D,n=e[i++])||n==F||n==c||r.push(n);return r},tt=function(t){for(var n,e=t===H,r=T(e?W:m(t)),i=[],u=0;r.length>u;)!o(D,n=r[u++])||e&&!o(H,n)||i.push(D[n]);return i};K||(L=function(){if(this instanceof L)throw TypeError("Symbol is not a constructor!");var t=p(arguments.length>0?arguments[0]:void 0),n=function(e){this===H&&n.call(W,e),o(this,F)&&o(this[F],t)&&(this[F][t]=!1),U(this,t,O(1,e))};return i&&J&&U(H,t,{configurable:!0,set:n}),G(t)},f(L[k],"toString",function(){return this._k}),j.f=V,P.f=z,e(33).f=_.f=Z,e(19).f=X,e(34).f=tt,i&&!e(18)&&f(H,"propertyIsEnumerable",X,!0),v.f=function(t){return G(d(t))}),u(u.G+u.W+u.F*!K,{Symbol:L});for(var nt="hasInstance,isConcatSpreadable,iterator,match,replace,search,species,split,toPrimitive,toStringTag,unscopables".split(","),et=0;nt.length>et;)d(nt[et++]);for(var nt=E(d.store),et=0;nt.length>et;)y(nt[et++]);u(u.S+u.F*!K,"Symbol",{for:function(t){return o(B,t+="")?B[t]:B[t]=L(t)},keyFor:function(t){if($(t))return h(B,t);throw TypeError(t+" is not a symbol!")},useSetter:function(){J=!0},useSimple:function(){J=!1}}),u(u.S+u.F*!K,"Object",{create:Q,defineProperty:z,defineProperties:Y,getOwnPropertyDescriptor:V,getOwnPropertyNames:Z,getOwnPropertySymbols:tt}),N&&u(u.S+u.F*(!K||a(function(){var t=L();return"[null]"!=C([t])||"{}"!=C({a:t})||"{}"!=C(Object(t))})),"JSON",{stringify:function(t){if(void 0!==t&&!$(t)){for(var n,e,r=[t],o=1;arguments.length>o;)r.push(arguments[o++]);return n=r[1],"function"==typeof n&&(e=n),!e&&x(n)||(n=function(t,n){if(e&&(n=e.call(this,t,n)),!$(n))return n}),r[1]=n,C.apply(N,r)}}}),L[k][q]||e(5)(L[k],q,L[k].valueOf),l(L,"Symbol"),l(Math,"Math",!0),l(r.JSON,"JSON",!0)},function(t,n,e){e(25)("asyncIterator")},function(t,n,e){e(25)("observable")},function(t,n,e){e(62);for(var r=e(1),o=e(5),i=e(17),u=e(7)("toStringTag"),f=["NodeList","DOMTokenList","MediaList","StyleSheetList","CSSRuleList"],c=0;c<5;c++){var a=f[c],s=r[a],l=s&&s.prototype;l&&!l[u]&&o(l,u,a),i[a]=i.Array}},function(t,n){"use strict";var e={versions:function(){var t=window.navigator.userAgent;return{trident:t.indexOf("Trident")>-1,presto:t.indexOf("Presto")>-1,webKit:t.indexOf("AppleWebKit")>-1,gecko:t.indexOf("Gecko")>-1&&t.indexOf("KHTML")==-1,mobile:!!t.match(/AppleWebKit.*Mobile.*/),ios:!!t.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/),android:t.indexOf("Android")>-1||t.indexOf("Linux")>-1,iPhone:t.indexOf("iPhone")>-1||t.indexOf("Mac")>-1,iPad:t.indexOf("iPad")>-1,webApp:t.indexOf("Safari")==-1,weixin:t.indexOf("MicroMessenger")==-1}}()};t.exports=e},function(t,n,e){"use strict";function r(t){return t&&t.__esModule?t:{default:t}}var o=e(40),i=r(o),u=function(){function t(t,n,e){return n||e?String.fromCharCode(n||e):o[t]||t}function n(t){return l[t]}var e=/&quot;|&lt;|&gt;|&amp;|&nbsp;|&apos;|&#(\d+);|&#(\d+)/g,r=/['<> "&]/g,o={"&quot;":'"',"&lt;":"<","&gt;":">","&amp;":"&","&nbsp;":" "},f=/\u00a0/g,c=/<br\s*\/?>/gi,a=/\r?\n/g,s=/\s/g,l={};for(var p in o)l[o[p]]=p;return o["&apos;"]="'",l["'"]="&#39;",{encode:function(t){return t?(""+t).replace(r,n).replace(a,"<br/>").replace(s,"&nbsp;"):""},decode:function(n){return n?(""+n).replace(c,"\n").replace(e,t).replace(f," "):""},encodeBase16:function(t){if(!t)return t;t+="";for(var n=[],e=0,r=t.length;r>e;e++)n.push(t.charCodeAt(e).toString(16).toUpperCase());return n.join("")},encodeBase16forJSON:function(t){if(!t)return t;t=t.replace(/[\u4E00-\u9FBF]/gi,function(t){return escape(t).replace("%u","\\u")});for(var n=[],e=0,r=t.length;r>e;e++)n.push(t.charCodeAt(e).toString(16).toUpperCase());return n.join("")},decodeBase16:function(t){if(!t)return t;t+="";for(var n=[],e=0,r=t.length;r>e;e+=2)n.push(String.fromCharCode("0x"+t.slice(e,e+2)));return n.join("")},encodeObject:function(t){if(t instanceof Array)for(var n=0,e=t.length;e>n;n++)t[n]=u.encodeObject(t[n]);else if("object"==("undefined"==typeof t?"undefined":(0,i.default)(t)))for(var r in t)t[r]=u.encodeObject(t[r]);else if("string"==typeof t)return u.encode(t);return t},loadScript:function(t){var n=document.createElement("script");document.getElementsByTagName("body")[0].appendChild(n),n.setAttribute("src",t)},addLoadEvent:function(t){var n=window.onload;"function"!=typeof window.onload?window.onload=t:window.onload=function(){n(),t()}}}}();t.exports=u},function(t,n){function e(t,n){t.classList?t.classList.add(n):t.className+=" "+n}t.exports=e},function(t,n){function e(t,n){if(t.classList)t.classList.remove(n);else{var e=new RegExp("(^|\\b)"+n.split(" ").join("|")+"(\\b|$)","gi");t.className=t.className.replace(e," ")}}t.exports=e},,,function(t,n){"use strict";function e(){var t=document.querySelector("#page-nav");if(t&&!document.querySelector("#page-nav .extend.prev")&&(t.innerHTML='<a class="extend prev disabled" rel="prev">&laquo; Prev</a>'+t.innerHTML),t&&!document.querySelector("#page-nav .extend.next")&&(t.innerHTML=t.innerHTML+'<a class="extend next disabled" rel="next">Next &raquo;</a>'),yiliaConfig&&yiliaConfig.open_in_new){var n=document.querySelectorAll(".article-entry a:not(.article-more-a)");n.forEach(function(t){var n=t.getAttribute("target");n&&""!==n||t.setAttribute("target","_blank")})}var e=document.querySelector("#js-aboutme");e&&0!==e.length&&(e.innerHTML=e.innerText)}t.exports={init:e}},,,,,,,,,function(t,n){function e(t,n){if("string"==typeof n)return t.insertAdjacentHTML("afterend",n);var e=t.nextSibling;return e?t.parentNode.insertBefore(n,e):t.parentNode.appendChild(n)}t.exports=e}])</script><script src="/./main.f6a68c.js"></script><script>!function(){var e=function(e){var t=document.createElement("script");document.getElementsByTagName("body")[0].appendChild(t),t.setAttribute("src",e)};e("/slider.885efe.js")}()</script>
+
+
+    
+<div class="tools-col" q-class="show:isShow,hide:isShow|isFalse" q-on="click:stop(e)">
+  <div class="tools-nav header-menu">
+    
+    
+      
+      
+      
+    
+      
+      
+      
+    
+      
+      
+      
+    
+    
+
+    <ul style="width: 70%">
+    
+    
+      
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
+      
+        
+      
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">友链</a></li>
+      
+        
+      
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
+      
+        
+    </ul>
+  </div>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all" q-show="innerArchive">
+        <div class="search-wrap">
+          <input class="search-ipt" q-model="search" type="text" placeholder="find something…">
+          <i class="icon-search icon" q-show="search|isEmptyStr"></i>
+          <i class="icon-close icon" q-show="search|isNotEmptyStr" q-on="click:clearChose(e)"></i>
+        </div>
+        <div class="widget tagcloud search-tag">
+          <p class="search-tag-wording">tag:</p>
+          <label class="search-switch">
+            <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
+          </label>
+          <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">mysql appache</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">bootstrap</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">requireJS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">template</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jquery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">http</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">CSS3</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Angular</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">框架</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">HTML5</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">npm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">github</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">mobile</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">responsive</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">less</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">assert</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">插件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">响应式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">php</a>
+              </li>
+            
+            <div class="clearfix"></div>
+          </ul>
+        </div>
+        <ul class="search-ul">
+          <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
+            缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
+            3、在根目录_config.yml里添加配置：
+<pre style="font-size: 12px;" q-show="jsonFail">
+  jsonContent:
+    meta: false
+    pages: false
+    posts:
+      title: true
+      date: true
+      path: true
+      text: false
+      raw: false
+      content: false
+      slug: false
+      updated: false
+      comments: false
+      link: false
+      permalink: false
+      excerpt: false
+      categories: false
+      tags: true
+</pre>
+          </p>
+          <li class="search-li" q-repeat="items" q-show="isShow">
+            <a q-attr="href:path|urlformat" class="search-title"><i class="icon-quo-left icon"></i><span q-text="title"></span></a>
+            <p class="search-time">
+              <i class="icon-calendar icon"></i>
+              <span q-text="date|dateformat"></span>
+            </p>
+            <p class="search-tag">
+              <i class="icon-price-tags icon"></i>
+              <span q-repeat="tags" q-on="click:choseTag(e, name)" q-text="name|tagformat"></span>
+            </p>
+          </li>
+        </ul>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends" q-show="friends">
+  		
+        <ul class="search-ul">
+          
+            <li class="search-li">
+              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接1</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接2</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接3</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接4</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接5</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接6</a>
+            </li>
+          
+        </ul>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me" q-show="aboutme">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>

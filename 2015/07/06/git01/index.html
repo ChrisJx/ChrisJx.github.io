@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <link rel="dns-prefetch" href="http://yoursite.com">
+  <title>Git常用操作 | Coding for more love!</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="shell常用命令 shell既是一种命令语言，又是一种程序设计语言。shell是指一种应用程序，这个应用程序提供了一个界面，用户通过这个界面访问操作系统内核的服务。 shell脚本，是一种为shell编写的脚本程序，shell编程和java一样，只要有一个能编写代码的文本编辑器和一个能解释执行的脚本解释器就行了。 用shell操作计算机的两种方式：（1）shell图形化界面  （2）命令行  w">
+<meta name="keywords" content="git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git常用操作">
+<meta property="og:url" content="http://yoursite.com/2015/07/06/git01/index.html">
+<meta property="og:site_name" content="Coding for more love!">
+<meta property="og:description" content="shell常用命令 shell既是一种命令语言，又是一种程序设计语言。shell是指一种应用程序，这个应用程序提供了一个界面，用户通过这个界面访问操作系统内核的服务。 shell脚本，是一种为shell编写的脚本程序，shell编程和java一样，只要有一个能编写代码的文本编辑器和一个能解释执行的脚本解释器就行了。 用shell操作计算机的两种方式：（1）shell图形化界面  （2）命令行  w">
+<meta property="og:image" content="http://yoursite.com/2015/07/06/git01/git01%20%20%20%20/vi.png">
+<meta property="og:image" content="http://yoursite.com/2015/07/06/git01/git01/svn.png">
+<meta property="og:image" content="http://yoursite.com/2015/07/06/git01/git01/git.png">
+<meta property="og:image" content="http://yoursite.com/2015/07/06/git01/git/gitArear.png">
+<meta property="og:image" content="http://yoursite.com/2015/07/06/git01/git01/respository.png">
+<meta property="og:image" content="http://yoursite.com/2015/07/06/git01/git01/branch.png">
+<meta property="og:image" content="http://yoursite.com/2015/07/06/git01/git01/branchChild.png">
+<meta property="og:image" content="http://yoursite.com/2015/07/06/git01/git01/branchChild2.png">
+<meta property="og:image" content="http://yoursite.com/2015/07/06/git01/git01/branchChild3.png">
+<meta property="og:image" content="http://yoursite.com/2015/07/06/git01/git01/branchChild4.png">
+<meta property="og:image" content="http://yoursite.com/2015/07/06/git01/git01/branchChild5.png">
+<meta property="og:image" content="http://yoursite.com/2015/07/06/git01/git01/branchChild6.png">
+<meta property="og:image" content="http://yoursite.com/2015/07/06/git01/git01/branchChild7.png">
+<meta property="og:image" content="http://yoursite.com/2015/07/06/git01/git01/branchChild8.png">
+<meta property="og:image" content="http://yoursite.com/2015/07/06/git01/git01/github.png">
+<meta property="og:image" content="http://yoursite.com/2015/07/06/git01/git01/github2.png">
+<meta property="og:image" content="http://yoursite.com/2015/07/06/git01/git01/github3.png">
+<meta property="og:image" content="http://yoursite.com/2015/07/06/git01/git01/github4.png">
+<meta property="og:image" content="http://yoursite.com/2015/07/06/git01/git01/github5.png">
+<meta property="og:updated_time" content="2017-04-10T09:47:35.271Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Git常用操作">
+<meta name="twitter:description" content="shell常用命令 shell既是一种命令语言，又是一种程序设计语言。shell是指一种应用程序，这个应用程序提供了一个界面，用户通过这个界面访问操作系统内核的服务。 shell脚本，是一种为shell编写的脚本程序，shell编程和java一样，只要有一个能编写代码的文本编辑器和一个能解释执行的脚本解释器就行了。 用shell操作计算机的两种方式：（1）shell图形化界面  （2）命令行  w">
+<meta name="twitter:image" content="http://yoursite.com/2015/07/06/git01/git01%20%20%20%20/vi.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Coding for more love!" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" type="text/css" href="/./main.f6a68c.css">
+  <style type="text/css">
+  
+    #container.show {
+      background: linear-gradient(200deg,#a0cfe4,#e8c37e);
+    }
+  </style>
+  
+
+  
+
+</head>
+
+<body>
+  <div id="container" q-class="show:isCtnShow">
+    <canvas id="anm-canvas" class="anm-canvas"></canvas>
+    <div class="left-col" q-class="show:isShow">
+      
+<div class="overlay" style="background: #4d4d4d"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			<img src="null" class="js-avatar">
+		</a>
+		<hgroup>
+		  <h1 class="header-author"><a href="/">ChrisJx</a></h1>
+		</hgroup>
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/tags/随笔/">随笔</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+    		
+    			
+    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
+    			
+            
+    			
+    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
+    			
+            
+    			
+    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于我</a>
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+		        
+					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+		        
+					<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
+		        
+					<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
+      
+<nav id="mobile-nav">
+  	<div class="overlay js-overlay" style="background: #4d4d4d"></div>
+	<div class="btnctn js-mobile-btnctn">
+  		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
+	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img src="null" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author js-header-author">ChrisJx</h1>
+			</hgroup>
+			
+			
+			
+				
+			
+				
+			
+			
+			
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
+			        
+				</div>
+			</nav>
+
+			<nav class="header-menu js-header-menu">
+				<ul style="width: 50%">
+				
+				
+					<li style="width: 50%"><a href="/">主页</a></li>
+		        
+					<li style="width: 50%"><a href="/tags/随笔/">随笔</a></li>
+		        
+				</ul>
+			</nav>
+		</header>				
+	</div>
+	<div class="mobile-mask" style="display:none" q-show="isShow"></div>
+</nav>
+
+      <div id="wrapper" class="body-wrap">
+        <div class="menu-l">
+          <div class="canvas-wrap">
+            <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
+          </div>
+          <div id="js-content" class="content-ll">
+            <article id="post-git01" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Git常用操作
+    </h1>
+  
+
+        
+        <a href="/2015/07/06/git01/" class="archive-article-date">
+  	<time datetime="2015-07-05T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-07-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="shell常用命令"><a href="#shell常用命令" class="headerlink" title="shell常用命令"></a>shell常用命令</h2><ul>
+<li>shell既是一种命令语言，又是一种程序设计语言。shell是指一种应用程序，这个应用程序提供了一个界面，用户通过这个界面访问操作系统内核的服务。</li>
+<li>shell脚本，是一种为shell编写的脚本程序，shell编程和java一样，只要有一个能编写代码的文本编辑器和一个能解释执行的脚本解释器就行了。</li>
+<li>用shell操作计算机的两种方式：（1）shell图形化界面  （2）命令行 </li>
+<li>windows 下的 dos文件（.bat /.cmd后缀结尾）  linux（Unix mac）下的shell文件（.sh作为后缀）</li>
+<li>我们学习的是bash shell，是shell脚本的一个解析器，  linux默认使用bash，bash软件模拟集成了bash的大部分命令。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">常用命令</th>
+<th style="text-align:center">英文解释</th>
+<th style="text-align:left">中文解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">pwd</td>
+<td style="text-align:center">Print Working Directory</td>
+<td style="text-align:left">查看当前目录</td>
+</tr>
+<tr>
+<td style="text-align:center">cd</td>
+<td style="text-align:center">Change Directory)</td>
+<td style="text-align:left">切换目录，如 cd /etc</td>
+</tr>
+<tr>
+<td style="text-align:center">ls</td>
+<td style="text-align:center">List</td>
+<td style="text-align:left">查看当前目录下内容，如 ls -al</td>
+</tr>
+<tr>
+<td style="text-align:center">mkdir</td>
+<td style="text-align:center">Make Directory</td>
+<td style="text-align:left">创建目录，如 mkdir blog</td>
+</tr>
+<tr>
+<td style="text-align:center">touch</td>
+<td style="text-align:center"></td>
+<td style="text-align:left">创建文件，如 touch index.html</td>
+</tr>
+<tr>
+<td style="text-align:center">cat</td>
+<td style="text-align:center"></td>
+<td style="text-align:left">查看文件全部内容，如 cat index.html</td>
+</tr>
+<tr>
+<td style="text-align:center">less</td>
+<td style="text-align:center"></td>
+<td style="text-align:left">查看文件，如more /etc/passwd</td>
+</tr>
+<tr>
+<td style="text-align:center">rm</td>
+<td style="text-align:center">remove</td>
+<td style="text-align:left">删除文件 如 rm index.html  rm -rf</td>
+</tr>
+<tr>
+<td style="text-align:center">rmdir</td>
+<td style="text-align:center">Remove Directory</td>
+<td style="text-align:left">删除文件夹，只能删除空文件夹，不常用</td>
+</tr>
+<tr>
+<td style="text-align:center">mv</td>
+<td style="text-align:center">move</td>
+<td style="text-align:left">移动文件或重命名，如 mv index.html ./demo/index.htm</td>
+</tr>
+<tr>
+<td style="text-align:center">cp</td>
+<td style="text-align:center">copy</td>
+<td style="text-align:left">复制文件，cp index.html ./demo/index.html</td>
+</tr>
+<tr>
+<td style="text-align:center">tab</td>
+<td style="text-align:center"></td>
+<td style="text-align:left">自动补全，连续按两次会将所有的匹配内容显示出来</td>
+</tr>
+<tr>
+<td style="text-align:center">&gt; &gt;&gt;</td>
+<td style="text-align:center"></td>
+<td style="text-align:left">重定向，如echo hello world! &gt; README.md，&gt;覆盖 &gt;&gt;追加</td>
+</tr>
+<tr>
+<td style="text-align:center">\</td>
+<td style="text-align:center"></td>
+<td style="text-align:left">grep 匹配内容，一般结合管道符使用，如ll \</td>
+<td>grep hell</td>
+<td>管道符可以将多个命令连接使用，上一次（命令）的执行结果当成下一次（命令）的参数。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>补充：</strong></p>
+<p>tail 可以用来查看文件的结尾数据，如 tail -n 10 显示末尾10行的数据</p>
+<p>rm -rf recursive force 强制删除（！慎用）</p>
+<p>命令 + –help 查看命令的详细信息</p>
+<ul>
+<li><p>vi编辑器 是Linux和Unix上最基本的文本编辑器，工作在字符模式下。由于不需要图形界面，vi是效率很高的文本编辑器。</p>
+</li>
+<li><p>它可以执行输出、删除、查找、替换、块操作等众多文本操作，而且用户可以根据自己的需要对其进行定制，这是其他所没有的。</p>
+</li>
+<li><p>vi有3种基本工作模式：命令行模式、文本输入模式（插入模式）和末行模式（底行模式）。</p>
+</li>
+<li><p>输入模式下不能直接切换到末行模式，必须先切回命令模式esc键</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>末行模式常用命令</th>
+<th>说明</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>:w / :w filename</td>
+<td>保存/ 另存为</td>
+<td>shift+ : 进入末行模式</td>
+</tr>
+<tr>
+<td>:q</td>
+<td>退出</td>
+<td></td>
+</tr>
+<tr>
+<td>:wq</td>
+<td>保存退出</td>
+<td></td>
+</tr>
+<tr>
+<td>:e!</td>
+<td>撤销更改，返回上一次保存状态</td>
+<td></td>
+</tr>
+<tr>
+<td>:set nu</td>
+<td>设置行号</td>
+<td></td>
+</tr>
+<tr>
+<td>:0 /: $</td>
+<td>快速定位到行首和行尾</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>命令行常用命令</th>
+<th>说明</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ZZ（大写）</td>
+<td>保存并退出</td>
+<td>esc 进入命令行模式</td>
+</tr>
+<tr>
+<td>u</td>
+<td>撤销操作，可执行多次</td>
+<td></td>
+</tr>
+<tr>
+<td>dd</td>
+<td>删除当前行</td>
+<td></td>
+</tr>
+<tr>
+<td>yy</td>
+<td>复制当前行</td>
+<td></td>
+</tr>
+<tr>
+<td>p</td>
+<td>粘贴内容</td>
+<td></td>
+</tr>
+<tr>
+<td>ctrl+f</td>
+<td>向前翻页</td>
+<td></td>
+</tr>
+<tr>
+<td>ctrl+b</td>
+<td>向后翻页</td>
+<td></td>
+</tr>
+<tr>
+<td>i</td>
+<td>进入编辑模式，当前光标后插入</td>
+<td></td>
+</tr>
+<tr>
+<td>a</td>
+<td>进入编辑模式，当前光标后插入</td>
+</tr>
+</tbody>
+</table>
+<h2 id="SSH"><a href="#SSH" class="headerlink" title="SSH"></a>SSH</h2><blockquote>
+<p>SSH是一种网络协议，用于计算机之间的加密登录，我们后面用到的git客户端也集成了SSH</p>
+</blockquote>
+<ul>
+<li>基本格式： ssh user@host </li>
+</ul>
+<p>​       user 代表真实存在的用户，host代表要登录的远程计算机</p>
+<ul>
+<li>常见的加密技术： <strong>对称性加密</strong>和<strong>非对称性加密</strong>，SSH属于后者</li>
+</ul>
+<p>​        对称加密算法在加密和解密时使用的是同一个密钥；而非对称加密算法需要两个密钥来进行加密和解密，这两个秘钥分别是公开密钥（public key，简称公钥）和私有密钥（private key，简称私钥）。</p>
+<ul>
+<li>工作原理</li>
+</ul>
+<p>​        公钥和私钥是成对出现，可以通过ssh-keygen -t rsa来创建，既可以通过密钥来加密数据，也可以通过私钥来加密数据，如果是以公钥进行的数据加密，只能与之相对应的私钥才可以解密，相反如果以私钥进行的数据加密，则只能与之对应的公钥才可以将数据进行解密，这样就可以提高信息传递的安全性。</p>
+<ul>
+<li>免密码登录的应用</li>
+</ul>
+<p>​        我们可以将本地机器上的公钥保存到特定的远程计算机上，这样当我们再次登录访问这台远程计算机时就可以实现免密码登录了。</p>
+<ul>
+<li><p>SSH通信过程</p>
+<p>  1、客户端发送请求<br>  2、服务器接收到请求之后，把服务器的公钥发送给客户端<br>  3、客户端收到公钥后会存储在某个位置（C:\Users\用户名.ssh）<br>  4、客户端再次发送登录请求（密码会使用公钥加密）<br>  5、服务器接收到密文后使用私钥进行解密然后验证是否正确</p>
+</li>
+</ul>
+<p><strong>实际操作</strong></p>
+<p>1、<code>ssh-keygen -t rsa</code>会创建公钥和密钥（默认在用户目录/.ssh目录下）<br>2、<code>ssh-copy-id user@host</code>添加到对应远程主机的用户目录/.ssh目录下<br>3、也可以登录远程主机，进入到用户目录/.ssh目录下手动创建<code>authorized_keys</code>文件，并将自已的公钥粘入该文件。</p>
+<h2 id="vi编辑器"><a href="#vi编辑器" class="headerlink" title="vi编辑器"></a>vi编辑器</h2><p>如同Windows下的记事本，vi编辑器是Linux下的标配，通过它我们可以创建、编辑文件。它是一个随系统一起安装的文本编辑软件。</p>
+<ul>
+<li><p>三种模式<br>vi编辑器提供了3种模式，分别是<strong>命令模式</strong>、<strong>插入模式</strong>、<strong>底行模式</strong>，每种模式下用户所能进行的操作是不一样的。<br>如图：<br><img src="git01    /vi.png" alt="vi"></p>
+</li>
+<li><p>使用vi/vim编辑器<br>通过上图我们发现，输入模式是不能直接切换到末行模式的，必须要先切回到命令模式（按ESC键）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">a) 打开/创建文件， vi 文件路径</div><div class="line">b) 底行模式 :w保存，:w filenme另存为</div><div class="line">c) 底行模式 :q退出</div><div class="line">d) 底行模式 :wq保存并退出</div><div class="line">e) 底行模式 :e! 撤销更改，返回到上一次保存的状态</div><div class="line">f) 底行模式 :q! 不保存强制退出</div><div class="line">g) 底行模式 :set nu 设置行号</div><div class="line">h) 命令模式 ZZ（大写）保存并退出</div><div class="line">i) 命令模式 u辙销操作，可多次使用</div><div class="line">j) 命令模式 dd删除当前行</div><div class="line">k) 命令模式 yy复制当前行</div><div class="line">l) 命令模式 p 粘贴内容</div><div class="line">m) 命令模式 ctrl+f向前翻页</div><div class="line">n) 命令模式 ctrl+b向后翻页</div><div class="line">o) 命令模式 i进入编辑模式，当前光标处插入</div><div class="line">p) 命令模式 a进入编辑模式，当前光标后插入</div><div class="line">q) 命令模式 A进入编辑模式，光标移动到行尾</div><div class="line">r) 命令模式 o进入编辑模式，当前行下面插入新行</div><div class="line">s) 命令模式 O进入编辑模式，当前行上面插入新行</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>当我们处在编辑模式的情况下，和我们在<code>Windows</code>编辑器的使用相似。</p>
+<h2 id="关于版本控制"><a href="#关于版本控制" class="headerlink" title="关于版本控制"></a>关于版本控制</h2><p>版本控制（<code>Version Control Systems</code>）是一种记录一个或若干文件内容变化，以便将来查阅特定版本修订情况的系统。这个系统可以自动帮我们备份文件的每一次更改，并且可以非常方便的恢复到任意的备份（版本）状态。</p>
+<p><a href="http://blog.csdn.net/haohan_meng/article/details/19010511" target="_blank" rel="external">文档参阅</a></p>
+<p>实现版本控制的软件有很多种类，大致可以分为<strong>本地版本控制系统</strong>、<strong>集中式版本控制系统</strong>、<strong>分布式版本控制系统</strong>。</p>
+<ul>
+<li>​集中式版本控制系统</li>
+</ul>
+<p>实际开发环境，一个项目通常是由多人协作共同完成的，如何让在不同终端上的开发者协同工作成了亟待解决的问题，集中式版本控制系统便应运而生了。它通过单一的集中管理的服务器，保存所有文件的修订版本，协同工作的开发者都通过客户端连到这台服务器，取出最新的文件或者提交更新。其代表为SVN，如下图所示。</p>
+<p><img src="git01/svn.png" alt="SVN"></p>
+<p>这种方式很好解决了多人协同开发的问题，但是也有一个弊端，如果集中管理的服务器出现故障，将会导致数据（版本）丢失的风险，另外协同开发者从集中服务器中更新数据时，严重依赖网络，如果网络不佳，也给开发带来诸多不便。</p>
+<ul>
+<li>分布式版本控制系统<br>分布式版本控制系统，则不需要中央服务器，每个协同开发者都拥有一个完整的版本库，这么一来，任何协同开发者用的服务器发生故障，事后都可以用其它协同开发者本地仓库恢复。<br>由于版本库在本地计算机，也便不再受网络影响了。如果要将本地的修改，推送给其它协同开发者，还需要一台共享服务器，所有开发者通过这台共享服务器同步和更新数据。如下图所示。</li>
+</ul>
+<p><img src="git01/git.png" alt="git"></p>
+<p>分布式版本控制系统弥补了前面两种版本控制系统的缺陷，成为了版本控制的首选方案。其代表就是Git.</p>
+<h2 id="git基本概念"><a href="#git基本概念" class="headerlink" title="git基本概念"></a>git基本概念</h2><p>参考资料 <a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="external">Git教程</a></p>
+<p>git是分布式版本控制系统</p>
+<ul>
+<li>git中的三个重要区域</li>
+</ul>
+<ol>
+<li>工作目录<br>是对项目的某个版本独立提取出来的内容。这些从Git仓库的压缩数据库中提取出来的文件，放在磁盘上供你使用或修改。</li>
+<li>暂存区<br>是一个文件，保存了下次将提交的文件列表信息，一般在Git仓库目录中。有时候也被称作“索引”（Index），不过一般说法还是叫暂存区域。</li>
+<li>git仓库<br>Git用来保存项目的元数据和对象数据库的地方。 这是Git 中最重要的部分，从其它计算机克隆仓库时，拷贝的就是这里的数据。</li>
+<li>git本地仓库<br>Git本地仓库指的是开发者计算机中的仓库。</li>
+</ol>
+<p>如图：<br><img src="git/gitArear.png" alt="gitArea"></p>
+<ul>
+<li>git文件的四种状态</li>
+</ul>
+<ol>
+<li>未跟踪 untracked 工作目录中刚创建的文件</li>
+<li>已暂存 staged  从工作目录提交到暂存区的文件</li>
+<li>已提交 commited  从暂存区提交到本地仓库的文件</li>
+<li>已修改 modified  暂存区修改过的文件</li>
+</ol>
+<ul>
+<li>的Git工作流程如下：<br>1、在工作目录中修改文件。<br>2、暂存文件，将文件的快照放入暂存区域。<br>3、提交文件，找到暂存区域的文件，将快照永久性存储到Git仓库目录。</li>
+</ul>
+<ul>
+<li>配置用户    </li>
+</ul>
+<p>因为git是分布式管理的，所以每个机器都必须自报家门：你的用户名和email地址</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git config --global user.name &quot;Your Name&quot;</div><div class="line">$ git config --global user.email &quot;email@example.com&quot;</div></pre></td></tr></table></figure>
+<p><strong>注意：</strong> <code>git config</code>命令的<code>--global</code>参数，表示这台机器上所有的git仓库都会使用这个配置，也可以对不同仓库指定不同的用户名和email地址。注：配置用户只需要执行1次，可以重复使用。</p>
+<ul>
+<li>创建版本库</li>
+</ul>
+<p>版本库又名仓库，英文名是respository,可以简单理解成一个目录，这个目录里面的所有文件都可以被git管理起来，每个文件的修改，删除，git都能跟踪，以便在任何时刻追踪历史，或者在将来某个时刻还原。</p>
+<p>我们如果想要利用git进行版本控制，需要将现有项目初始化为一个仓库，或者将一个已有的使用git进行版本控制的仓库克隆到本地。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git init</div></pre></td></tr></table></figure></p>
+<p><code>git init</code>会在当前的项目目录中创建一个名为.git的隐藏目录，这个目录包含了暂存区和仓库两个区域，有了这个隐藏目录就可以使用git来管理项目了，可以通过<code>ls -al</code>来查看文件下的内容</p>
+<ul>
+<li>查看文件状态</li>
+</ul>
+<p>建立仓库后就可以进行开发了，进入到仓库目录，添加我们需要的文件，通过<code>git status</code>可以检测当前仓库文件的状态（未追踪 untracked）</p>
+<ul>
+<li>添加文件到暂存区</li>
+</ul>
+<p>假设经过一段时间的开发后，需要把已经开发的部分暂存起来等待提交，使用<code>git add</code>添加到暂存区<br><code>git add 文件名/文件路径</code> <code>git add *</code> 或者<code>git add -A</code> 代表添加所有的文件到暂存区<br><strong>注意：</strong> 通过<code>git status</code>再次查看文件的状态，放至暂存区的文件被标记成了绿色，等待提交</p>
+<ul>
+<li>撤销更改</li>
+</ul>
+<p>假设我们开发中需要修改提交到暂存区的文件，工作目录中修改后，再<code>git status</code>查看文件状态会发现，修改的文件被标记成红色。开发一段时间这个时候又发现新的bug，可以使用<code>git checkout 文件名</code>，将上次暂存的文件还原到工作区</p>
+<ul>
+<li><p>提交文件<br><code>git commit -m &#39;备注信息&#39;</code>将暂存区被标记成绿色的文件，全部提交到本地仓库存储。这时git status查看状态，没有什么可提交的，变的很干净。</p>
+</li>
+<li><p>查看提交历史<br>通过git log查看一下提交的历史。</p>
+</li>
+<li><p>恢复上以前提交的版本<br>通过<code>commit id</code>值可以回到之前某一次的提交（时光倒流）<br><code>git reset --hard c888a614e072e2</code>这样便回到了之前功能的状态<br><code>git log</code>再次查看发现最后一次提交成了之前功能了</p>
+</li>
+</ul>
+<p>如下图仓库示意图<br><img src="git01/respository.png" alt="respository"></p>
+<h2 id="git-分支"><a href="#git-分支" class="headerlink" title="git 分支"></a>git 分支</h2><p>在我们的现实开发中，需求往往是五花八门的，同时开发个需求的情况十分常见，比如当你正在专注开发一个功能时，突然有一个紧急的BUG需要你来修复，这个时候我们当然是希望在能够保存当前任务进度，再去修改这个BUG，等这个BUG修复完成后再继续我们的任务。如何实现呢？<br>Git通过创建分支来解决实际开发中类似的问题。<br>在Git的使用过程中一次提交称为历史记录（版本），并且会生成一个唯一的字符串，如下图<br><img src="git01/branch.png" alt="branch"><br>当我们在初始化仓库的时候（实际上是产生第1次提交时），Git会默认帮我们创建了一个master的分支，并且有指针（HEAD）指到了末端。<br>指针（HEAD）用来标明当前处于哪个分支的哪个版本，如上图指的处于master分支的最后1个版本。</p>
+<ul>
+<li><p>创建分支<br><code>git branch 分支名称</code><br>当接到一个新任务时，先创建一个分支，例如购物车功能<code>git branch cart</code><br>新分支会在当前分支原有历史版本的结点上进行创建，我们称其为子分支，<br>如下图<br><img src="git01/branchChild.png" alt="branchChild"></p>
+</li>
+<li><p>切换分支<br><code>git checkout cart(分支名称)</code><br>上一步只是创建了一个新的分支cart，要开发购物车功能需要切换到cart分支，如下图<br><img src="git01/branchChild2.png" alt="branchChild"></p>
+</li>
+<li><p>提交操作<br><code>git commit -m &#39;bugfix&#39;</code>持续开发购物车功能<br>如图：<br><img src="git01/branchChild3.png" alt="branchChild"><br>这次的提交历史版本就会记录在cart这个分支上了，并且HEAD伴随cart在移动。</p>
+</li>
+<li><p>修复Bug<br>开发购物车过程中突然需要紧急修复一个bug，这时可以另外建立一个分支来进行修复，先切换到<code>master</code>分支，<code>git checkout master</code>如图：<br><img src="git01/branchChild4.png" alt="branchChild"><br>当我们切换回<code>master</code>后，<code>HEAD</code>指向了<code>master</code>分支的末端，并且我们观察发现我们工作目录中并没有购物车功能代码。</p>
+</li>
+<li><p>创建新分支修复bug<br>修改并提交会在<code>hotfix</code>分支上创建新版本，并不会影响到<code>cart</code>分支的代码。如图：<br><img src="git01/branchChild5.png" alt="branchChild"></p>
+</li>
+<li><p>继续之前的开发<br>修复完bug后切换回cart分支，继续开发购物车功能。<br><strong>注：</strong>    当我们<code>git checkout branchname</code>时，<code>HEAD</code>会自动指向对应分支的末端，工作目录中的源码也会随之发生改变。<br>这个时候我们就在<code>hotfix</code>这个分支上修复了这个<code>BUG</code>，而我们原来在<code>cart</code>分支上的操作并未受到影响。这时的<code>cart</code>分支并没有包含有<code>hotfix</code>的修复。<br>如图：<br><img src="git01/branchChild6.png" alt="branchChild"></p>
+</li>
+<li><p>合并（融合）分支<br>如图，这时cart会有两个父结点了，cart便包含了hotfix里的修复了<br><img src="git01/branchChild7.png" alt="branchChild"></p>
+</li>
+<li><p>删除分支<br><code>git branch -d hotfix</code><br>这时用来修复bug创建的hotfix分支已经没有用处了，我们可以将它删除。<br>如图：<br><img src="git01/branchChild8.png" alt="branchChild"></p>
+</li>
+</ul>
+<h2 id="Git远程（共享）仓库"><a href="#Git远程（共享）仓库" class="headerlink" title="Git远程（共享）仓库"></a>Git远程（共享）仓库</h2><p>通过上面学习我们可以很好的管理本地版本控制了，可是如果我们下班回到家里突然来了灵感觉得有部分代码可以优化，如果能接着公司电脑上的代码继续写就好了。<br>另一种情形，假设项目比较大，不同的功能模块由不同的开发人员完成，不同模块儿之间又难免会依赖关系，这时如果我们的代码互相合并（融合）就好了。所有模块开发完毕后，需要整合到一起，要能做到准确无误是多好。</p>
+<p><strong>解决方法：</strong><br>借助一个远程仓库，大家可以共享代码、历史版本等数据，便可以解决以上遇到的所有问题。</p>
+<ul>
+<li>创建共享仓库<br><code>Git</code>要求共享仓库是一个以<code>.git</code>结尾的目录。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mkdir repo.git 创建以.git结尾目录</div><div class="line">cd repo.git 进入这个目录</div><div class="line">git init --bare 初始化一个共享仓库，也叫裸仓库 注意选项--bare</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>这样我们就建好了一个共享的仓库，但这时这个仓库是一个空的仓库，并且不允在这个仓库中进行任何修改。</p>
+<ul>
+<li>向共享仓库共享（同步）内容<br>将自已开发的项目同步到这个目录中，其它开发者就可以共享你开发的项目了。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">1、进入到yike目录</div><div class="line">2、git push ../repo.git master</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>这样便把<code>yike</code>中的项目同步进了<code>repo.git</code>中。</p>
+<ul>
+<li>从共享仓库里取出内容<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">1、新创建一个目录（模拟另一个开发者）</div><div class="line">2、git clone ./repo.git demo</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>通过<code>repo.git</code>共享仓库，我们轻松得到了一个<code>yike</code>的副本</p>
+<ul>
+<li><p>通过demo仓库向repo.git共享内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">进入到demo里，我们做一些修改</div><div class="line">cd demo</div><div class="line">git push ../repo.git master</div></pre></td></tr></table></figure>
+</li>
+<li><p>在360仓库从repo.git获取共享的内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd yike</div><div class="line">git pull ../repo.git master</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>通过以上的步骤，我们轻松的将demo仓库里的内容，通过repo.git共享给了yike仓库。<br>但这个共享的仓库只是放到了本地的，其它人是没有办法从我们这个共享仓库共享内容的。</p>
+<h3 id="常用操作"><a href="#常用操作" class="headerlink" title="常用操作"></a>常用操作</h3><ul>
+<li><code>git config</code>配置本地仓库 —-&gt;  常用<code>git config --global user.name、git config --global user.email</code></li>
+<li>查看配置详情 —-&gt; <code>git config --list</code></li>
+<li><code>git init</code> 初始一个仓库，添加–bare可以初始化一个共享（裸）仓库</li>
+<li><code>git status</code> 可以查看当前仓库的状态</li>
+<li><code>git add</code>“文件” 将工作区中的文件添加到暂存区中，其中file可是一个单独的文件，也可以是一个目录、“*”、-A</li>
+<li>把暂存区的文件放回到工作目录 —-&gt; <code>git rm --cached */filename</code></li>
+<li>把暂存区的文件提交到本地仓库 —–&gt; <code>git commit -m &#39;desc&#39;</code></li>
+<li>查看提交的本地仓库记录 —-&gt; <code>git log</code></li>
+<li>取消暂存区的文件修改内容 —-&gt; <code>git checkout --filename/.</code></li>
+<li>用本地仓库中的快照覆盖工作目录和暂存区中的内容，并且放弃<code>commitID</code>之后的提交—-&gt; <code>git reset --hard commitID</code></li>
+<li>代码推送到远程仓库 —-&gt; <code>git push remotePath Localbranch:remoteBrnck</code></li>
+<li>把远程仓库的代码当下来 —–&gt; <code>git pull remotePath Remotebranch:localBranch</code></li>
+<li>克隆远程仓库 —-&gt; <code>git clone remotePath filename</code></li>
+<li>添加远程仓库的别名 —-&gt; <code>git remote add origin remotePath</code></li>
+<li>可以查看已添加的远程主机 —-&gt; <code>git remote</code></li>
+<li>可以查看远程主机的信息 —–&gt; <code>git remote show “主机名称”</code></li>
+<li><p><code>git pull</code>和<code>git clone</code>的主要区别<br>1、git clone的项目会自动建立origin远程仓库地址的别名<br>2、git clone会自动跟踪远程分支（可以直接使用git pull/git push进行代码更新）<br>3、如果git pull 拉下来的代码希望建立跟踪分支，需要执行如下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git branch --set-upstream-to=origin/master master</div><div class="line">origin/master表示远程分支</div><div class="line">master表示本地分支</div></pre></td></tr></table></figure>
+</li>
+<li><p>查看远程仓库的别名 —–&gt; <code>git remote</code></p>
+</li>
+<li>查看远程仓库别名的具体地址  —–&gt; <code>git remote show origin</code></li>
+<li>查看远程分支 —–&gt; <code>git branch -r</code></li>
+<li>查看本地分支 —–&gt; <code>git branch</code></li>
+<li>切换分支 —–&gt; <code>git checkout“分支名称”</code></li>
+<li>合并分支 —- &gt; `git merge“分支名称”</li>
+<li>删除分支 —–&gt; <code>git branch -d “分支名称”</code></li>
+</ul>
+<h2 id="gitHub和gitLab"><a href="#gitHub和gitLab" class="headerlink" title="gitHub和gitLab"></a>gitHub和gitLab</h2><p>如果我们熟悉服务器的话，我们完全可以将上述的步骤在我们的远程服务器上进行操作，然后再做一些登录权限的设置，就可非常完美的搭建一个共享服务器了。其实为了更好的管理我们的仓库，一些第三方机构开发出了Web版仓库管理程序，通过Web界面形式管理仓库。比如<strong><code>gitHub</code></strong></p>
+<ol>
+<li>注册账号并完善资料</li>
+<li>创建共享仓库 </li>
+<li>填写仓库资料  如图：<br><img src="git01/github.png" alt="github"></li>
+<li>共享仓库<br><img src="git01/github2.png" alt="github"><br>远程地址特别长，我们可以给他起一个别名<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote add origin git@github.com:Botue/repo.git</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>这样<code>origin</code> 就代表 <code>git@github.com:Botue/repo.git</code><br><strong>注意：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">当我们通过git clone 从共享仓库获内容时，会自动帮我们添加origin到对应的仓库地址，例如：git clone git@github.com:Botue/repo.git 会自动添加origin 对应 git@github.com:Botue/repo.git</div></pre></td></tr></table></figure></p>
+<ol>
+<li>生成密钥<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa 然后一路回车，这里会在当前用户生成了一个.ssh的文件夹</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><img src="git01/github3.png" alt="github"></p>
+<ol>
+<li>将<code>id_rsa.pub</code>公钥的内容复制</li>
+<li>打开gitHub的个人中心<br><img src="git01/github4.png" alt="github"></li>
+<li>打到SSH keys<br><img src="git01/github5.png" alt="github"></li>
+</ol>
+<p>到此我们便可以通过gitHub 提供的Web界面来管理我们的仓库了。</p>
+<p><strong>注：</strong><br>我们发现通过<code>gitHub</code>管理仓库实在是太方便了，可是只能免费使用公开仓库，自已公司的代码当然不能公开了，可是私有仓库又是需要交“保护费”的，无耐国人还是比较喜欢免费的，网络界总是有很多雷峰的，比如<code>gitLab!!!</code><br><code>gitLab</code>也是一个可以通过<code>Web</code>界面管理仓库的网站程序，我们可以把它架设到公司自已的服务器上，实现仓库私有化，这也是大部分公司通常采用的方法，其使用方法与gitHub十分相似。</p>
+<h2 id="gitignore忽略文件"><a href="#gitignore忽略文件" class="headerlink" title=".gitignore忽略文件"></a>.gitignore忽略文件</h2><p>在项目根目录下创建一个<code>.gitignore</code>文件，可以将不希望提交的罗列在这个文件里，如项目的配置文件、<code>node_modules</code>等</p>
+<h2 id="其他常见的操作"><a href="#其他常见的操作" class="headerlink" title="其他常见的操作"></a>其他常见的操作</h2><pre><code>git push origin “本地分支名称:远程分支名称”将本地分支推送至远程仓库，
+git push origin hotfix（通常的写法）相当于
+git push origin hotfix:hotfix
+git push origin hotfix:newfeature
+本地仓库分支名称和远程仓库分支名称一样的情况下可以简写成一个，即git push “仓库地址” “分支名称”，如果远程仓库没有对应分支，将会自动创建
+删除远程分支git push origin --delete 分支名称
+删除远程分支git push origin :分支名称
+</code></pre>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/版本控制/" class="article-tag-list-link color5">版本控制</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2015/07/06/git01/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2015/07/03/js高级03/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          js高级（三）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/07/09/js高级04/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">js高级（四）</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+
+          </div>
+        </div>
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 ChrisJx
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		mathjax: false,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/",
+		innerArchive: true,
+		showTags: false
+	}
+</script>
+
+<script>!function(t){function n(r){if(e[r])return e[r].exports;var o=e[r]={exports:{},id:r,loaded:!1};return t[r].call(o.exports,o,o.exports,n),o.loaded=!0,o.exports}var e={};return n.m=t,n.c=e,n.p="./",n(0)}([function(t,n,e){"use strict";function r(t){return t&&t.__esModule?t:{default:t}}function o(t,n){var e=/\/|index.html/g;return t.replace(e,"")===n.replace(e,"")}function i(){for(var t=document.querySelectorAll(".js-header-menu li a"),n=window.location.pathname,e=0,r=t.length;e<r;e++){var i=t[e];o(n,i.getAttribute("href"))&&(0,d.default)(i,"active")}}function u(t){for(var n=t.offsetLeft,e=t.offsetParent;null!==e;)n+=e.offsetLeft,e=e.offsetParent;return n}function f(t){for(var n=t.offsetTop,e=t.offsetParent;null!==e;)n+=e.offsetTop,e=e.offsetParent;return n}function c(t,n,e,r,o){var i=u(t),c=f(t)-n;if(c-e<=o){var a=t.$newDom;a||(a=t.cloneNode(!0),(0,h.default)(t,a),t.$newDom=a,a.style.position="fixed",a.style.top=(e||c)+"px",a.style.left=i+"px",a.style.zIndex=r||2,a.style.width="100%",a.style.color="#fff"),a.style.visibility="visible",t.style.visibility="hidden"}else{t.style.visibility="visible";var s=t.$newDom;s&&(s.style.visibility="hidden")}}function a(){var t=document.querySelector(".js-overlay"),n=document.querySelector(".js-header-menu");c(t,document.body.scrollTop,-63,2,0),c(n,document.body.scrollTop,1,3,0)}function s(){document.querySelector("#container").addEventListener("scroll",function(t){a()}),window.addEventListener("scroll",function(t){a()}),a()}function l(){x.default.versions.mobile&&window.screen.width<800&&(i(),s())}var p=e(71),d=r(p),v=e(72),y=(r(v),e(84)),h=r(y),b=e(69),x=r(b),g=e(75),m=r(g),w=e(70);l(),(0,w.addLoadEvent)(function(){m.default.init()}),t.exports={}},function(t,n){var e=t.exports="undefined"!=typeof window&&window.Math==Math?window:"undefined"!=typeof self&&self.Math==Math?self:Function("return this")();"number"==typeof __g&&(__g=e)},function(t,n){var e={}.hasOwnProperty;t.exports=function(t,n){return e.call(t,n)}},function(t,n,e){var r=e(49),o=e(15);t.exports=function(t){return r(o(t))}},function(t,n,e){t.exports=!e(8)(function(){return 7!=Object.defineProperty({},"a",{get:function(){return 7}}).a})},function(t,n,e){var r=e(6),o=e(12);t.exports=e(4)?function(t,n,e){return r.f(t,n,o(1,e))}:function(t,n,e){return t[n]=e,t}},function(t,n,e){var r=e(10),o=e(30),i=e(24),u=Object.defineProperty;n.f=e(4)?Object.defineProperty:function(t,n,e){if(r(t),n=i(n,!0),r(e),o)try{return u(t,n,e)}catch(t){}if("get"in e||"set"in e)throw TypeError("Accessors not supported!");return"value"in e&&(t[n]=e.value),t}},function(t,n,e){var r=e(22)("wks"),o=e(13),i=e(1).Symbol,u="function"==typeof i,f=t.exports=function(t){return r[t]||(r[t]=u&&i[t]||(u?i:o)("Symbol."+t))};f.store=r},function(t,n){t.exports=function(t){try{return!!t()}catch(t){return!0}}},function(t,n,e){var r=e(35),o=e(16);t.exports=Object.keys||function(t){return r(t,o)}},function(t,n,e){var r=e(11);t.exports=function(t){if(!r(t))throw TypeError(t+" is not an object!");return t}},function(t,n){t.exports=function(t){return"object"==typeof t?null!==t:"function"==typeof t}},function(t,n){t.exports=function(t,n){return{enumerable:!(1&t),configurable:!(2&t),writable:!(4&t),value:n}}},function(t,n){var e=0,r=Math.random();t.exports=function(t){return"Symbol(".concat(void 0===t?"":t,")_",(++e+r).toString(36))}},function(t,n){var e=t.exports={version:"2.4.0"};"number"==typeof __e&&(__e=e)},function(t,n){t.exports=function(t){if(void 0==t)throw TypeError("Can't call method on  "+t);return t}},function(t,n){t.exports="constructor,hasOwnProperty,isPrototypeOf,propertyIsEnumerable,toLocaleString,toString,valueOf".split(",")},function(t,n){t.exports={}},function(t,n){t.exports=!0},function(t,n){n.f={}.propertyIsEnumerable},function(t,n,e){var r=e(6).f,o=e(2),i=e(7)("toStringTag");t.exports=function(t,n,e){t&&!o(t=e?t:t.prototype,i)&&r(t,i,{configurable:!0,value:n})}},function(t,n,e){var r=e(22)("keys"),o=e(13);t.exports=function(t){return r[t]||(r[t]=o(t))}},function(t,n,e){var r=e(1),o="__core-js_shared__",i=r[o]||(r[o]={});t.exports=function(t){return i[t]||(i[t]={})}},function(t,n){var e=Math.ceil,r=Math.floor;t.exports=function(t){return isNaN(t=+t)?0:(t>0?r:e)(t)}},function(t,n,e){var r=e(11);t.exports=function(t,n){if(!r(t))return t;var e,o;if(n&&"function"==typeof(e=t.toString)&&!r(o=e.call(t)))return o;if("function"==typeof(e=t.valueOf)&&!r(o=e.call(t)))return o;if(!n&&"function"==typeof(e=t.toString)&&!r(o=e.call(t)))return o;throw TypeError("Can't convert object to primitive value")}},function(t,n,e){var r=e(1),o=e(14),i=e(18),u=e(26),f=e(6).f;t.exports=function(t){var n=o.Symbol||(o.Symbol=i?{}:r.Symbol||{});"_"==t.charAt(0)||t in n||f(n,t,{value:u.f(t)})}},function(t,n,e){n.f=e(7)},function(t,n,e){var r=e(1),o=e(14),i=e(46),u=e(5),f="prototype",c=function(t,n,e){var a,s,l,p=t&c.F,d=t&c.G,v=t&c.S,y=t&c.P,h=t&c.B,b=t&c.W,x=d?o:o[n]||(o[n]={}),g=x[f],m=d?r:v?r[n]:(r[n]||{})[f];d&&(e=n);for(a in e)s=!p&&m&&void 0!==m[a],s&&a in x||(l=s?m[a]:e[a],x[a]=d&&"function"!=typeof m[a]?e[a]:h&&s?i(l,r):b&&m[a]==l?function(t){var n=function(n,e,r){if(this instanceof t){switch(arguments.length){case 0:return new t;case 1:return new t(n);case 2:return new t(n,e)}return new t(n,e,r)}return t.apply(this,arguments)};return n[f]=t[f],n}(l):y&&"function"==typeof l?i(Function.call,l):l,y&&((x.virtual||(x.virtual={}))[a]=l,t&c.R&&g&&!g[a]&&u(g,a,l)))};c.F=1,c.G=2,c.S=4,c.P=8,c.B=16,c.W=32,c.U=64,c.R=128,t.exports=c},function(t,n){var e={}.toString;t.exports=function(t){return e.call(t).slice(8,-1)}},function(t,n,e){var r=e(11),o=e(1).document,i=r(o)&&r(o.createElement);t.exports=function(t){return i?o.createElement(t):{}}},function(t,n,e){t.exports=!e(4)&&!e(8)(function(){return 7!=Object.defineProperty(e(29)("div"),"a",{get:function(){return 7}}).a})},function(t,n,e){"use strict";var r=e(18),o=e(27),i=e(36),u=e(5),f=e(2),c=e(17),a=e(51),s=e(20),l=e(58),p=e(7)("iterator"),d=!([].keys&&"next"in[].keys()),v="@@iterator",y="keys",h="values",b=function(){return this};t.exports=function(t,n,e,x,g,m,w){a(e,n,x);var O,S,_,j=function(t){if(!d&&t in A)return A[t];switch(t){case y:return function(){return new e(this,t)};case h:return function(){return new e(this,t)}}return function(){return new e(this,t)}},P=n+" Iterator",E=g==h,M=!1,A=t.prototype,T=A[p]||A[v]||g&&A[g],L=T||j(g),N=g?E?j("entries"):L:void 0,C="Array"==n?A.entries||T:T;if(C&&(_=l(C.call(new t)),_!==Object.prototype&&(s(_,P,!0),r||f(_,p)||u(_,p,b))),E&&T&&T.name!==h&&(M=!0,L=function(){return T.call(this)}),r&&!w||!d&&!M&&A[p]||u(A,p,L),c[n]=L,c[P]=b,g)if(O={values:E?L:j(h),keys:m?L:j(y),entries:N},w)for(S in O)S in A||i(A,S,O[S]);else o(o.P+o.F*(d||M),n,O);return O}},function(t,n,e){var r=e(10),o=e(55),i=e(16),u=e(21)("IE_PROTO"),f=function(){},c="prototype",a=function(){var t,n=e(29)("iframe"),r=i.length,o="<",u=">";for(n.style.display="none",e(48).appendChild(n),n.src="javascript:",t=n.contentWindow.document,t.open(),t.write(o+"script"+u+"document.F=Object"+o+"/script"+u),t.close(),a=t.F;r--;)delete a[c][i[r]];return a()};t.exports=Object.create||function(t,n){var e;return null!==t?(f[c]=r(t),e=new f,f[c]=null,e[u]=t):e=a(),void 0===n?e:o(e,n)}},function(t,n,e){var r=e(35),o=e(16).concat("length","prototype");n.f=Object.getOwnPropertyNames||function(t){return r(t,o)}},function(t,n){n.f=Object.getOwnPropertySymbols},function(t,n,e){var r=e(2),o=e(3),i=e(45)(!1),u=e(21)("IE_PROTO");t.exports=function(t,n){var e,f=o(t),c=0,a=[];for(e in f)e!=u&&r(f,e)&&a.push(e);for(;n.length>c;)r(f,e=n[c++])&&(~i(a,e)||a.push(e));return a}},function(t,n,e){t.exports=e(5)},function(t,n,e){var r=e(15);t.exports=function(t){return Object(r(t))}},function(t,n,e){t.exports={default:e(41),__esModule:!0}},function(t,n,e){t.exports={default:e(42),__esModule:!0}},function(t,n,e){"use strict";function r(t){return t&&t.__esModule?t:{default:t}}n.__esModule=!0;var o=e(39),i=r(o),u=e(38),f=r(u),c="function"==typeof f.default&&"symbol"==typeof i.default?function(t){return typeof t}:function(t){return t&&"function"==typeof f.default&&t.constructor===f.default&&t!==f.default.prototype?"symbol":typeof t};n.default="function"==typeof f.default&&"symbol"===c(i.default)?function(t){return"undefined"==typeof t?"undefined":c(t)}:function(t){return t&&"function"==typeof f.default&&t.constructor===f.default&&t!==f.default.prototype?"symbol":"undefined"==typeof t?"undefined":c(t)}},function(t,n,e){e(65),e(63),e(66),e(67),t.exports=e(14).Symbol},function(t,n,e){e(64),e(68),t.exports=e(26).f("iterator")},function(t,n){t.exports=function(t){if("function"!=typeof t)throw TypeError(t+" is not a function!");return t}},function(t,n){t.exports=function(){}},function(t,n,e){var r=e(3),o=e(61),i=e(60);t.exports=function(t){return function(n,e,u){var f,c=r(n),a=o(c.length),s=i(u,a);if(t&&e!=e){for(;a>s;)if(f=c[s++],f!=f)return!0}else for(;a>s;s++)if((t||s in c)&&c[s]===e)return t||s||0;return!t&&-1}}},function(t,n,e){var r=e(43);t.exports=function(t,n,e){if(r(t),void 0===n)return t;switch(e){case 1:return function(e){return t.call(n,e)};case 2:return function(e,r){return t.call(n,e,r)};case 3:return function(e,r,o){return t.call(n,e,r,o)}}return function(){return t.apply(n,arguments)}}},function(t,n,e){var r=e(9),o=e(34),i=e(19);t.exports=function(t){var n=r(t),e=o.f;if(e)for(var u,f=e(t),c=i.f,a=0;f.length>a;)c.call(t,u=f[a++])&&n.push(u);return n}},function(t,n,e){t.exports=e(1).document&&document.documentElement},function(t,n,e){var r=e(28);t.exports=Object("z").propertyIsEnumerable(0)?Object:function(t){return"String"==r(t)?t.split(""):Object(t)}},function(t,n,e){var r=e(28);t.exports=Array.isArray||function(t){return"Array"==r(t)}},function(t,n,e){"use strict";var r=e(32),o=e(12),i=e(20),u={};e(5)(u,e(7)("iterator"),function(){return this}),t.exports=function(t,n,e){t.prototype=r(u,{next:o(1,e)}),i(t,n+" Iterator")}},function(t,n){t.exports=function(t,n){return{value:n,done:!!t}}},function(t,n,e){var r=e(9),o=e(3);t.exports=function(t,n){for(var e,i=o(t),u=r(i),f=u.length,c=0;f>c;)if(i[e=u[c++]]===n)return e}},function(t,n,e){var r=e(13)("meta"),o=e(11),i=e(2),u=e(6).f,f=0,c=Object.isExtensible||function(){return!0},a=!e(8)(function(){return c(Object.preventExtensions({}))}),s=function(t){u(t,r,{value:{i:"O"+ ++f,w:{}}})},l=function(t,n){if(!o(t))return"symbol"==typeof t?t:("string"==typeof t?"S":"P")+t;if(!i(t,r)){if(!c(t))return"F";if(!n)return"E";s(t)}return t[r].i},p=function(t,n){if(!i(t,r)){if(!c(t))return!0;if(!n)return!1;s(t)}return t[r].w},d=function(t){return a&&v.NEED&&c(t)&&!i(t,r)&&s(t),t},v=t.exports={KEY:r,NEED:!1,fastKey:l,getWeak:p,onFreeze:d}},function(t,n,e){var r=e(6),o=e(10),i=e(9);t.exports=e(4)?Object.defineProperties:function(t,n){o(t);for(var e,u=i(n),f=u.length,c=0;f>c;)r.f(t,e=u[c++],n[e]);return t}},function(t,n,e){var r=e(19),o=e(12),i=e(3),u=e(24),f=e(2),c=e(30),a=Object.getOwnPropertyDescriptor;n.f=e(4)?a:function(t,n){if(t=i(t),n=u(n,!0),c)try{return a(t,n)}catch(t){}if(f(t,n))return o(!r.f.call(t,n),t[n])}},function(t,n,e){var r=e(3),o=e(33).f,i={}.toString,u="object"==typeof window&&window&&Object.getOwnPropertyNames?Object.getOwnPropertyNames(window):[],f=function(t){try{return o(t)}catch(t){return u.slice()}};t.exports.f=function(t){return u&&"[object Window]"==i.call(t)?f(t):o(r(t))}},function(t,n,e){var r=e(2),o=e(37),i=e(21)("IE_PROTO"),u=Object.prototype;t.exports=Object.getPrototypeOf||function(t){return t=o(t),r(t,i)?t[i]:"function"==typeof t.constructor&&t instanceof t.constructor?t.constructor.prototype:t instanceof Object?u:null}},function(t,n,e){var r=e(23),o=e(15);t.exports=function(t){return function(n,e){var i,u,f=String(o(n)),c=r(e),a=f.length;return c<0||c>=a?t?"":void 0:(i=f.charCodeAt(c),i<55296||i>56319||c+1===a||(u=f.charCodeAt(c+1))<56320||u>57343?t?f.charAt(c):i:t?f.slice(c,c+2):(i-55296<<10)+(u-56320)+65536)}}},function(t,n,e){var r=e(23),o=Math.max,i=Math.min;t.exports=function(t,n){return t=r(t),t<0?o(t+n,0):i(t,n)}},function(t,n,e){var r=e(23),o=Math.min;t.exports=function(t){return t>0?o(r(t),9007199254740991):0}},function(t,n,e){"use strict";var r=e(44),o=e(52),i=e(17),u=e(3);t.exports=e(31)(Array,"Array",function(t,n){this._t=u(t),this._i=0,this._k=n},function(){var t=this._t,n=this._k,e=this._i++;return!t||e>=t.length?(this._t=void 0,o(1)):"keys"==n?o(0,e):"values"==n?o(0,t[e]):o(0,[e,t[e]])},"values"),i.Arguments=i.Array,r("keys"),r("values"),r("entries")},function(t,n){},function(t,n,e){"use strict";var r=e(59)(!0);e(31)(String,"String",function(t){this._t=String(t),this._i=0},function(){var t,n=this._t,e=this._i;return e>=n.length?{value:void 0,done:!0}:(t=r(n,e),this._i+=t.length,{value:t,done:!1})})},function(t,n,e){"use strict";var r=e(1),o=e(2),i=e(4),u=e(27),f=e(36),c=e(54).KEY,a=e(8),s=e(22),l=e(20),p=e(13),d=e(7),v=e(26),y=e(25),h=e(53),b=e(47),x=e(50),g=e(10),m=e(3),w=e(24),O=e(12),S=e(32),_=e(57),j=e(56),P=e(6),E=e(9),M=j.f,A=P.f,T=_.f,L=r.Symbol,N=r.JSON,C=N&&N.stringify,k="prototype",F=d("_hidden"),q=d("toPrimitive"),I={}.propertyIsEnumerable,B=s("symbol-registry"),D=s("symbols"),W=s("op-symbols"),H=Object[k],K="function"==typeof L,R=r.QObject,J=!R||!R[k]||!R[k].findChild,U=i&&a(function(){return 7!=S(A({},"a",{get:function(){return A(this,"a",{value:7}).a}})).a})?function(t,n,e){var r=M(H,n);r&&delete H[n],A(t,n,e),r&&t!==H&&A(H,n,r)}:A,G=function(t){var n=D[t]=S(L[k]);return n._k=t,n},$=K&&"symbol"==typeof L.iterator?function(t){return"symbol"==typeof t}:function(t){return t instanceof L},z=function(t,n,e){return t===H&&z(W,n,e),g(t),n=w(n,!0),g(e),o(D,n)?(e.enumerable?(o(t,F)&&t[F][n]&&(t[F][n]=!1),e=S(e,{enumerable:O(0,!1)})):(o(t,F)||A(t,F,O(1,{})),t[F][n]=!0),U(t,n,e)):A(t,n,e)},Y=function(t,n){g(t);for(var e,r=b(n=m(n)),o=0,i=r.length;i>o;)z(t,e=r[o++],n[e]);return t},Q=function(t,n){return void 0===n?S(t):Y(S(t),n)},X=function(t){var n=I.call(this,t=w(t,!0));return!(this===H&&o(D,t)&&!o(W,t))&&(!(n||!o(this,t)||!o(D,t)||o(this,F)&&this[F][t])||n)},V=function(t,n){if(t=m(t),n=w(n,!0),t!==H||!o(D,n)||o(W,n)){var e=M(t,n);return!e||!o(D,n)||o(t,F)&&t[F][n]||(e.enumerable=!0),e}},Z=function(t){for(var n,e=T(m(t)),r=[],i=0;e.length>i;)o(D,n=e[i++])||n==F||n==c||r.push(n);return r},tt=function(t){for(var n,e=t===H,r=T(e?W:m(t)),i=[],u=0;r.length>u;)!o(D,n=r[u++])||e&&!o(H,n)||i.push(D[n]);return i};K||(L=function(){if(this instanceof L)throw TypeError("Symbol is not a constructor!");var t=p(arguments.length>0?arguments[0]:void 0),n=function(e){this===H&&n.call(W,e),o(this,F)&&o(this[F],t)&&(this[F][t]=!1),U(this,t,O(1,e))};return i&&J&&U(H,t,{configurable:!0,set:n}),G(t)},f(L[k],"toString",function(){return this._k}),j.f=V,P.f=z,e(33).f=_.f=Z,e(19).f=X,e(34).f=tt,i&&!e(18)&&f(H,"propertyIsEnumerable",X,!0),v.f=function(t){return G(d(t))}),u(u.G+u.W+u.F*!K,{Symbol:L});for(var nt="hasInstance,isConcatSpreadable,iterator,match,replace,search,species,split,toPrimitive,toStringTag,unscopables".split(","),et=0;nt.length>et;)d(nt[et++]);for(var nt=E(d.store),et=0;nt.length>et;)y(nt[et++]);u(u.S+u.F*!K,"Symbol",{for:function(t){return o(B,t+="")?B[t]:B[t]=L(t)},keyFor:function(t){if($(t))return h(B,t);throw TypeError(t+" is not a symbol!")},useSetter:function(){J=!0},useSimple:function(){J=!1}}),u(u.S+u.F*!K,"Object",{create:Q,defineProperty:z,defineProperties:Y,getOwnPropertyDescriptor:V,getOwnPropertyNames:Z,getOwnPropertySymbols:tt}),N&&u(u.S+u.F*(!K||a(function(){var t=L();return"[null]"!=C([t])||"{}"!=C({a:t})||"{}"!=C(Object(t))})),"JSON",{stringify:function(t){if(void 0!==t&&!$(t)){for(var n,e,r=[t],o=1;arguments.length>o;)r.push(arguments[o++]);return n=r[1],"function"==typeof n&&(e=n),!e&&x(n)||(n=function(t,n){if(e&&(n=e.call(this,t,n)),!$(n))return n}),r[1]=n,C.apply(N,r)}}}),L[k][q]||e(5)(L[k],q,L[k].valueOf),l(L,"Symbol"),l(Math,"Math",!0),l(r.JSON,"JSON",!0)},function(t,n,e){e(25)("asyncIterator")},function(t,n,e){e(25)("observable")},function(t,n,e){e(62);for(var r=e(1),o=e(5),i=e(17),u=e(7)("toStringTag"),f=["NodeList","DOMTokenList","MediaList","StyleSheetList","CSSRuleList"],c=0;c<5;c++){var a=f[c],s=r[a],l=s&&s.prototype;l&&!l[u]&&o(l,u,a),i[a]=i.Array}},function(t,n){"use strict";var e={versions:function(){var t=window.navigator.userAgent;return{trident:t.indexOf("Trident")>-1,presto:t.indexOf("Presto")>-1,webKit:t.indexOf("AppleWebKit")>-1,gecko:t.indexOf("Gecko")>-1&&t.indexOf("KHTML")==-1,mobile:!!t.match(/AppleWebKit.*Mobile.*/),ios:!!t.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/),android:t.indexOf("Android")>-1||t.indexOf("Linux")>-1,iPhone:t.indexOf("iPhone")>-1||t.indexOf("Mac")>-1,iPad:t.indexOf("iPad")>-1,webApp:t.indexOf("Safari")==-1,weixin:t.indexOf("MicroMessenger")==-1}}()};t.exports=e},function(t,n,e){"use strict";function r(t){return t&&t.__esModule?t:{default:t}}var o=e(40),i=r(o),u=function(){function t(t,n,e){return n||e?String.fromCharCode(n||e):o[t]||t}function n(t){return l[t]}var e=/&quot;|&lt;|&gt;|&amp;|&nbsp;|&apos;|&#(\d+);|&#(\d+)/g,r=/['<> "&]/g,o={"&quot;":'"',"&lt;":"<","&gt;":">","&amp;":"&","&nbsp;":" "},f=/\u00a0/g,c=/<br\s*\/?>/gi,a=/\r?\n/g,s=/\s/g,l={};for(var p in o)l[o[p]]=p;return o["&apos;"]="'",l["'"]="&#39;",{encode:function(t){return t?(""+t).replace(r,n).replace(a,"<br/>").replace(s,"&nbsp;"):""},decode:function(n){return n?(""+n).replace(c,"\n").replace(e,t).replace(f," "):""},encodeBase16:function(t){if(!t)return t;t+="";for(var n=[],e=0,r=t.length;r>e;e++)n.push(t.charCodeAt(e).toString(16).toUpperCase());return n.join("")},encodeBase16forJSON:function(t){if(!t)return t;t=t.replace(/[\u4E00-\u9FBF]/gi,function(t){return escape(t).replace("%u","\\u")});for(var n=[],e=0,r=t.length;r>e;e++)n.push(t.charCodeAt(e).toString(16).toUpperCase());return n.join("")},decodeBase16:function(t){if(!t)return t;t+="";for(var n=[],e=0,r=t.length;r>e;e+=2)n.push(String.fromCharCode("0x"+t.slice(e,e+2)));return n.join("")},encodeObject:function(t){if(t instanceof Array)for(var n=0,e=t.length;e>n;n++)t[n]=u.encodeObject(t[n]);else if("object"==("undefined"==typeof t?"undefined":(0,i.default)(t)))for(var r in t)t[r]=u.encodeObject(t[r]);else if("string"==typeof t)return u.encode(t);return t},loadScript:function(t){var n=document.createElement("script");document.getElementsByTagName("body")[0].appendChild(n),n.setAttribute("src",t)},addLoadEvent:function(t){var n=window.onload;"function"!=typeof window.onload?window.onload=t:window.onload=function(){n(),t()}}}}();t.exports=u},function(t,n){function e(t,n){t.classList?t.classList.add(n):t.className+=" "+n}t.exports=e},function(t,n){function e(t,n){if(t.classList)t.classList.remove(n);else{var e=new RegExp("(^|\\b)"+n.split(" ").join("|")+"(\\b|$)","gi");t.className=t.className.replace(e," ")}}t.exports=e},,,function(t,n){"use strict";function e(){var t=document.querySelector("#page-nav");if(t&&!document.querySelector("#page-nav .extend.prev")&&(t.innerHTML='<a class="extend prev disabled" rel="prev">&laquo; Prev</a>'+t.innerHTML),t&&!document.querySelector("#page-nav .extend.next")&&(t.innerHTML=t.innerHTML+'<a class="extend next disabled" rel="next">Next &raquo;</a>'),yiliaConfig&&yiliaConfig.open_in_new){var n=document.querySelectorAll(".article-entry a:not(.article-more-a)");n.forEach(function(t){var n=t.getAttribute("target");n&&""!==n||t.setAttribute("target","_blank")})}var e=document.querySelector("#js-aboutme");e&&0!==e.length&&(e.innerHTML=e.innerText)}t.exports={init:e}},,,,,,,,,function(t,n){function e(t,n){if("string"==typeof n)return t.insertAdjacentHTML("afterend",n);var e=t.nextSibling;return e?t.parentNode.insertBefore(n,e):t.parentNode.appendChild(n)}t.exports=e}])</script><script src="/./main.f6a68c.js"></script><script>!function(){var e=function(e){var t=document.createElement("script");document.getElementsByTagName("body")[0].appendChild(t),t.setAttribute("src",e)};e("/slider.885efe.js")}()</script>
+
+
+    
+<div class="tools-col" q-class="show:isShow,hide:isShow|isFalse" q-on="click:stop(e)">
+  <div class="tools-nav header-menu">
+    
+    
+      
+      
+      
+    
+      
+      
+      
+    
+      
+      
+      
+    
+    
+
+    <ul style="width: 70%">
+    
+    
+      
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
+      
+        
+      
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">友链</a></li>
+      
+        
+      
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
+      
+        
+    </ul>
+  </div>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all" q-show="innerArchive">
+        <div class="search-wrap">
+          <input class="search-ipt" q-model="search" type="text" placeholder="find something…">
+          <i class="icon-search icon" q-show="search|isEmptyStr"></i>
+          <i class="icon-close icon" q-show="search|isNotEmptyStr" q-on="click:clearChose(e)"></i>
+        </div>
+        <div class="widget tagcloud search-tag">
+          <p class="search-tag-wording">tag:</p>
+          <label class="search-switch">
+            <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
+          </label>
+          <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">mysql appache</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">bootstrap</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">requireJS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">template</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jquery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">http</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">CSS3</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Angular</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">框架</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">HTML5</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">npm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">github</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">mobile</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">responsive</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">less</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">assert</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">插件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">响应式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">php</a>
+              </li>
+            
+            <div class="clearfix"></div>
+          </ul>
+        </div>
+        <ul class="search-ul">
+          <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
+            缺失模块。<br/>1、请确保node版本大于6.2<br/>2、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
+            3、在根目录_config.yml里添加配置：
+<pre style="font-size: 12px;" q-show="jsonFail">
+  jsonContent:
+    meta: false
+    pages: false
+    posts:
+      title: true
+      date: true
+      path: true
+      text: false
+      raw: false
+      content: false
+      slug: false
+      updated: false
+      comments: false
+      link: false
+      permalink: false
+      excerpt: false
+      categories: false
+      tags: true
+</pre>
+          </p>
+          <li class="search-li" q-repeat="items" q-show="isShow">
+            <a q-attr="href:path|urlformat" class="search-title"><i class="icon-quo-left icon"></i><span q-text="title"></span></a>
+            <p class="search-time">
+              <i class="icon-calendar icon"></i>
+              <span q-text="date|dateformat"></span>
+            </p>
+            <p class="search-tag">
+              <i class="icon-price-tags icon"></i>
+              <span q-repeat="tags" q-on="click:choseTag(e, name)" q-text="name|tagformat"></span>
+            </p>
+          </li>
+        </ul>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends" q-show="friends">
+  		
+        <ul class="search-ul">
+          
+            <li class="search-li">
+              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接1</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接2</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接3</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接4</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接5</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接6</a>
+            </li>
+          
+        </ul>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me" q-show="aboutme">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>

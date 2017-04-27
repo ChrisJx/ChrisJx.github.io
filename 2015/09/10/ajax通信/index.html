@@ -6,14 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2017/4 | Coding for more love!</title>
+  <title>ajax通信（一） | Coding for more love!</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Coding for more love!">
-<meta property="og:url" content="http://yoursite.com/archives/2017/04/index.html">
+  <meta name="description" content="C/S架构和B/S架构C/S架构  即Client和Server，在C/S结构下，不同的服务需要安装不同的客户端软件，比如QQ，迅雷，Foxmail这种软件会越来越多，从而占用较多的系统资源，除此之外，还有弊端是：要想在别的电脑上使用Foxmail这样的服务，必须要先下载Foxmail客户端。而且软件升级后也必须要 重新下载。 B/S架构 即Brower和Server，在B/S架构下，所有的服务将">
+<meta name="keywords" content="ajax,http">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ajax通信（一）">
+<meta property="og:url" content="http://yoursite.com/2015/09/10/ajax通信/index.html">
 <meta property="og:site_name" content="Coding for more love!">
+<meta property="og:description" content="C/S架构和B/S架构C/S架构  即Client和Server，在C/S结构下，不同的服务需要安装不同的客户端软件，比如QQ，迅雷，Foxmail这种软件会越来越多，从而占用较多的系统资源，除此之外，还有弊端是：要想在别的电脑上使用Foxmail这样的服务，必须要先下载Foxmail客户端。而且软件升级后也必须要 重新下载。 B/S架构 即Brower和Server，在B/S架构下，所有的服务将">
+<meta property="og:image" content="http://yoursite.com/2015/09/10/ajax通信/ajax通信/request.png">
+<meta property="og:image" content="http://yoursite.com/2015/09/10/ajax通信/ajax通信/status.png">
+<meta property="og:updated_time" content="2017-04-04T14:13:46.391Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Coding for more love!">
+<meta name="twitter:title" content="ajax通信（一）">
+<meta name="twitter:description" content="C/S架构和B/S架构C/S架构  即Client和Server，在C/S结构下，不同的服务需要安装不同的客户端软件，比如QQ，迅雷，Foxmail这种软件会越来越多，从而占用较多的系统资源，除此之外，还有弊端是：要想在别的电脑上使用Foxmail这样的服务，必须要先下载Foxmail客户端。而且软件升级后也必须要 重新下载。 B/S架构 即Brower和Server，在B/S架构下，所有的服务将">
+<meta name="twitter:image" content="http://yoursite.com/2015/09/10/ajax通信/ajax通信/request.png">
   
     <link rel="alternative" href="/atom.xml" title="Coding for more love!" type="application/atom+xml">
   
@@ -149,106 +157,246 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-ajax通信" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ajax通信（一）
+    </h1>
+  
+
+        
+        <a href="/2015/09/10/ajax通信/" class="archive-article-date">
+  	<time datetime="2015-09-09T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-09-10</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="C-S架构和B-S架构"><a href="#C-S架构和B-S架构" class="headerlink" title="C/S架构和B/S架构"></a>C/S架构和B/S架构</h2><p>C/S架构  即<code>Client</code>和<code>Server</code>，在<code>C/S</code>结构下，不同的服务需要安装不同的客户端软件，比如QQ，迅雷，Foxmail这种软件会越来越多，从而占用较多的系统资源，除此之外，还有弊端是：要想在别的电脑上使用Foxmail这样的服务，必须要先下载Foxmail客户端。而且软件升级后也必须要 重新下载。</p>
+<p>B/S架构 即<code>Brower</code>和<code>Server</code>，在<code>B/S</code>架构下，所有的服务将通过浏览器来完成，因为基本所有的电脑都安装了浏览器。获取服务只需要输入网址，刷新网页即可。但是，B/S也有一些不利的方面，比如：操作的稳定性，流畅度方面相对较弱。</p>
+<h2 id="服务器类型"><a href="#服务器类型" class="headerlink" title="服务器类型"></a>服务器类型</h2><p>能提供某种服务能力的计算机称为服务器。</p>
+<ul>
+<li>按照服务类型分类：文件服务器  数据服务器</li>
+<li>按操作系统分类： Linux服务器 Windows服务器</li>
+<li>按应用软件分类：Apache服务器   Ngnix服务器   IIS服务器 Tomcat服务器 Node服务器</li>
+</ul>
+<h2 id="服务器的软件"><a href="#服务器的软件" class="headerlink" title="服务器的软件"></a>服务器的软件</h2><p>使计算机<strong>具备</strong>提供某种服务能力的软件，称为<strong>服务器软件</strong>。常见的服务器软件有：</p>
+<ol>
+<li>文件服务器：Server-U  FileZila  VsFTP</li>
+<li>数据库服务器： Oracle MySQL PostgreSQL MSSQL</li>
+<li>邮件服务器：Postfix Sendmail</li>
+<li>Web服务器：Apache、Nginx、IIS、Tomcat、NodeJS</li>
+</ol>
+<p>HTTP服务器<br>即网站服务器，主要提供文档（文本，图片，视频，音频）的浏览服务，一般安装Apache,Nginx服务器软件。HTTP服务器结合某一编程语言处理业务逻辑，由此进行开发，称为服务端开发。<br>常见的在服务端运行的编程语言有：<code>PHP</code> <code>Jsp</code> <code>Asp</code> <code>Python</code> <code>Ruby</code></p>
+<h2 id="网络基础"><a href="#网络基础" class="headerlink" title="网络基础"></a>网络基础</h2><ul>
+<li>IP地址<br>所谓IP地址就是给每个连接在互联网上的主机分配的一个32位地址。(就像每部手机能正常通话需要一个号码一样)<br><strong>查看本机IP地址</strong> <code>ping</code>、<code>ipconfig</code>、<code>ifconfig</code></li>
+<li>域名<br>IP地址基于数字，不便于记忆，于是使用域名来代替IP地址。</li>
+<li>DNS服务<br>DNS公网服务器，记录了IP地址和域名的映射关系<br><strong>地址查找优先级:</strong><br>本机的host文件 —-&gt; DNS服务器</li>
+<li>端口<br>用来确定应用服务的类型，不同的端口对应不同的服务<br><strong>查看端口的占用情况：</strong> <code>netstat -an</code></li>
+</ul>
+<h2 id="网络传输协议"><a href="#网络传输协议" class="headerlink" title="网络传输协议"></a>网络传输协议</h2><p>  指的是客户端和服务端间进行通信时的约束和规范，客户端和服务端的数据交互不是杂乱无章的，需要遵循一定的规范来进行。</p>
+<h3 id="常见的协议"><a href="#常见的协议" class="headerlink" title="常见的协议"></a>常见的协议</h3><p>1、HTTP、HTTPS 超文本传输协议<br>2、FTP 文件传输协议<br>3、SMTP 简单邮件传输协议</p>
+<h3 id="HTTP协议"><a href="#HTTP协议" class="headerlink" title="HTTP协议"></a>HTTP协议</h3><p>即超文本传输协议，网站是基于<code>http</code>协议的，例如网站的<code>css``html</code>图片等都是基于<code>http</code>协议进行通信（传输）的。<br>HTTP协议具体是指客户机到服务器的请求和服务器到客户机的响应进行了一系列的约束和规范。<br>所以所谓的<code>http</code>协议主要是由<strong>请求</strong>和<strong>响应</strong>构成的。</p>
+<h3 id="常见的请求方法"><a href="#常见的请求方法" class="headerlink" title="常见的请求方法"></a>常见的请求方法</h3><p><code>POST</code> <code>GET</code> <code>PUT</code> <code>DELETE</code></p>
+<h3 id="请求报文"><a href="#请求报文" class="headerlink" title="请求报文"></a>请求报文</h3><p>请求的报文是由客户端发起的，它的规范是：请求行 请求头 请求主体<br><img src="ajax通信/request.png" alt="request"></p>
+<ol>
+<li><p>请求行<br>由请求方式、请求URL、和协议版本组成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">POST /01day/code/login.php HTTP/1.1</div></pre></td></tr></table></figure>
+</li>
+<li><p>请求头<br><code>Host</code> 请求的主机名<br><code>Cache-Control: max-age=0</code> 控制缓存<br><code>Accept: */*</code> 接受文档的<code>MIME</code>类型<br><code>User-Agent:</code> <strong>很重要</strong> 浏览器和系统的信息<br><code>Referer:</code> 从哪个URL跳转过来的<br><code>Accept-Encoding:</code> 可接受的压缩格式<br><strong>注意：</strong><br>当请求的方式是<code>POST</code>的时候，请求头里会设置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Content-Type:application/x-www-form-urlencoded</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>当请求的方式是<code>get</code>的时候，不需要设置</p>
+<ol>
+<li>请求主体<br>也就是传递给服务器的数据</li>
+</ol>
+<h3 id="响应报文"><a href="#响应报文" class="headerlink" title="响应报文"></a>响应报文</h3><p>响应报文是由服务端发出的，它的规范是：响应行（状态行） 响应头 响应主体</p>
+<ol>
+<li><p>状态行<br>由协议版本号、状态码和状态信息构成<br>例如：<code>HTTP/1.1 200 OK</code><br>关于状态码<br>常见的状态码有：<br>200 代表响应成功 304 代表文档未修改 403 没有权限 404 未找到 500 服务器错误<br><img src="ajax通信/status.png" alt="Status"></p>
+</li>
+<li><p>响应头</p>
+</li>
+</ol>
+<p><code>Date:</code> 响应的时间（服务端的时间）<br><code>Server:</code> 服务器的信息<br><code>Content-Length:</code> 响应主体的长度<br><code>Content-Tyep:</code> 响应资源的MIME类型<br><strong>注意：</strong><br>MIME是标识文件类型的，文件的后缀并不能正确的标识文件的类型。客户端与服务器之间的数据传输都是以字节的形式进行的，咱们可以理解是以”文本的形式”传输的，这时浏览器就需要知道该怎么解析这些文本形式的数据，MIME就是明确告诉浏览器该如何处理这些数据。</p>
+<ol>
+<li>响应主体<br>即服务端返回给客户端的内容</li>
+</ol>
+<h2 id="调试工具"><a href="#调试工具" class="headerlink" title="调试工具"></a>调试工具</h2><p>利用<code>HTTP</code>抓包工具在开发中可以帮助我们测试，常用的抓包工具有<code>HttpWatch</code> <code>Fiddler</code><br><code>Charles</code> <code>FireBug</code></p>
+<h2 id="Ajax编程"><a href="#Ajax编程" class="headerlink" title="Ajax编程"></a>Ajax编程</h2><p><code>Ajax</code>即<code>Asynchronous Javascript And XML</code> 不是新的语言，而是对现有技术的综合利用。本质上是在<code>HTTP</code>协议的基础上以异步的方式与服务器进行通信。</p>
+<ul>
+<li>异步<br>指的是某段程序在执行时不会阻塞其他程序的执行，其表现形式为程序的执行顺序不依赖程序本身的书写顺序，相反则为同步。<br><strong>异步的优势</strong>在于：不阻塞程序的执行，从而提升整体的执行效率。</li>
+<li>XMLHttpRequest<br>浏览器的内建对象，用于在后台和服务器通信，由此我们便可以实现对网页的部分更新，而不是刷新整个页面。<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 实例化</span></div><div class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</div><div class="line"><span class="comment">// 异步发起一个http请求</span></div><div class="line">xhr.open(<span class="string">'get'</span>,<span class="string">'index.php'</span>);</div><div class="line">xhr.send(<span class="literal">null</span>);</div><div class="line"><span class="comment">// 接受服务器响应</span></div><div class="line">xhr.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">if</span>(xhr.readyState == <span class="number">4</span> &amp;&amp; xhr.status == <span class="number">200</span>)&#123;</div><div class="line">    <span class="keyword">var</span> result = <span class="built_in">document</span>.querySelector(<span class="string">'.result'</span>);</div><div class="line">    result.innerHTML = xhr.responseText;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>分析：<br><code>XMLHttpRequest</code>的方法和<code>Http</code>请求的3个组成部分正好相对应</p>
+<ol>
+<li>请求行<br><code>xhr.open(&#39;get&#39;,&#39;index.php&#39;);</code></li>
+<li>请求头<br><code>xhr.setRequestHeader(&#39;Content-Type&#39;,&#39;text/html&#39;)</code></li>
+<li>请求主体<br><code>xhr.send(null);</code><br><code>Http</code>响应是由服务端发出的，作为客户端更应该关心的是响应的结果。由于服务器响应需要时间（比如网速慢的原因），所以需要监听服务器的响应状态，才能进行处理。</li>
+<li><p>获取状体行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">xhr.status // 获取状态码</div><div class="line">xhr.statusText // 获取状态信息</div></pre></td></tr></table></figure>
+</li>
+<li><p>获取响应头</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">// 获取指定头信息</div><div class="line">xhr.getResponseHeader(&apos;Content-Type&apos;);</div><div class="line">// 获取所有的响应头信息</div><div class="line">xhr.getAllResponseHeaders();</div></pre></td></tr></table></figure>
+</li>
+<li><p>响应主体</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">xhr.responseText;</div><div class="line">xhr.responseXML;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><strong>注意：</strong><br>需要检测并判断响应头的MIME类型后确定使用<code>responseText</code>或者<code>responseXML</code></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/04/27/面试题03/" class="archive-article-date">
-  	<time datetime="2017-04-27T14:18:22.696Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-27</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">ajax</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">http</a>
+        		</li>
+      		
+		</ul>
+	</div>
 
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/ajax/" class="article-tag-list-link color5">ajax</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2015/09/10/ajax通信/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/04/27/面试题02/" class="archive-article-date">
-  	<time datetime="2017-04-27T14:18:10.143Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-27</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/04/27/面试题00/" class="archive-article-date">
-  	<time datetime="2017-04-27T11:16:39.512Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-27</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+<nav id="article-nav">
+  
+    <a href="/2015/07/20/js高级07/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          js高级（七）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/10/18/html5-01/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">HTML5新标签和API（一）</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/04/15/cc/" class="archive-article-date">
-  	<time datetime="2017-04-15T01:01:20.505Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-15</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+
+
+
   
   
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -271,8 +419,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

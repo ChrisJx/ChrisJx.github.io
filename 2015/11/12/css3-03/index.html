@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2017/4 | Coding for more love!</title>
+  <title>CSS3新样式 (三) | Coding for more love!</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Coding for more love!">
-<meta property="og:url" content="http://yoursite.com/archives/2017/04/index.html">
+  <meta name="description" content="多列布局 多列布局可以实现对文字内容的排版效果   语法  直接给作为父容器的标签添加多列属性即可实现布局效果 1234567891011/*指定列数*/column-count: 4;/*指定列宽*/column-width: 200px;/*定义边框线 和 border一样*/column-rule: 2px dashed #CCC;/*调整列间距*/column-gap: 50px;">
+<meta name="keywords" content="CSS3">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS3新样式 (三)">
+<meta property="og:url" content="http://yoursite.com/2015/11/12/css3-03/index.html">
 <meta property="og:site_name" content="Coding for more love!">
+<meta property="og:description" content="多列布局 多列布局可以实现对文字内容的排版效果   语法  直接给作为父容器的标签添加多列属性即可实现布局效果 1234567891011/*指定列数*/column-count: 4;/*指定列宽*/column-width: 200px;/*定义边框线 和 border一样*/column-rule: 2px dashed #CCC;/*调整列间距*/column-gap: 50px;">
+<meta property="og:updated_time" content="2017-03-31T15:49:07.942Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Coding for more love!">
+<meta name="twitter:title" content="CSS3新样式 (三)">
+<meta name="twitter:description" content="多列布局 多列布局可以实现对文字内容的排版效果   语法  直接给作为父容器的标签添加多列属性即可实现布局效果 1234567891011/*指定列数*/column-count: 4;/*指定列宽*/column-width: 200px;/*定义边框线 和 border一样*/column-rule: 2px dashed #CCC;/*调整列间距*/column-gap: 50px;">
   
     <link rel="alternative" href="/atom.xml" title="Coding for more love!" type="application/atom+xml">
   
@@ -149,106 +154,238 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-css3-03" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      CSS3新样式 (三)
+    </h1>
+  
+
+        
+        <a href="/2015/11/12/css3-03/" class="archive-article-date">
+  	<time datetime="2015-11-11T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-11-12</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="多列布局"><a href="#多列布局" class="headerlink" title="多列布局"></a>多列布局</h2><blockquote>
+<p>多列布局可以实现对文字内容的排版效果</p>
+</blockquote>
+<ul>
+<li><p>语法</p>
+<ul>
+<li>直接给作为父容器的标签添加多列属性即可实现布局效果 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">/*指定列数*/</div><div class="line">column-count: 4;</div><div class="line"></div><div class="line">/*指定列宽*/</div><div class="line">column-width: 200px;</div><div class="line"></div><div class="line">/*定义边框线 和 border一样*/</div><div class="line">column-rule: 2px dashed #CCC;</div><div class="line"></div><div class="line">/*调整列间距*/</div><div class="line">column-gap: 50px;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>示例代码</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;en&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">	&lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">	&lt;title&gt;Document&lt;/title&gt;</div><div class="line">	&lt;style&gt;</div><div class="line">		body&#123;font:14px/1.5 georgia,serif,sans-serif;&#125;</div><div class="line">		p&#123;margin:0;padding:5px 10px;background:#eee;&#125;</div><div class="line">		h1&#123;margin:10px 0;font-size:16px;&#125;</div><div class="line">	.test&#123;</div><div class="line">   		/*width:628px;*/</div><div class="line">   		border:10px solid #000;</div><div class="line">   		-moz-columns:200px 3;</div><div class="line">   		-webkit-columns:200px 3;</div><div class="line">   		columns:200px 3;</div><div class="line">   		column-gap: 100px;</div><div class="line">	&#125;</div><div class="line">	.test2&#123;</div><div class="line">    	border:10px solid #000;</div><div class="line">    	-moz-columns:200px;</div><div class="line">    	-webkit-columns:200px;</div><div class="line">    	columns:200px;</div><div class="line">	&#125;</div><div class="line">	&lt;/style&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">	&lt;h1&gt;列数及列宽固定:&lt;/h1&gt;</div><div class="line">&lt;div class=&quot;test&quot;&gt;</div><div class="line">    &lt;p&gt;This module describes multi-column layout in CSS. By using functionality described in this document, style sheets can declare that the content of an element is to be laid out in multiple columns. &lt;/p&gt;</div><div class="line">    &lt;p&gt;On the Web, tables have also been used to describe multi-column layouts. The main benefit of using CSS-based columns is flexibility; content can flow from one column to another, and the number of columns can vary depending on the size of the viewport. Removing presentation table markup from documents allows them to more easily be presented on various output devices including speech synthesizers and small mobile devices.&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;h1&gt;列宽固定，根据容器宽度液态分布列数:&lt;/h1&gt;</div><div class="line">&lt;div class=&quot;test2&quot;&gt;</div><div class="line">    &lt;p&gt;This module describes multi-column layout in CSS. By using functionality described in this document, style sheets can declare that the content of an element is to be laid out in multiple columns. &lt;/p&gt;</div><div class="line">    &lt;p&gt;On the Web, tables have also been used to describe multi-column layouts. The main benefit of using CSS-based columns is flexibility; content can flow from one column to another, and the number of columns can vary depending on the size of the viewport. Removing presentation table markup from documents allows them to more easily be presented on various output devices including speech synthesizers and small mobile devices.&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<h2 id="伸缩盒子"><a href="#伸缩盒子" class="headerlink" title="伸缩盒子"></a>伸缩盒子</h2><blockquote>
+<p>伸缩盒子可以根据比例进行页面布局,更为灵活</p>
+</blockquote>
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><ul>
+<li>必要属性<ul>
+<li>对于想要使用伸缩盒子布局的元素,需要为他们的父盒子添加<code>display:flex</code>属性,才能够开启该选项</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">/* 开启弹性布局 */</div><div class="line">display:flex</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>宽度设置</strong><ul>
+<li>在不设置弹性盒子的方向时,默认是从左往右进行布局   </li>
+<li>如果元素有宽度,那么可以使用自身宽度,</li>
+<li>也可以通过<code>flex:数字</code>的方式设置宽度比例,实现等比例效果</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">/* 会使用设置的宽度 */</div><div class="line">width:100px;</div><div class="line"></div><div class="line">/* 使用比例宽度</div><div class="line">    假设父容器中 有3个子元素 ,flex都为1 那么 每个宽度为</div><div class="line">    100%/3</div><div class="line">    有3个子元素 ,flex分别为1,2,3 那么 宽度依次为</div><div class="line">    (100%/(1+2+3))*1</div><div class="line">    (100%/(1+2+3))*2</div><div class="line">    (100%/(1+2+3))*3</div><div class="line">*/</div><div class="line">flex:1;</div></pre></td></tr></table></figure>
+<ul>
+<li><p><strong>对齐方式-水平方向</strong></p>
+<ul>
+<li>可以设子元素在横向以及竖向对其的方式</li>
+<li><code>justify-content</code>可以设置水平对其方式<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">/* 水平方向对其方式  这个值为间距相等 两边顶边 */</div><div class="line">justify-content:space-between;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p><strong>换行</strong>    </p>
+<ul>
+<li><code>flew-wrap</code>默认为<code>nowrap</code></li>
+<li>当我们设置的子元素宽度,一行无法装满时,配合该属性可以设置换行</li>
+<li>多行文本的对其,使用<code>align-content</code>来设置</li>
+<li>需要注意的是,如果使用<code>flex</code>按照比例,只会切割一行,无法实现换行,需要使用<code>数值的尺寸</code>(px,%,em)</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">/*设置换行*/</div><div class="line">flex-wrap:wrap;换行</div><div class="line"></div><div class="line">/* 设置多行对其方式*/</div><div class="line">align-content:center;</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>两根轴</strong><ul>
+<li>默认情况下横向叫做<code>主轴</code>,竖向叫做<code>纵轴</code></li>
+<li>需要通过作为容器的<code>父盒子</code>进行修改</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">display:flex;</div><div class="line">/* 使用行布局, 从上往下  */</div><div class="line">flex-direction:column;</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>顺序</strong><ul>
+<li>类似于<code>z-index</code>,<code>伸缩盒子</code>中可以为<code>子元素</code>添加<code>order</code>调整顺序</li>
+<li>可以取负值,越小的越靠前,默认都是<code>0</code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">order:-1;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="建议文档"><a href="#建议文档" class="headerlink" title="建议文档"></a>建议文档</h3><p><a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank" rel="external">阮一峰关于flex布局的文章</a></p>
+<p><a href="http://www.cnblogs.com/moqiutao/p/4817321.html" target="_blank" rel="external">参考博文</a></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/04/27/面试题03/" class="archive-article-date">
-  	<time datetime="2017-04-27T14:18:22.696Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-27</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">CSS3</a>
+        		</li>
+      		
+		</ul>
+	</div>
 
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/CSS/" class="article-tag-list-link color4">CSS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2015/11/12/css3-03/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/04/27/面试题02/" class="archive-article-date">
-  	<time datetime="2017-04-27T14:18:10.143Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-27</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/04/27/面试题00/" class="archive-article-date">
-  	<time datetime="2017-04-27T11:16:39.512Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-27</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+<nav id="article-nav">
+  
+    <a href="/2015/11/09/css3-02/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          CSS3（二）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/12/02/mobile-develop01/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">移动端开发（一）</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/04/15/cc/" class="archive-article-date">
-  	<time datetime="2017-04-15T01:01:20.505Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-15</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+
+
+
   
   
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -271,8 +408,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

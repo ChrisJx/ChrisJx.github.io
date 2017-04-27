@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2017/4 | Coding for more love!</title>
+  <title>基于Hexo和Github搭建博客 | Coding for more love!</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Coding for more love!">
-<meta property="og:url" content="http://yoursite.com/archives/2017/04/index.html">
+  <meta name="description" content="搭建进程 安装Node.js和git（仓库中有）  使用npm安装hexo$ npm install hexo-cli -g  hexo在指定的文件夹新建所需的文件 1$ hexo init   _config.yml网站的 配置 信息，您可以在此配置大部分的参数。 package.json应用程序的信息。EJS, Stylus 和 Markdown renderer 已默认安装，您可以自由移除。">
+<meta name="keywords" content="npm,hexo,github">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基于Hexo和Github搭建博客">
+<meta property="og:url" content="http://yoursite.com/2015/03/09/hexo-next-blog/index.html">
 <meta property="og:site_name" content="Coding for more love!">
+<meta property="og:description" content="搭建进程 安装Node.js和git（仓库中有）  使用npm安装hexo$ npm install hexo-cli -g  hexo在指定的文件夹新建所需的文件 1$ hexo init   _config.yml网站的 配置 信息，您可以在此配置大部分的参数。 package.json应用程序的信息。EJS, Stylus 和 Markdown renderer 已默认安装，您可以自由移除。">
+<meta property="og:updated_time" content="2017-03-27T08:37:09.761Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Coding for more love!">
+<meta name="twitter:title" content="基于Hexo和Github搭建博客">
+<meta name="twitter:description" content="搭建进程 安装Node.js和git（仓库中有）  使用npm安装hexo$ npm install hexo-cli -g  hexo在指定的文件夹新建所需的文件 1$ hexo init   _config.yml网站的 配置 信息，您可以在此配置大部分的参数。 package.json应用程序的信息。EJS, Stylus 和 Markdown renderer 已默认安装，您可以自由移除。">
   
     <link rel="alternative" href="/atom.xml" title="Coding for more love!" type="application/atom+xml">
   
@@ -149,106 +154,225 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-hexo-next-blog" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      基于Hexo和Github搭建博客
+    </h1>
+  
+
+        
+        <a href="/2015/03/09/hexo-next-blog/" class="archive-article-date">
+  	<time datetime="2015-03-08T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-03-09</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="搭建进程"><a href="#搭建进程" class="headerlink" title="搭建进程"></a>搭建进程</h2><ol>
+<li><p>安装Node.js和git（仓库中有）</p>
+</li>
+<li><p>使用npm安装hexo<br><code>$ npm install hexo-cli -g</code></p>
+</li>
+<li><p>hexo在指定的文件夹新建所需的文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo init</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>_config.yml<br>网站的 配置 信息，您可以在此配置大部分的参数。</p>
+<p>package.json<br>应用程序的信息。EJS, Stylus 和 Markdown renderer 已默认安装，您可以自由移除。</p>
+<p>scaffolds<br>模版 文件夹。当您新建文章时，Hexo 会根据 scaffold 来建立文件。</p>
+<p>scripts<br>脚本 文件夹。脚本是扩展 Hexo 最简易的方式，在此文件夹内的 JavaScript 文件会被自动执行</p>
+<p>source<br>资源文件夹是存放用户资源的地方。除 <em>posts 文件夹之外，开头命名为 </em> (下划线)的文件 / 文件夹和隐藏的文件将会被忽略。Markdown 和 HTML 文件会被解析并放到 public 文件夹，而其他文件会被拷贝过去。</p>
+<p>themes<br>主题 文件夹。Hexo 会根据主题来生成静态页面。</p>
+<ol>
+<li>搭建本地博客<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">npm install</div><div class="line">hexo g</div><div class="line">hexo s</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>访问<a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a></p>
+<p>检查是否安装成功：hexo –version,出现版本号则表示安装成功</p>
+<p>github上注册账号，新建仓库 <code>zaiaifreedom.github.io</code>,回到<code>setting</code>中，更新站点<code>Update your site</code> <code>Automatic Page Generator</code></p>
+<ol>
+<li><p>打开本地的<code>_config.yml</code>修改最后一段<code>type: git # repo: git@github.com:zaiaifreedom/zaiaifreedom.github.io.git
+repo: https://zaiaifreedom:feifei123@github.com/zaiaifreedom/zaiaifreedom.github.io.git</code></p>
+</li>
+<li><p>回到命令窗口，执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">npm install hexo-deployer-git --save （这命令是为了解决hexo新版本的部署问题）</div><div class="line"></div><div class="line">hexo deploy --generate</div><div class="line"></div><div class="line">hexo g 回车 （这是重新生成blog）</div><div class="line"></div><div class="line">hexo s --debug （开启服务）</div><div class="line"></div><div class="line">hexo d 回车 （这是将本地blog部署到github的仓库）</div></pre></td></tr></table></figure>
+</li>
+<li><p><code>git clone theme主题</code> 再执行上述命令</p>
+</li>
+<li><p>error———–返回上次配置</p>
+</li>
+<li><p><a href="http://www.cnblogs.com/syd192/p/6074323.html" target="_blank" rel="external">hexo主题配置</a></p>
+</li>
+<li><p>​</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">---</div><div class="line"></div><div class="line"></div><div class="line">  title: 基于Hexo和Github搭建博客</div><div class="line">  date: 2016-11-09</div><div class="line">  tags: [npm, hexo, github]</div><div class="line">  categories: 搭建博客</div></pre></td></tr></table></figure>
+</li>
+<li></li>
+</ol>
+<p>   ​</p>
+<h2 id="所遇问题"><a href="#所遇问题" class="headerlink" title="所遇问题"></a>所遇问题</h2><ul>
+<li><p>question1:    npm查看全局安装过的包？</p>
+<p>执行<code>npm list -g --depth0</code>查看全局安装的包</p>
+<ul>
+<li>npm本地安装包（local）执行<code>npm install xxx</code>安装到命令行所在目录的node_module目录。</li>
+<li>npm全局安装（global）执行<code>npm install xxx -g</code>安装到 \AppData\Roaming\npm\node_modules目录。</li>
+</ul>
+</li>
+<li><p>​</p>
+</li>
+</ul>
+<h2 id="参阅文档"><a href="#参阅文档" class="headerlink" title="参阅文档"></a>参阅文档</h2><ul>
+<li><a href="http://wiki.jikexueyuan.com/project/hexo-document/configuration.html" target="_blank" rel="external">极客学院</a></li>
+<li><a href="http://www.cnblogs.com/dantefung/p/d8c48ba8030bcab7cfc364d423186fee.html" target="_blank" rel="external">cnblogs</a></li>
+<li><a href="http://www.arao.me/2015/hexo-next-theme-optimize-base/" target="_blank" rel="external">next主题自定义</a></li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/04/27/面试题03/" class="archive-article-date">
-  	<time datetime="2017-04-27T14:18:22.696Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-27</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">npm</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">github</a>
+        		</li>
+      		
+		</ul>
+	</div>
 
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/搭建博客/" class="article-tag-list-link color5">搭建博客</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2015/03/09/hexo-next-blog/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/04/27/面试题02/" class="archive-article-date">
-  	<time datetime="2017-04-27T14:18:10.143Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-27</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/04/27/面试题00/" class="archive-article-date">
-  	<time datetime="2017-04-27T11:16:39.512Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-27</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+<nav id="article-nav">
+  
+  
+    <a href="/2015/05/10/php基础01/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">php语言基础（一）</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/04/15/cc/" class="archive-article-date">
-  	<time datetime="2017-04-15T01:01:20.505Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-15</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+
+
+
   
   
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -271,8 +395,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
