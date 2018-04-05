@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="通过ajax 和服务端进行通信，是前后端交互最常用的方式，但又是问题出现最多的地方。下面我通过第三视角，来分析 resource 这个用来进行交互的插件。  Vue.js 可以构建一个完全不依赖后端服务的应用，同时也可以与服务端进行数据交互来同步界面的动态更新。Vue 本身并没有提供与服务端通信的接口，但是通过插件的形式实现了基于AJAX、JSONP 等技术的服务端通信。 vue-resourc">
+<meta name="keywords">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Coding for more love!">
+<meta property="og:url" content="http://yoursite.com/2018/02/08/vue-resource/index.html">
+<meta property="og:site_name" content="Coding for more love!">
+<meta property="og:description" content="通过ajax 和服务端进行通信，是前后端交互最常用的方式，但又是问题出现最多的地方。下面我通过第三视角，来分析 resource 这个用来进行交互的插件。  Vue.js 可以构建一个完全不依赖后端服务的应用，同时也可以与服务端进行数据交互来同步界面的动态更新。Vue 本身并没有提供与服务端通信的接口，但是通过插件的形式实现了基于AJAX、JSONP 等技术的服务端通信。 vue-resourc">
+<meta property="og:updated_time" content="2018-02-08T10:48:54.163Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Coding for more love!">
+<meta name="twitter:description" content="通过ajax 和服务端进行通信，是前后端交互最常用的方式，但又是问题出现最多的地方。下面我通过第三视角，来分析 resource 这个用来进行交互的插件。  Vue.js 可以构建一个完全不依赖后端服务的应用，同时也可以与服务端进行数据交互来同步界面的动态更新。Vue 本身并没有提供与服务端通信的接口，但是通过插件的形式实现了基于AJAX、JSONP 等技术的服务端通信。 vue-resourc">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/02/08/vue-resource/"/>
+
+
+
+
+
+  <title> | Coding for more love!</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Coding for more love!</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/08/vue-resource/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ChrisJx">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Coding for more love!">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-08T11:52:58+08:00">
+                2018-02-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>通过ajax 和服务端进行通信，是前后端交互最常用的方式，但又是问题出现最多的地方。下面我通过第三视角，来分析 <code>resource</code> 这个用来进行交互的插件。</p>
+</blockquote>
+<p>Vue.js 可以构建一个完全不依赖后端服务的应用，同时也可以与服务端进行数据交互来同步界面的动态更新。Vue 本身并没有提供与服务端通信的接口，但是通过插件的形式实现了基于AJAX、JSONP 等技术的服务端通信。</p>
+<p><code>vue-resource</code> 是一个通过 <code>XMLHttpRequest</code> 或 <code>JSONP</code> 技术实现异步加载服务端数据的 Vue 插件，该插件提供了一般的 HTTP 请求接口和 RESTful 架构请求接口，并且提供了<strong>全局方法</strong> 和 Vue 组件<strong>实例方法</strong> 。</p>
+<p>一般的 HTTP 请求接口按照调用的便捷程度又分为<strong>底层方法 </strong>和 <strong>便捷方法</strong>，便捷方法是对底层方法的封装。在 <code>vue-resource</code> 中我们可以全局配置，同时，它提供了数据获取各个阶段的钩子，使得我们可以对数据获取过程进行更好的控制。</p>
+<p>先来一个官方的<a href="https://www.npmjs.com/package/vue-resource" target="_blank" rel="external">文档doc</a> </p>
+<ul>
+<li>vue-resource 公开方法<ul>
+<li>基本HTTP 调用<ul>
+<li>全局调用<ul>
+<li>底层方法<ul>
+<li><code>Vue.http</code></li>
+</ul>
+</li>
+<li>便捷方法<ul>
+<li><code>Vue.$http.get</code></li>
+<li><code>Vue.$http.post</code></li>
+<li><code>Vue.$http.put</code></li>
+<li><code>Vue.$http.patch</code></li>
+<li><code>Vue.$http.delete</code></li>
+<li><code>Vue.$http.jsonp</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>组件实例调用<ul>
+<li>底层方法<ul>
+<li><code>this.$http</code></li>
+</ul>
+</li>
+<li>便捷方法<ul>
+<li><code>this.$http.get</code></li>
+<li><code>this.$http.post</code></li>
+<li><code>this.$http.put</code></li>
+<li><code>this.$http.patch</code></li>
+<li><code>this.$http.delete</code></li>
+<li><code>this.$http.jsonp</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>RESTful 调用<ul>
+<li>全局调用<ul>
+<li><code>Vue.resource().get</code></li>
+<li><code>Vue.resource().save</code></li>
+<li><code>Vue.resource().query</code></li>
+<li><code>Vue.resource().update</code></li>
+<li><code>Vue.resource().remove</code></li>
+<li><code>Vue.resource().delete</code></li>
+</ul>
+</li>
+<li>组件实例调用<ul>
+<li><code>this.resource().get</code></li>
+<li><code>this.resource().save</code></li>
+<li><code>this.resource().query</code></li>
+<li><code>this.resource().update</code></li>
+<li><code>this.resource().remove</code></li>
+<li><code>this.resource().delete</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="1-安装"><a href="#1-安装" class="headerlink" title="1. 安装"></a>1. 安装</h4><p>如果项目基于 npm 包方式来开发，则可以使用 npm 来按照 vue 和 vue-resource，执行如下命令</p>
+<p><code>$ npm i vue vue-resource --save-dev</code></p>
+<p>在项目中引入</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 引入 Vue.js 和 vue-resource 结合webpack以后可以使用 import from 来进行引入</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> Vue = <span class="built_in">require</span>(<span class="string">'vue'</span>); </div><div class="line"></div><div class="line"><span class="keyword">var</span> VueResource = <span class="built_in">require</span>(<span class="string">'vue-resource'</span>);</div><div class="line"></div><div class="line"><span class="comment">// 注册 vue-resource 插件</span></div><div class="line"></div><div class="line"><span class="comment">// 注意，假如 Vue.js 已经在html 中直接引入，则不需要再执行此步骤</span></div><div class="line"></div><div class="line"><span class="comment">// 此时 vue-resource 会自动调用 Vue.use 方法来注册</span></div><div class="line"></div><div class="line">Vue.use(VueResource);</div></pre></td></tr></table></figure>
+<h4 id="2-参数配置"><a href="#2-参数配置" class="headerlink" title="2. 参数配置"></a>2. 参数配置</h4><p>vue-resource 将请求配置分为<strong>全局配置</strong> 、<strong>组件实例配置</strong> 和<strong>调用配置</strong>  三部分，这三部分的优先级依次增高，优先级高的配置会覆盖优先级低的配置。</p>
+<p>全局配置参数</p>
+<p>Vue.http.options</p>
+<ul>
+<li><p>jsonp</p>
+</li>
+<li><p>beforeSend</p>
+</li>
+<li><p>crossOrigin</p>
+<p>是否支持跨域处理</p>
+</li>
+<li><p>emulateHTTP</p>
+</li>
+<li><p>emulateJSON  </p>
+<p>如果您的Web服务器无法处理编码为的请求<code>application/json</code>，则可以启用该<code>emulateJSON</code>选项。这将发送请求作为<code>application/x-www-form-urlencoded</code>MIME类型，就像从一个正常的HTML表单。</p>
+</li>
+<li><p>timeout </p>
+<p>设置超时的时间</p>
+</li>
+<li><p>method </p>
+</li>
+<li><p>data</p>
+</li>
+<li><p>params</p>
+</li>
+<li><p>headers</p>
+<p>设置header头相关参数</p>
+</li>
+<li><p>xhr</p>
+<p>xhr对象的相关设置</p>
+</li>
+</ul>
+<ul>
+<li>upload</li>
+</ul>
+<h4 id="3-全局配置"><a href="#3-全局配置" class="headerlink" title="3. 全局配置"></a>3. 全局配置</h4><p>可以在全局中进行配置</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Vue.http.option.root = <span class="string">'/api'</span></div><div class="line">Vue.http.headers.common[<span class="string">'Authorization'</span>] = <span class="string">'Basic YXBpOnBhc3N3b3Jk'</span></div></pre></td></tr></table></figure>
+<p>也可以在vue实例中进行配置</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">	<span class="attr">http</span>:&#123;</div><div class="line">		<span class="attr">root</span>: <span class="string">'/api'</span>,</div><div class="line">      <span class="attr">headers</span>: &#123;</div><div class="line">        <span class="attr">Authorization</span>: <span class="string">'Basic YXBpOnBhc3N3b3Jk'</span></div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>在方法调用时配置</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="attr">ready</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="comment">// get请求</span></div><div class="line">    <span class="keyword">this</span>.$http.get(&#123;<span class="attr">url</span>: <span class="string">'/abc'</span>,<span class="attr">headers</span>: &#123;<span class="attr">Au</span>: <span class="string">'hello'</span>&#125;&#125;)</div><div class="line">    	.then(callbackSuccess,callbackError) </div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p><strong>headers</strong> 配置</p>
+<p>headers属性用来配置请求头，合并策略遵循参数配置合并策略。 除了参数配置 headers 属性可以设置请求头以外，在 <code>vue-resource</code> 中也提供了全局默认的 headers 配置。</p>
+<p>Vue.http.headers</p>
+<ul>
+<li>put        {‘Content-Type’: ‘application/json’}</li>
+<li>post       {‘Content-Type’: ‘application/json’}</li>
+<li>patch      {‘Content-Type’: ‘application/json’}</li>
+<li>delete     {‘Content-Type’: ‘application/json’}</li>
+<li>common {‘Accept’: ‘application/json,text/plain,<em>/</em>‘}</li>
+<li>custom    {‘X-Request-with’: ‘XMLHttpRequest’}</li>
+</ul>
+<p>可以看到 Vue.http.headers 键值可以是 HTTP 方法名、common、custom 三种类型。这三种类型的配置会进行合并，优先级从低到高依次是 common、custom、HTTP方法名。</p>
+<p><strong>重点</strong> </p>
+<p>其中 common 对应的请求头会在<strong>所有请求头</strong> 中设置，custom 对应的请求头在<strong>非跨域</strong> 时设置，HTTP 方法名对应的请求头只有在<strong>请求的 method 匹配方法名</strong> 时才会被设置。</p>
+<p>哎，解决了很长时间以来困扰我的问题，跨域时 custom 配置无效。</p>
+<h4 id="4-基本HTTP调用"><a href="#4-基本HTTP调用" class="headerlink" title="4. 基本HTTP调用"></a>4. 基本HTTP调用</h4><p>基本 HTTP 调用即普通的 GET、POST 等基本的 HTTP 操作，实际上执行增、删、改、查是前后端开发人员共同约定的，<strong>并非通过 HTTP 的请求方法</strong> 如 GET 代表获取数据、PUT代表写入数据、POST 代表更新数据。</p>
+<ul>
+<li>底层方法</li>
+</ul>
+<p>全局中的Vue.http 方法和组件实例的 this.$http 都是属于底层的方法。他们根据所传的option 参数的method 属性来判断请求方式是 GET 还是 POST或者其他方法</p>
+<p>以组件实例调用方式为例来了解一下如何发送 POST 请求，代码如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">    <span class="attr">ready</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="comment">//POST 请求</span></div><div class="line">        <span class="keyword">this</span>.$http(&#123;</div><div class="line">            <span class="attr">url</span>:<span class="string">'/book'</span>,</div><div class="line">            <span class="attr">method</span>:<span class="string">'POST'</span>,</div><div class="line">            <span class="comment">//请求体中发送的数据</span></div><div class="line">            data:&#123;</div><div class="line">                <span class="attr">cat</span>:<span class="string">'1'</span></div><div class="line">            &#125;,</div><div class="line">            <span class="comment">//设置请求头</span></div><div class="line">            headers:&#123;</div><div class="line">                <span class="string">'Content-Type'</span>:<span class="string">'x-www-form-urlencoded'</span></div><div class="line">            &#125;</div><div class="line">        &#125;).then(</div><div class="line">                <span class="function"><span class="keyword">function</span>(<span class="params">response</span>)</span>&#123;</div><div class="line">                    <span class="comment">//请求成功回调</span></div><div class="line">                &#125;,</div><div class="line">                <span class="function"><span class="keyword">function</span>(<span class="params">response</span>)</span>&#123;</div><div class="line">                    <span class="comment">//请求失败回调</span></div><div class="line">                &#125;</div><div class="line">        )</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<ul>
+<li>便捷方法</li>
+</ul>
+<p>便捷方法是对底层方法的封装，在调用时可以省去配置选项 option 中的method 属性。以下是 vue-resource 提供的便捷方法列表：</p>
+<ul>
+<li>get(url, [options])</li>
+<li>head(url, [options])</li>
+<li>delete(url, [options])</li>
+<li>jsonp(url, [options])</li>
+<li>post(url, [body], [options])</li>
+<li>put(url, [body], [options])</li>
+<li>patch(url, [body], [options])</li>
+</ul>
+<p><strong>options 参数列表</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>参数</strong></th>
+<th><strong>类型</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>url</td>
+<td>string</td>
+<td>请求的 URL 地址</td>
+</tr>
+<tr>
+<td>body</td>
+<td>Object, FormData, string</td>
+<td>请求体</td>
+</tr>
+<tr>
+<td>headers</td>
+<td>Object</td>
+<td>HTTP请求头部</td>
+</tr>
+<tr>
+<td>params</td>
+<td>Object</td>
+<td>URL参数，默认值为{}Vue.http({ url:’<a href="http://example.com/{book}" target="_blank" rel="external">http://example.com/{book}</a>‘, params:{  book:’vue’,  cat:’1’ }})                                                                                        最终URL为 <a href="http://example.com/vue?cat=1" target="_blank" rel="external">http://example.com/vue?cat=1</a></td>
+</tr>
+<tr>
+<td>method</td>
+<td>string</td>
+<td>请求的HTTP方法(GET、POST等),默认GET</td>
+</tr>
+<tr>
+<td>timeout</td>
+<td>number</td>
+<td>请求超时时间，默认值为0，单位是ms，0表示没有超时限制，超时后将会取消当前请求</td>
+</tr>
+<tr>
+<td>before</td>
+<td>function(request)</td>
+<td>请求发送前的处理函数。默认值为null，接受请求选项对象作为参数</td>
+</tr>
+<tr>
+<td>progress</td>
+<td>function(event)</td>
+<td>处理ProgressEvent的回调函数</td>
+</tr>
+<tr>
+<td>credentials</td>
+<td>boolean</td>
+<td>表示跨域请求时是否需要使用凭证</td>
+</tr>
+<tr>
+<td>emulateHTTP</td>
+<td>boolean</td>
+<td>默认值为false，当值为true时，用HTTP的POST方法发送PUT、PATCH、DELETE等请求，并设置请求头字段 HTTP-Method-Override为原始请求方法</td>
+</tr>
+<tr>
+<td>emulateJSON</td>
+<td>boolean</td>
+<td>默认值为false，当值为true并且data为对象时，设置请求头Content-Type的值为 application/x-www-form-urlencoded</td>
+</tr>
+<tr>
+<td>xhr</td>
+<td>Object</td>
+<td>默认值为null，该对象中的属性都会应用到原生xhr实例对象上</td>
+</tr>
+<tr>
+<td>upload</td>
+<td>Object</td>
+<td>默认值为null，该对象的属性都会应用到原生xhr实例对象的upload属性上</td>
+</tr>
+<tr>
+<td>jsonp</td>
+<td>string</td>
+<td>默认值为callback，JSONP请求中回调函数的名字   Vue.http({ url:’<a href="http://example.com/book" target="_blank" rel="external">http://example.com/book</a>‘, method:’JSONP’, jsonp:’cb’})</td>
+</tr>
+<tr>
+<td>crossOrigin</td>
+<td>Object</td>
+<td>默认值为null，表示是否跨域，如果没有设置该属性，vue-resource 内部会判断浏览器当前 URL 和请求 URL 是否跨域</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">        <span class="attr">el</span>:<span class="string">'#app'</span>,</div><div class="line">        <span class="attr">data</span>:&#123;</div><div class="line"> </div><div class="line">        &#125;,</div><div class="line">        <span class="attr">methods</span>:&#123;</div><div class="line">            <span class="attr">get</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">                <span class="keyword">this</span>.$http.post(<span class="string">'post.php'</span>,&#123;</div><div class="line">                    <span class="attr">a</span>:<span class="number">1</span>,</div><div class="line">                    <span class="attr">b</span>:<span class="number">20</span></div><div class="line">                &#125;,&#123;</div><div class="line">                    <span class="attr">emulateJSON</span>:<span class="literal">true</span></div><div class="line">                &#125;).then(</div><div class="line">                        <span class="function"><span class="keyword">function</span>(<span class="params">response</span>)</span>&#123; <span class="comment">//成功的回调函数</span></div><div class="line">                            alert(response.data);</div><div class="line">                        &#125;,</div><div class="line">                        <span class="function"><span class="keyword">function</span>(<span class="params">response</span>)</span>&#123; <span class="comment">//失败的回调函数</span></div><div class="line">                            alert(response.status);</div><div class="line">                        &#125;</div><div class="line">                )</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;);</div></pre></td></tr></table></figure>
+<p>php部分的代码是</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">  $a = $_POST[<span class="string">'a'</span>];</div><div class="line">  $b = $_POST[<span class="string">'b'</span>];</div><div class="line">  <span class="keyword">echo</span> $a - $b;</div><div class="line">  <span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="5-response-对象"><a href="#5-response-对象" class="headerlink" title="5. response 对象"></a>5. response 对象</h4><p>response 对象包含了服务端返回的数据，以及HTTP响应状态，响应头信息</p>
+<p>​    </p>
+<table>
+<thead>
+<tr>
+<th><strong>属性</strong></th>
+<th><strong>类型</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>url</td>
+<td>string</td>
+<td>响应的 URL</td>
+</tr>
+<tr>
+<td>body</td>
+<td>Object, Blob, string</td>
+<td>响应体数据</td>
+</tr>
+<tr>
+<td>headers</td>
+<td>Header</td>
+<td>响应头对象</td>
+</tr>
+<tr>
+<td>ok</td>
+<td>boolean</td>
+<td>HTTP 状态码(200-299之间)</td>
+</tr>
+<tr>
+<td>status</td>
+<td>number</td>
+<td>HTTP 响应状态码</td>
+</tr>
+<tr>
+<td>statusText</td>
+<td>string</td>
+<td>HTTP 响应文本</td>
+</tr>
+<tr>
+<td>data</td>
+<td>Object，string</td>
+<td>服务器端返回的数据，已使用JSON.parse解析</td>
+</tr>
+<tr>
+<td><strong>方法</strong></td>
+<td><strong>类型</strong></td>
+<td><strong>描述</strong></td>
+</tr>
+<tr>
+<td>text( )</td>
+<td>Promise</td>
+<td>把响应数据解析为字符串</td>
+</tr>
+<tr>
+<td>json( )</td>
+<td>Promise</td>
+<td>把响应数据解析为JSON对象</td>
+</tr>
+<tr>
+<td>blob( )</td>
+<td>Promise</td>
+<td>把响应数据解析为二进制对象</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="keyword">this</span>.$http.post(<span class="string">'/someurl'</span>,&#123;<span class="attr">foo</span>: <span class="string">'bar'</span>&#125;)</div><div class="line">    .then(<span class="function">(<span class="params">response</span>) =&gt;</span> &#123;</div><div class="line">     <span class="comment">// get status</span></div><div class="line">     response.status;</div><div class="line">     response.statusText;</div><div class="line">     response.headers.get(<span class="string">'Expires'</span>)</div><div class="line">     <span class="keyword">this</span>.$set(<span class="string">'someData'</span>,response.body)</div><div class="line">  &#125;,(response) =&gt; &#123;</div><div class="line">    <span class="comment">// error callback</span></div><div class="line">  &#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>从响应对象中获得一个 image并使用blob() 方法提取image的数据内容</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="comment">// GET /image.jpg</span></div><div class="line">  <span class="keyword">this</span>.$http.get(<span class="string">'/image.jpg'</span>).then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</div><div class="line">    <span class="comment">// resoleve to Blob</span></div><div class="line">    <span class="keyword">return</span> response.blob()</div><div class="line">  &#125;).then(<span class="function">(<span class="params">blob</span>) =&gt;</span> &#123;</div><div class="line">    use image Blob</div><div class="line">  &#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="6-拦截器（interceptors）"><a href="#6-拦截器（interceptors）" class="headerlink" title="6 拦截器（interceptors）"></a>6 拦截器（interceptors）</h4><p>处理请求的消息</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Vue.http.interceptors.push(<span class="function">(<span class="params">req,next</span>) =&gt;</span> &#123;</div><div class="line">  <span class="comment">// modify request</span></div><div class="line">  req.method = <span class="string">'POST'</span></div><div class="line">  <span class="comment">// continue to next interceptor</span></div><div class="line">  next();</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>处理请求和响应的消息</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">Vue.http.interceptors.push(<span class="function">(<span class="params">req,next</span>) =&gt;</span> &#123;</div><div class="line">  <span class="comment">// modify request</span></div><div class="line">  req.method = <span class="string">'POST'</span></div><div class="line">  <span class="comment">// modify headers</span></div><div class="line">  request.headers.set(<span class="string">'X-CSRF-TOKEN'</span>, <span class="string">'TOKEN'</span>);</div><div class="line">  request.headers.set(<span class="string">'Authorization'</span>, <span class="string">'Bearer TOKEN'</span>);</div><div class="line">  <span class="comment">// allow cross domain cookie</span></div><div class="line">  request.credentials = <span class="literal">true</span>;</div><div class="line">  <span class="comment">// continue to next interceptor</span></div><div class="line">  next(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</div><div class="line">    <span class="comment">// modify response</span></div><div class="line">    res.body = <span class="string">''</span></div><div class="line">  &#125;);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>返回一个响应消息并且停止处理、</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Vue.http.interceptors.push(<span class="function">(<span class="params">req,next</span>) =&gt;</span> &#123;</div><div class="line">  <span class="comment">// stop and return response</span></div><div class="line">  next(request.respondWith(body,&#123;</div><div class="line">    <span class="attr">status</span>: <span class="number">404</span>,</div><div class="line">    <span class="attr">statusText</span>: <span class="string">'Not Found'</span></div><div class="line">  &#125;));</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h4 id="7-跨域"><a href="#7-跨域" class="headerlink" title="7 跨域"></a>7 跨域</h4><p>很多人认为 AJAX 只能在同域的情况下发送成功，很早的时候，由于浏览器安全策略，AJAX确实只能在同域的情况下发送。但是目前很多浏览器已经开始支持  <strong>XMLHttpRequest2</strong> ，XMLHttpRequest2引入了大量的新特性，例如跨域资源请求（CORS）、上传进度事件、支持二进制数据上传/下载等。</p>
+<p>这里初步了解下 vue-resource 中用到的 CORS 特性，以及 XMLHttpRequest2 的替代品 <strong>XDomainRequest</strong>  </p>
+<ul>
+<li><strong>XMLHttpRequest2 CORS</strong></li>
+</ul>
+<p>XMLHttpRequest2 是第二代 XMLHttpRequest 技术，提交 AJAX请求还是和普通的 XMLHttpRequest 请求一样，只是增加了一些新特性。</p>
+<p>在提交AJAX 跨域请求时，首先我们需要知道当前浏览器是否支持 XHR2，判断方法是使用 in 操作符检测当前 XHR实例对象是否包含 widthCredentials 属性，如果包含则支持 CORS。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> xhrCors = <span class="string">'widthCredentials'</span> <span class="keyword">in</span> <span class="keyword">new</span> XMLHttpRequest();</div></pre></td></tr></table></figure>
+<p>在支持 CORS 的情况下，还需要服务端启用 CORS 支持。</p>
+<p>假如我们想从 <a href="http://example.com" target="_blank" rel="external">http://example.com</a> 域中提交请求到 <a href="http://crossdomain.com" target="_blank" rel="external">http://crossdomain.com</a> 域，那么需要在 crossdomain.com 域中添加如下响应头：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Access-Control-Allow-Origion: http:<span class="comment">//example.com</span></div></pre></td></tr></table></figure>
+<p>如果 crossdomain.com 要允许所有异域都可以 AJAX 请求该域资源，则添加如下响应头</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Access-Control-Allow-Origion: *</div></pre></td></tr></table></figure>
+<p>服务端开启 CORS 支持后，在浏览器中我们就可以和提交普通的 AJAX 请求一样提交跨域请求了</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> xhrCors = <span class="string">'withCredentials'</span> <span class="keyword">in</span> <span class="keyword">new</span> XMLHttpRequest();</div><div class="line"><span class="built_in">console</span>.log(xhrCors);</div><div class="line"></div><div class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest()</div><div class="line">xhr.open(<span class="string">'GET'</span>,<span class="string">'http://www.crossdomain.com/hello.json'</span>)</div><div class="line">xhr.onload = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> data = <span class="built_in">JSON</span>.parse(<span class="keyword">this</span>.response)</div><div class="line">  <span class="comment">// ...</span></div><div class="line">&#125;</div><div class="line">xhr.send()</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>XDomainRequest</strong></li>
+</ul>
+<p>如果想在 IE8、IE9中支持 CORS（IE10及以后版本支持 XHR2），我们可以使用 XDomainRequest（该属性目前已经废弃，不建议使用）。如果 vue-resource 不支持 XHR2，则会降级使用此种方式。</p>
+<h4 id="8-Promise"><a href="#8-Promise" class="headerlink" title="8 Promise"></a>8 Promise</h4><p>vue-resource 调用 action 方法执行后都会返回一个 Promise 对象，该 Promise 对象提供了 then, catch, finally 等常用方法来注册回调函数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> promise = <span class="keyword">this</span>.$http.post(<span class="string">'http://example.com/book'</span>,&#123;</div><div class="line">  <span class="attr">cat</span>: <span class="number">1</span></div><div class="line">&#125;,&#123;</div><div class="line">  <span class="string">'headers'</span>: &#123;</div><div class="line">    <span class="string">'Content-Type'</span>: <span class="string">'x-www-form-urlencoded'</span></div><div class="line">  &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">promise.then(</div><div class="line">	  <span class="function"><span class="keyword">function</span>(<span class="params">res</span>)</span>&#123;<span class="string">'success callback'</span>&#125;,</div><div class="line">      <span class="function"><span class="keyword">function</span>(<span class="params">res</span>)</span>&#123;<span class="string">'error callback'</span>&#125;</div><div class="line">)</div><div class="line"></div><div class="line">promise.catch(<span class="function"><span class="keyword">function</span>(<span class="params">res</span>)</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'something wrong'</span>)</div><div class="line">&#125;)</div><div class="line"></div><div class="line">promise.finally(<span class="function"><span class="keyword">function</span>(<span class="params">res</span>)</span>&#123;</div><div class="line">  <span class="comment">// 执行失败或者成功都会进入这个函数</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise" target="_blank" rel="external">关于promise</a></p>
+<p><strong>注意</strong> 所有的回调函数的 this 都指向组件实例</p>
+<h4 id="9-如何发送JSONP请求"><a href="#9-如何发送JSONP请求" class="headerlink" title="9 如何发送JSONP请求"></a>9 如何发送JSONP请求</h4><p>首先，我们知道 JSONP 是利用 js 可以跨域的特性从服务端请求数据的，也就是说在跨域的情况下才有必要使用 jsonp 发送请求。vue-resource 提供了三种调用方式</p>
+<ul>
+<li>全局方法</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">Vue.http(&#123;</div><div class="line">  <span class="attr">url</span>: <span class="string">'..'</span>,</div><div class="line">  <span class="attr">params</span>: &#123;</div><div class="line">    <span class="attr">cat</span>: <span class="number">1</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">methods</span>: <span class="string">'JSONP'</span></div><div class="line">&#125;).then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</div><div class="line">  <span class="built_in">console</span>.log(res.data)</div><div class="line">&#125;).catch(<span class="function"><span class="params">e</span> =&gt;</span> &#123;</div><div class="line">  <span class="built_in">console</span>.log(e)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<ul>
+<li>实例的底层方法</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">this</span>.$http(&#123;</div><div class="line">    <span class="attr">url</span>:<span class="string">'http://example.com/books'</span>,</div><div class="line">    <span class="comment">//参数部分，将会拼接在 url 之后</span></div><div class="line">    params:&#123;</div><div class="line">        <span class="attr">cat</span>:<span class="string">'1'</span></div><div class="line">    &#125;,</div><div class="line">    <span class="attr">method</span>:<span class="string">'JSONP'</span></div><div class="line">&#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params">response</span>)</span>&#123;</div><div class="line">    <span class="comment">//response.data 为服务端返回的数据</span></div><div class="line">    <span class="built_in">console</span>.log(response.data);</div><div class="line">&#125;).catch(<span class="function"><span class="keyword">function</span>(<span class="params">response</span>)</span>&#123;</div><div class="line">    <span class="comment">//出错处理</span></div><div class="line">    <span class="built_in">console</span>.log(response)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<ul>
+<li>实例的快捷方法</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">this</span>.$http.jsonp(</div><div class="line">    <span class="string">'http://example.com/books'</span>,</div><div class="line">    <span class="comment">//参数部分，将会拼接在 url 之后</span></div><div class="line">    &#123;</div><div class="line">        <span class="attr">cat</span>:<span class="string">'1'</span></div><div class="line">    &#125;</div><div class="line">).then(<span class="function"><span class="keyword">function</span>(<span class="params">response</span>)</span>&#123;</div><div class="line">    <span class="comment">//response.data 为服务端返回的数据</span></div><div class="line">    <span class="built_in">console</span>.log(response.data);</div><div class="line">&#125;).catch(<span class="function"><span class="keyword">function</span>(<span class="params">response</span>)</span>&#123;</div><div class="line">    <span class="comment">//出错处理</span></div><div class="line">    <span class="built_in">console</span>.log(response)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p><strong>例子：模仿百度搜索</strong> </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!--搜索框--&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">input</span> @<span class="attr">keydown.down</span>=<span class="string">"changeColor"</span> @<span class="attr">keydown.up.prevent</span>=<span class="string">"changeUpColor"</span>  @<span class="attr">keyup</span>=<span class="string">"get"</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">style</span>=<span class="string">"border: 1px solid indianred"</span> <span class="attr">v-model</span>=<span class="string">"search"</span> @<span class="attr">click</span>=<span class="string">"sendJsonp"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"(item,index) in lists"</span></span></div><div class="line">            <span class="attr">:class</span>=<span class="string">"['default',&#123;gray: index == now&#125;]"</span></div><div class="line">        &gt;<span class="tag">&lt;<span class="name">a</span> <span class="attr">:href</span>=<span class="string">"'http://www.baidu.com/s?wd='+item"</span> <span class="attr">target</span>=<span class="string">"_blank"</span> &gt;</span>&#123;&#123;item&#125;&#125;<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">v-show</span>=<span class="string">"lists.length==0"</span>&gt;</span>暂无数据……<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>上面是简单的HTML结构，下面加上 <code>vue</code> 的方法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> app = <span class="keyword">new</span> Vue(&#123;</div><div class="line">       <span class="attr">el</span>: <span class="string">'#app'</span>,</div><div class="line">       <span class="attr">data</span>: &#123; </div><div class="line">           <span class="attr">search</span>: <span class="string">''</span>,</div><div class="line">        <span class="attr">lists</span>: [],</div><div class="line">           <span class="attr">now</span>: <span class="number">-1</span></div><div class="line">       &#125;,</div><div class="line">       <span class="attr">methods</span>: &#123;</div><div class="line">           get(e)&#123;</div><div class="line">        	<span class="comment">// 如果按下的是向上和向右的箭头，则结束事件</span></div><div class="line">            <span class="keyword">if</span>(event.keyCode==<span class="number">38</span> || event.keyCode==<span class="number">40</span>)&#123;<span class="keyword">return</span>&#125;;</div><div class="line">            <span class="keyword">this</span>.sendJsonp()</div><div class="line">            <span class="built_in">console</span>.log(<span class="string">'进入get'</span>);</div><div class="line">           &#125;,</div><div class="line">        changeColor()&#123;</div><div class="line">              <span class="keyword">this</span>.now++;</div><div class="line">        <span class="keyword">if</span>(<span class="keyword">this</span>.now == <span class="keyword">this</span>.lists.length)&#123; <span class="keyword">this</span>.now = <span class="number">0</span>&#125;;</div><div class="line">        <span class="keyword">this</span>.search = <span class="keyword">this</span>.lists[<span class="keyword">this</span>.now]</div><div class="line">           &#125;,</div><div class="line">        changeUpColor()&#123;</div><div class="line">         <span class="keyword">this</span>.now--;</div><div class="line">         <span class="keyword">if</span>(<span class="keyword">this</span>.now == <span class="number">-1</span>)&#123; <span class="keyword">this</span>.now = <span class="keyword">this</span>.lists.length<span class="number">-1</span>&#125;;</div><div class="line">         <span class="keyword">this</span>.search = <span class="keyword">this</span>.lists[<span class="keyword">this</span>.now]</div><div class="line">           &#125;</div><div class="line">       &#125;</div><div class="line">   &#125;)</div><div class="line"></div><div class="line">   <span class="built_in">window</span>.app = app;</div></pre></td></tr></table></figure>
+<p>如此一来一个简单的搜索服务就完成了。</p>
+<p><strong>注意</strong></p>
+<p><code>jsonp</code> 的请求方式暂时使用的是底层方法，快捷方法会报错，没有找到原因。</p>
+<h4 id="10-修改发送给服务器端的数据类型"><a href="#10-修改发送给服务器端的数据类型" class="headerlink" title="10 修改发送给服务器端的数据类型"></a>10 修改发送给服务器端的数据类型</h4><p>在默认情况下，对于 PUT、POST、PATCH、DELETE等请求，请求头中的 Content-Type 为 application/json，即JSON 类型。有时候我们需要将数据提交为指定类型，如 <code>application/x-www-form-urlencoded</code>、<code>mulitipart/form-data</code>、<code>text/plain</code>等。下面以 POST 请求为例</p>
+<ul>
+<li>全局配置</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Vue.http.headers.post[<span class="string">'Content-Type'</span>] = <span class="string">'application/x-www-form-urlencoded'</span></div></pre></td></tr></table></figure>
+<ul>
+<li>实例配置</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">this</span>.$http.post(<span class="string">'www.baidu.com'</span>,&#123;</div><div class="line">  <span class="attr">headers</span>: &#123;</div><div class="line">    <span class="string">'Content-Type'</span>: <span class="string">'multipart/form-data'</span></div><div class="line">  &#125;</div><div class="line">&#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;)</div></pre></td></tr></table></figure>
+<p><strong>注意：</strong> </p>
+<p>实例配置优先级永远高于全局配置。</p>
+<p> <code>$http.post</code> 方法变为 options 方法</p>
+<p>在跨域的情况下，对于非简单请求（PUT、DELETE、Content-Type 为 application/json），浏览器会在真实请求前，额外发起一次类型为 OPTIONS 的请求。只有服务器正确响应了 OPTIONS 请求后，浏览器才会发起真实请求。</p>
+<p>因此，为了在跨域的情况下使用 POST 提交 Content-Type 为 application/json 的数据或 PUT、DELETE 等非简单请求，首先服务端需要开启 CORS 支持，同时需要设置如下响应头：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Access-Control-Allow-Methods: POST, GET, PUT, DELETE, OPTIONS</div></pre></td></tr></table></figure>
+<p>初步阶段总结到这里，撒花~健身！</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/02/09/你不知道的js/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/02/06/那些年我们追过的插件/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">ChrisJx</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-安装"><span class="nav-number">1.</span> <span class="nav-text">1. 安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-参数配置"><span class="nav-number">2.</span> <span class="nav-text">2. 参数配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-全局配置"><span class="nav-number">3.</span> <span class="nav-text">3. 全局配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-基本HTTP调用"><span class="nav-number">4.</span> <span class="nav-text">4. 基本HTTP调用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-response-对象"><span class="nav-number">5.</span> <span class="nav-text">5. response 对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-拦截器（interceptors）"><span class="nav-number">6.</span> <span class="nav-text">6 拦截器（interceptors）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-跨域"><span class="nav-number">7.</span> <span class="nav-text">7 跨域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-Promise"><span class="nav-number">8.</span> <span class="nav-text">8 Promise</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-如何发送JSONP请求"><span class="nav-number">9.</span> <span class="nav-text">9 如何发送JSONP请求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-修改发送给服务器端的数据类型"><span class="nav-number">10.</span> <span class="nav-text">10 修改发送给服务器端的数据类型</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ChrisJx</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
