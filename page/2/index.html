@@ -228,7 +228,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/22/代码技巧/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/22/npm工具使用/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ChrisJx">
@@ -247,7 +247,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/02/22/代码技巧/" itemprop="url">未命名</a></h1>
+                <a class="post-title-link" href="/2018/02/22/npm工具使用/" itemprop="url">npm操作</a></h1>
         
 
         <div class="post-meta">
@@ -259,7 +259,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-22T14:18:27+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-22T00:00:00+08:00">
                 2018-02-22
               </time>
             
@@ -270,6 +270,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/npm/" itemprop="url" rel="index">
+                    <span itemprop="name">npm</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -299,11 +321,28 @@
       
         
           
-            <hr>
-<p>title: 常用代码技巧<br>layout: post<br>date: 2018-2-22<br>comments: true<br>categories: trick<br>tags: [trick]<br>keywords: 技巧, trick</p>
-<h2 id="description-生活总需要一些记录，也许我们无法成为“那样的人”，但是有些脚印是我们走过的，留在那里也很美丽！"><a href="#description-生活总需要一些记录，也许我们无法成为“那样的人”，但是有些脚印是我们走过的，留在那里也很美丽！" class="headerlink" title="description: 生活总需要一些记录，也许我们无法成为“那样的人”，但是有些脚印是我们走过的，留在那里也很美丽！"></a>description: 生活总需要一些记录，也许我们无法成为“那样的人”，但是有些脚印是我们走过的，留在那里也很美丽！</h2><h4 id="处理axios获取到的数据"><a href="#处理axios获取到的数据" class="headerlink" title="处理axios获取到的数据"></a>处理axios获取到的数据</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> baseUrl = <span class="string">'http://api.nytimes.com/topstories/v2/'</span>;</div><div class="line"><span class="keyword">const</span> apiKey = <span class="string">'your_api_key'</span>;</div><div class="line"><span class="keyword">const</span> SECTIONS = <span class="string">"home, arts, automobiles"</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">buildUrl</span>(<span class="params">url</span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> baseUrl + url + <span class="string">'.json?api-key'</span> + apiKey </div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">const</span> vm = <span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="attr">el</span>: <span class="string">'#app'</span>,</div><div class="line">  <span class="attr">data</span>: &#123;</div><div class="line">    <span class="attr">results</span>: [],</div><div class="line">    <span class="attr">sections</span>: SECTIONS.split(<span class="string">','</span>),</div><div class="line">    <span class="attr">section</span>: <span class="string">'home'</span></div><div class="line">  &#125;,</div><div class="line">  mounted()&#123;</div><div class="line">    <span class="keyword">this</span>.getPosts(<span class="keyword">this</span>.section)</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">methods</span>: &#123;</div><div class="line">    getPost(section)&#123;</div><div class="line">      <span class="keyword">let</span> url = buildUrl(section)</div><div class="line">      axios.get(url).then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</div><div class="line">        <span class="keyword">this</span>.results = res.data.results</div><div class="line">      &#125;).catch(<span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</div><div class="line">        <span class="built_in">console</span>.log(err)</div><div class="line">      &#125;)</div><div class="line">    &#125;,</div><div class="line">    </div><div class="line">  &#125;,</div><div class="line">  <span class="attr">computed</span>: &#123;</div><div class="line">    processedPosts()&#123;</div><div class="line">      <span class="keyword">let</span> posts = <span class="keyword">this</span>.results;</div><div class="line">      </div><div class="line">      <span class="comment">// Add image_url attribute</span></div><div class="line">      posts.map(<span class="function"><span class="params">post</span> =&gt;</span> &#123;</div><div class="line">        <span class="keyword">let</span> imgObj = post.multimedia.find(<span class="function"><span class="params">media</span> =&gt;</span> media.format === <span class="string">'png'</span>)</div><div class="line">        post.image_url = imgObj ? imgObj.url : <span class="string">'http://placehold.it/300x200?text=N/A'</span></div><div class="line">      &#125;)</div><div class="line">      </div><div class="line">      <span class="comment">// put Array into Chunks</span></div><div class="line">      <span class="keyword">let</span> i, j, chunkedArray = [], chunk = <span class="number">4</span>;</div><div class="line">      <span class="keyword">for</span> (i = <span class="number">0</span>, j = <span class="number">0</span>; i &lt; posts.length; i += chunk, j++)&#123;</div><div class="line">        chunkedArray[j] = posts.slice(i, i+chunk)</div><div class="line">      &#125;</div><div class="line">      <span class="keyword">return</span> chunkedArray</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p>对应的HTML中</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></div><div class="line">     <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"large-6 columns"</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">select</span> <span class="attr">v-model</span>=<span class="string">"section"</span>&gt;</span></div><div class="line">         <span class="tag">&lt;<span class="name">option</span> <span class="attr">v-for</span>=<span class="string">"section in sections"</span> <span class="attr">:value</span>=<span class="string">"section"</span>&gt;</span>&#123;&#123; section &#125;&#125;<span class="tag">&lt;/<span class="name">option</span>&gt;</span></div><div class="line">       <span class="tag">&lt;/<span class="name">select</span>&gt;</span></div><div class="line">     <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">     <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"medium-6 columns"</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">a</span> @<span class="attr">click</span>=<span class="string">"getPosts(section)"</span> <span class="attr">class</span>=<span class="string">"button expanded"</span>&gt;</span>Retrieve<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">     <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">   <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+            <p>关于npm应该是非常简单的命令操作了：</p>
+<ul>
+<li>命令行安装npm淘宝镜像：</li>
+</ul>
+<p><code>$ npm install -g cnpm --registry=https://registry.npm.taobao.org</code></p>
+<p>之后我们就可以使用<code>cnpm install</code> 来安装包</p>
+<ul>
+<li>查看npm全局安装的包</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm list -g --depth 0</div></pre></td></tr></table></figure>
+<ul>
+<li>卸载npm安装的包</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">【npm uninstall xxx】删除xxx模块； </div><div class="line">【npm uninstall -g xxx】删除全局模块xxx；</div></pre></td></tr></table></figure>
+<ul>
+<li>npm 升级</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install --global npm</div></pre></td></tr></table></figure>
+<ul>
+<li>查看某个命令的具体使用</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -h</div></pre></td></tr></table></figure>
 
           
         
@@ -352,7 +391,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/08/vue-resource/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/22/git工具类使用/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ChrisJx">
@@ -371,7 +410,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/02/08/vue-resource/" itemprop="url">未命名</a></h1>
+                <a class="post-title-link" href="/2018/02/22/git工具类使用/" itemprop="url">git</a></h1>
         
 
         <div class="post-meta">
@@ -383,8 +422,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-08T11:52:58+08:00">
-                2018-02-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-22T00:00:00+08:00">
+                2018-02-22
               </time>
             
 
@@ -393,6 +432,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/git/" itemprop="url" rel="index">
+                    <span itemprop="name">git</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -423,384 +484,342 @@
       
         
           
-            <hr>
-<p>title: vue-resource使用<br>layout: post<br>date: 2018-2-22<br>comments: true<br>categories: vue-resource<br>tags: [vue-resource, ajax]<br>keywords: ajax通信</p>
-<h2 id="description-生活总需要一些记录，也许我们无法成为“那样的人”，但是有些脚印是我们走过的，留在那里也很美丽！"><a href="#description-生活总需要一些记录，也许我们无法成为“那样的人”，但是有些脚印是我们走过的，留在那里也很美丽！" class="headerlink" title="description: 生活总需要一些记录，也许我们无法成为“那样的人”，但是有些脚印是我们走过的，留在那里也很美丽！"></a>description: 生活总需要一些记录，也许我们无法成为“那样的人”，但是有些脚印是我们走过的，留在那里也很美丽！</h2><blockquote>
-<p>通过ajax 和服务端进行通信，是前后端交互最常用的方式，但又是问题出现最多的地方。下面我通过第三视角，来分析 <code>resource</code> 这个用来进行交互的插件。</p>
+            <p>在使用git的时候，当想要忽略我们文件中的某些文件时，可以使用</p>
+<ul>
+<li><p>删除文件，并停止追踪  <code>git rm --cached log/xx.log</code></p>
+</li>
+<li><p>新增文件，不想被git追踪到  <code>touch .gitignore</code>  新建<code>.gitignore</code>文件 忽略目标文件</p>
+</li>
+<li><p>已经提交的文件，不想继续被git追踪  <code>git update-index --assume-unchanged &lt;PATH&gt;</code> </p>
+<p>当想让被git追踪的时候，命令 <code>git update-index --no-assume-unchanged &lt;PATH&gt;</code></p>
+</li>
+</ul>
+<p>在使用git的时候，当想要撤销我们文件中的某些文件时，可以使用</p>
+<ul>
+<li>取消放入暂存区的文件  <code>git reset HEAD &lt;file&gt;...</code></li>
+<li>取消对文件的修改 <code>git checkout -- file</code></li>
+<li>撤销到某个提交的节点 <code>git reset --hard 3628164</code></li>
+</ul>
+<p>参考L ： <a href="http://blog.csdn.net/xiaoshan812613234/article/details/24780337" target="_blank" rel="external">http://blog.csdn.net/xiaoshan812613234/article/details/24780337</a><br>​        <a href="https://git-scm.com/book/zh/v1/Git-%E5%9F%BA%E7%A1%80-%E6%92%A4%E6%B6%88%E6%93%8D%E4%BD%9C" target="_blank" rel="external">https://git-scm.com/book/zh/v1/Git-%E5%9F%BA%E7%A1%80-%E6%92%A4%E6%B6%88%E6%93%8D%E4%BD%9C</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/22/brower-sync的使用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ChrisJx">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Coding for more love!">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/02/22/brower-sync的使用/" itemprop="url">browsersync使用</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-22T00:00:00+08:00">
+                2018-02-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/browsersync/" itemprop="url" rel="index">
+                    <span itemprop="name">browsersync</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>时常要用到自动刷新浏览器来方便代码的显示效果，follow by step</p>
+<ol>
+<li><p><code>npm init  -y</code>  初始化一个第三方包</p>
+</li>
+<li><p><code>npm i -D browser-sync</code> 安装我们的插件包</p>
+</li>
+<li><p><code>browser-sync start --server --directory --files \&quot;html/*.html\&quot;</code>启动服务，</p>
+<p>或者在<code>package.json</code>包说明文件中，指定下面的快捷命令操作</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">"scripts": &#123;</div><div class="line">    "test": "echo \"Error: no test specified\" &amp;&amp; exit 1",</div><div class="line">    "start": "browser-sync start --server --directory --files \"html/*.html\""</div><div class="line">  &#125;,</div></pre></td></tr></table></figure>
+<p>这是在npm中使用brower-sync插件的情况，还有在gulp的使用情况，再分析。</p>
+</li>
+</ol>
+<p>参考： </p>
+<p>​    <a href="https://browsersync.io/" target="_blank" rel="external">官网</a></p>
+<p>​    <a href="http://blog.csdn.net/pwc1996/article/details/76849876" target="_blank" rel="external">http://blog.csdn.net/pwc1996/article/details/76849876</a></p>
+<p>​    <a href="http://www.cnblogs.com/yesyes/p/6156102.html" target="_blank" rel="external">http://www.cnblogs.com/yesyes/p/6156102.html</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/22/last-porblem/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ChrisJx">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Coding for more love!">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/02/22/last-porblem/" itemprop="url">插件</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-22T00:00:00+08:00">
+                2018-02-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/总结17年遇到问题/" itemprop="url" rel="index">
+                    <span itemprop="name">总结17年遇到问题</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <blockquote>
+<p>这一年，大大小小在处理前端逻辑的时候，遇到不少的问题。在此记录下自己查阅资料后的思考。有些问题已经解决了，有些问题还是兼容性不够抑或是我思考的还不够深入。</p>
 </blockquote>
-<p>Vue.js 可以构建一个完全不依赖后端服务的应用，同时也可以与服务端进行数据交互来同步界面的动态更新。Vue 本身并没有提供与服务端通信的接口，但是通过插件的形式实现了基于AJAX、JSONP 等技术的服务端通信。</p>
-<p><code>vue-resource</code> 是一个通过 <code>XMLHttpRequest</code> 或 <code>JSONP</code> 技术实现异步加载服务端数据的 Vue 插件，该插件提供了一般的 HTTP 请求接口和 RESTful 架构请求接口，并且提供了<strong>全局方法</strong> 和 Vue 组件<strong>实例方法</strong> 。</p>
-<p>一般的 HTTP 请求接口按照调用的便捷程度又分为<strong>底层方法 </strong>和 <strong>便捷方法</strong>，便捷方法是对底层方法的封装。在 <code>vue-resource</code> 中我们可以全局配置，同时，它提供了数据获取各个阶段的钩子，使得我们可以对数据获取过程进行更好的控制。</p>
-<p>先来一个官方的<a href="https://www.npmjs.com/package/vue-resource" target="_blank" rel="external">文档doc</a> </p>
+<h4 id="iframe高度的控制问题"><a href="#iframe高度的控制问题" class="headerlink" title="iframe高度的控制问题"></a>iframe高度的控制问题</h4><p>对于同域名下的 <code>iframe</code> 可以获取 <code>iframe</code> 的高度，这个比较简单。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> resetIframe = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> frame = <span class="built_in">document</span>.getElementById(<span class="string">'#iframe'</span>)</div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">      <span class="keyword">var</span> frameCont = frame.contentWindow.document,</div><div class="line">          <span class="comment">// 这里可能会有兼容问题,获取iframe的内容高度</span></div><div class="line">          bodyHeight = <span class="built_in">Math</span>.max(frameCont.body.scrollHeight, frameContent.documentElement.scrollHeight)</div><div class="line">      <span class="keyword">if</span> (bodyHeight != frame.height)&#123;</div><div class="line">        frame.height = bodyHeight</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">catch</span>(err)&#123;</div><div class="line">      <span class="comment">// 如果获取iframe的最小高度失败,就设置一个最小值</span></div><div class="line">      frame.height = <span class="number">1900</span></div><div class="line">    &#125;</div><div class="line">    <span class="built_in">window</span>.onload = resetIframe</div><div class="line">  &#125;</div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
+<p>第二种情况是在跨域条件下，上述方法是行不通的，理论上也是不直接把其他页面直接使用 <code>iframe</code> 嵌套的。</p>
+<p>之前使用的写死高度的方法，不过稍微好的方法是获取 <code>iframe</code> 页面中外层元素的高度然后估算出高度。–笨哭–</p>
 <ul>
-<li>vue-resource 公开方法<ul>
-<li>基本HTTP 调用<ul>
-<li>全局调用<ul>
-<li>底层方法<ul>
-<li><code>Vue.http</code></li>
+<li>页面全部是 <code>iframe</code> 元素构成</li>
 </ul>
-</li>
-<li>便捷方法<ul>
-<li><code>Vue.$http.get</code></li>
-<li><code>Vue.$http.post</code></li>
-<li><code>Vue.$http.put</code></li>
-<li><code>Vue.$http.patch</code></li>
-<li><code>Vue.$http.delete</code></li>
-<li><code>Vue.$http.jsonp</code></li>
-</ul>
-</li>
-</ul>
-</li>
-<li>组件实例调用<ul>
-<li>底层方法<ul>
-<li><code>this.$http</code></li>
-</ul>
-</li>
-<li>便捷方法<ul>
-<li><code>this.$http.get</code></li>
-<li><code>this.$http.post</code></li>
-<li><code>this.$http.put</code></li>
-<li><code>this.$http.patch</code></li>
-<li><code>this.$http.delete</code></li>
-<li><code>this.$http.jsonp</code></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>RESTful 调用<ul>
-<li>全局调用<ul>
-<li><code>Vue.resource().get</code></li>
-<li><code>Vue.resource().save</code></li>
-<li><code>Vue.resource().query</code></li>
-<li><code>Vue.resource().update</code></li>
-<li><code>Vue.resource().remove</code></li>
-<li><code>Vue.resource().delete</code></li>
-</ul>
-</li>
-<li>组件实例调用<ul>
-<li><code>this.resource().get</code></li>
-<li><code>this.resource().save</code></li>
-<li><code>this.resource().query</code></li>
-<li><code>this.resource().update</code></li>
-<li><code>this.resource().remove</code></li>
-<li><code>this.resource().delete</code></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="1-安装"><a href="#1-安装" class="headerlink" title="1. 安装"></a>1. 安装</h4><p>如果项目基于 npm 包方式来开发，则可以使用 npm 来按照 vue 和 vue-resource，执行如下命令</p>
-<p><code>$ npm i vue vue-resource --save-dev</code></p>
-<p>在项目中引入</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 引入 Vue.js 和 vue-resource 结合webpack以后可以使用 import from 来进行引入</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> Vue = <span class="built_in">require</span>(<span class="string">'vue'</span>); </div><div class="line"></div><div class="line"><span class="keyword">var</span> VueResource = <span class="built_in">require</span>(<span class="string">'vue-resource'</span>);</div><div class="line"></div><div class="line"><span class="comment">// 注册 vue-resource 插件</span></div><div class="line"></div><div class="line"><span class="comment">// 注意，假如 Vue.js 已经在html 中直接引入，则不需要再执行此步骤</span></div><div class="line"></div><div class="line"><span class="comment">// 此时 vue-resource 会自动调用 Vue.use 方法来注册</span></div><div class="line"></div><div class="line">Vue.use(VueResource);</div></pre></td></tr></table></figure>
-<h4 id="2-参数配置"><a href="#2-参数配置" class="headerlink" title="2. 参数配置"></a>2. 参数配置</h4><p>vue-resource 将请求配置分为<strong>全局配置</strong> 、<strong>组件实例配置</strong> 和<strong>调用配置</strong>  三部分，这三部分的优先级依次增高，优先级高的配置会覆盖优先级低的配置。</p>
-<p>全局配置参数</p>
-<p>Vue.http.options</p>
+<p>结合凌哥开始写的移动端demo, 发现在移动端页面全部是 <code>iframe</code> 的情况下，使用移动端的常规定位就可以实现。即把 <code>iframe</code> 的高度设置为页面window的高度。</p>
 <ul>
-<li><p>jsonp</p>
-</li>
-<li><p>beforeSend</p>
-</li>
-<li><p>crossOrigin</p>
-<p>是否支持跨域处理</p>
-</li>
-<li><p>emulateHTTP</p>
-</li>
-<li><p>emulateJSON  </p>
-<p>如果您的Web服务器无法处理编码为的请求<code>application/json</code>，则可以启用该<code>emulateJSON</code>选项。这将发送请求作为<code>application/x-www-form-urlencoded</code>MIME类型，就像从一个正常的HTML表单。</p>
-</li>
-<li><p>timeout </p>
-<p>设置超时的时间</p>
-</li>
-<li><p>method </p>
-</li>
-<li><p>data</p>
-</li>
-<li><p>params</p>
-</li>
-<li><p>headers</p>
-<p>设置header头相关参数</p>
-</li>
-<li><p>xhr</p>
-<p>xhr对象的相关设置</p>
-</li>
+<li>页面部分元素是 <code>iframe</code> 构成</li>
 </ul>
-<ul>
-<li>upload</li>
-</ul>
-<h4 id="3-全局配置"><a href="#3-全局配置" class="headerlink" title="3. 全局配置"></a>3. 全局配置</h4><p>可以在全局中进行配置</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Vue.http.option.root = <span class="string">'/api'</span></div><div class="line">Vue.http.headers.common[<span class="string">'Authorization'</span>] = <span class="string">'Basic YXBpOnBhc3N3b3Jk'</span></div></pre></td></tr></table></figure>
-<p>也可以在vue实例中进行配置</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">	<span class="attr">http</span>:&#123;</div><div class="line">		<span class="attr">root</span>: <span class="string">'/api'</span>,</div><div class="line">      <span class="attr">headers</span>: &#123;</div><div class="line">        <span class="attr">Authorization</span>: <span class="string">'Basic YXBpOnBhc3N3b3Jk'</span></div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p>在方法调用时配置</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="attr">ready</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="comment">// get请求</span></div><div class="line">    <span class="keyword">this</span>.$http.get(&#123;<span class="attr">url</span>: <span class="string">'/abc'</span>,<span class="attr">headers</span>: &#123;<span class="attr">Au</span>: <span class="string">'hello'</span>&#125;&#125;)</div><div class="line">    	.then(callbackSuccess,callbackError) </div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p><strong>headers</strong> 配置</p>
-<p>headers属性用来配置请求头，合并策略遵循参数配置合并策略。 除了参数配置 headers 属性可以设置请求头以外，在 <code>vue-resource</code> 中也提供了全局默认的 headers 配置。</p>
-<p>Vue.http.headers</p>
-<ul>
-<li>put        {‘Content-Type’: ‘application/json’}</li>
-<li>post       {‘Content-Type’: ‘application/json’}</li>
-<li>patch      {‘Content-Type’: ‘application/json’}</li>
-<li>delete     {‘Content-Type’: ‘application/json’}</li>
-<li>common {‘Accept’: ‘application/json,text/plain,<em>/</em>‘}</li>
-<li>custom    {‘X-Request-with’: ‘XMLHttpRequest’}</li>
-</ul>
-<p>可以看到 Vue.http.headers 键值可以是 HTTP 方法名、common、custom 三种类型。这三种类型的配置会进行合并，优先级从低到高依次是 common、custom、HTTP方法名。</p>
-<p><strong>重点</strong> </p>
-<p>其中 common 对应的请求头会在<strong>所有请求头</strong> 中设置，custom 对应的请求头在<strong>非跨域</strong> 时设置，HTTP 方法名对应的请求头只有在<strong>请求的 method 匹配方法名</strong> 时才会被设置。</p>
-<p>哎，解决了很长时间以来困扰我的问题，跨域时 custom 配置无效。</p>
-<h4 id="4-基本HTTP调用"><a href="#4-基本HTTP调用" class="headerlink" title="4. 基本HTTP调用"></a>4. 基本HTTP调用</h4><p>基本 HTTP 调用即普通的 GET、POST 等基本的 HTTP 操作，实际上执行增、删、改、查是前后端开发人员共同约定的，<strong>并非通过 HTTP 的请求方法</strong> 如 GET 代表获取数据、PUT代表写入数据、POST 代表更新数据。</p>
-<ul>
-<li>底层方法</li>
-</ul>
-<p>全局中的Vue.http 方法和组件实例的 this.$http 都是属于底层的方法。他们根据所传的option 参数的method 属性来判断请求方式是 GET 还是 POST或者其他方法</p>
-<p>以组件实例调用方式为例来了解一下如何发送 POST 请求，代码如下：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">    <span class="attr">ready</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="comment">//POST 请求</span></div><div class="line">        <span class="keyword">this</span>.$http(&#123;</div><div class="line">            <span class="attr">url</span>:<span class="string">'/book'</span>,</div><div class="line">            <span class="attr">method</span>:<span class="string">'POST'</span>,</div><div class="line">            <span class="comment">//请求体中发送的数据</span></div><div class="line">            data:&#123;</div><div class="line">                <span class="attr">cat</span>:<span class="string">'1'</span></div><div class="line">            &#125;,</div><div class="line">            <span class="comment">//设置请求头</span></div><div class="line">            headers:&#123;</div><div class="line">                <span class="string">'Content-Type'</span>:<span class="string">'x-www-form-urlencoded'</span></div><div class="line">            &#125;</div><div class="line">        &#125;).then(</div><div class="line">                <span class="function"><span class="keyword">function</span>(<span class="params">response</span>)</span>&#123;</div><div class="line">                    <span class="comment">//请求成功回调</span></div><div class="line">                &#125;,</div><div class="line">                <span class="function"><span class="keyword">function</span>(<span class="params">response</span>)</span>&#123;</div><div class="line">                    <span class="comment">//请求失败回调</span></div><div class="line">                &#125;</div><div class="line">        )</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<ul>
-<li>便捷方法</li>
-</ul>
-<p>便捷方法是对底层方法的封装，在调用时可以省去配置选项 option 中的method 属性。以下是 vue-resource 提供的便捷方法列表：</p>
-<ul>
-<li>get(url, [options])</li>
-<li>head(url, [options])</li>
-<li>delete(url, [options])</li>
-<li>jsonp(url, [options])</li>
-<li>post(url, [body], [options])</li>
-<li>put(url, [body], [options])</li>
-<li>patch(url, [body], [options])</li>
-</ul>
-<p><strong>options 参数列表</strong></p>
-<table>
-<thead>
-<tr>
-<th><strong>参数</strong></th>
-<th><strong>类型</strong></th>
-<th><strong>描述</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>url</td>
-<td>string</td>
-<td>请求的 URL 地址</td>
-</tr>
-<tr>
-<td>body</td>
-<td>Object, FormData, string</td>
-<td>请求体</td>
-</tr>
-<tr>
-<td>headers</td>
-<td>Object</td>
-<td>HTTP请求头部</td>
-</tr>
-<tr>
-<td>params</td>
-<td>Object</td>
-<td>URL参数，默认值为{}Vue.http({ url:’<a href="http://example.com/{book}" target="_blank" rel="external">http://example.com/{book}</a>‘, params:{  book:’vue’,  cat:’1’ }})                                                                                        最终URL为 <a href="http://example.com/vue?cat=1" target="_blank" rel="external">http://example.com/vue?cat=1</a></td>
-</tr>
-<tr>
-<td>method</td>
-<td>string</td>
-<td>请求的HTTP方法(GET、POST等),默认GET</td>
-</tr>
-<tr>
-<td>timeout</td>
-<td>number</td>
-<td>请求超时时间，默认值为0，单位是ms，0表示没有超时限制，超时后将会取消当前请求</td>
-</tr>
-<tr>
-<td>before</td>
-<td>function(request)</td>
-<td>请求发送前的处理函数。默认值为null，接受请求选项对象作为参数</td>
-</tr>
-<tr>
-<td>progress</td>
-<td>function(event)</td>
-<td>处理ProgressEvent的回调函数</td>
-</tr>
-<tr>
-<td>credentials</td>
-<td>boolean</td>
-<td>表示跨域请求时是否需要使用凭证</td>
-</tr>
-<tr>
-<td>emulateHTTP</td>
-<td>boolean</td>
-<td>默认值为false，当值为true时，用HTTP的POST方法发送PUT、PATCH、DELETE等请求，并设置请求头字段 HTTP-Method-Override为原始请求方法</td>
-</tr>
-<tr>
-<td>emulateJSON</td>
-<td>boolean</td>
-<td>默认值为false，当值为true并且data为对象时，设置请求头Content-Type的值为 application/x-www-form-urlencoded</td>
-</tr>
-<tr>
-<td>xhr</td>
-<td>Object</td>
-<td>默认值为null，该对象中的属性都会应用到原生xhr实例对象上</td>
-</tr>
-<tr>
-<td>upload</td>
-<td>Object</td>
-<td>默认值为null，该对象的属性都会应用到原生xhr实例对象的upload属性上</td>
-</tr>
-<tr>
-<td>jsonp</td>
-<td>string</td>
-<td>默认值为callback，JSONP请求中回调函数的名字   Vue.http({ url:’<a href="http://example.com/book" target="_blank" rel="external">http://example.com/book</a>‘, method:’JSONP’, jsonp:’cb’})</td>
-</tr>
-<tr>
-<td>crossOrigin</td>
-<td>Object</td>
-<td>默认值为null，表示是否跨域，如果没有设置该属性，vue-resource 内部会判断浏览器当前 URL 和请求 URL 是否跨域</td>
-</tr>
-</tbody>
-</table>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">        <span class="attr">el</span>:<span class="string">'#app'</span>,</div><div class="line">        <span class="attr">data</span>:&#123;</div><div class="line"> </div><div class="line">        &#125;,</div><div class="line">        <span class="attr">methods</span>:&#123;</div><div class="line">            <span class="attr">get</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">                <span class="keyword">this</span>.$http.post(<span class="string">'post.php'</span>,&#123;</div><div class="line">                    <span class="attr">a</span>:<span class="number">1</span>,</div><div class="line">                    <span class="attr">b</span>:<span class="number">20</span></div><div class="line">                &#125;,&#123;</div><div class="line">                    <span class="attr">emulateJSON</span>:<span class="literal">true</span></div><div class="line">                &#125;).then(</div><div class="line">                        <span class="function"><span class="keyword">function</span>(<span class="params">response</span>)</span>&#123; <span class="comment">//成功的回调函数</span></div><div class="line">                            alert(response.data);</div><div class="line">                        &#125;,</div><div class="line">                        <span class="function"><span class="keyword">function</span>(<span class="params">response</span>)</span>&#123; <span class="comment">//失败的回调函数</span></div><div class="line">                            alert(response.status);</div><div class="line">                        &#125;</div><div class="line">                )</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;);</div></pre></td></tr></table></figure>
-<p>php部分的代码是</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">  $a = $_POST[<span class="string">'a'</span>];</div><div class="line">  $b = $_POST[<span class="string">'b'</span>];</div><div class="line">  <span class="keyword">echo</span> $a - $b;</div><div class="line">  <span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
-<h4 id="5-response-对象"><a href="#5-response-对象" class="headerlink" title="5. response 对象"></a>5. response 对象</h4><p>response 对象包含了服务端返回的数据，以及HTTP响应状态，响应头信息</p>
-<p>​    </p>
-<table>
-<thead>
-<tr>
-<th><strong>属性</strong></th>
-<th><strong>类型</strong></th>
-<th><strong>描述</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>url</td>
-<td>string</td>
-<td>响应的 URL</td>
-</tr>
-<tr>
-<td>body</td>
-<td>Object, Blob, string</td>
-<td>响应体数据</td>
-</tr>
-<tr>
-<td>headers</td>
-<td>Header</td>
-<td>响应头对象</td>
-</tr>
-<tr>
-<td>ok</td>
-<td>boolean</td>
-<td>HTTP 状态码(200-299之间)</td>
-</tr>
-<tr>
-<td>status</td>
-<td>number</td>
-<td>HTTP 响应状态码</td>
-</tr>
-<tr>
-<td>statusText</td>
-<td>string</td>
-<td>HTTP 响应文本</td>
-</tr>
-<tr>
-<td>data</td>
-<td>Object，string</td>
-<td>服务器端返回的数据，已使用JSON.parse解析</td>
-</tr>
-<tr>
-<td><strong>方法</strong></td>
-<td><strong>类型</strong></td>
-<td><strong>描述</strong></td>
-</tr>
-<tr>
-<td>text( )</td>
-<td>Promise</td>
-<td>把响应数据解析为字符串</td>
-</tr>
-<tr>
-<td>json( )</td>
-<td>Promise</td>
-<td>把响应数据解析为JSON对象</td>
-</tr>
-<tr>
-<td>blob( )</td>
-<td>Promise</td>
-<td>把响应数据解析为二进制对象</td>
-</tr>
-</tbody>
-</table>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="keyword">this</span>.$http.post(<span class="string">'/someurl'</span>,&#123;<span class="attr">foo</span>: <span class="string">'bar'</span>&#125;)</div><div class="line">    .then(<span class="function">(<span class="params">response</span>) =&gt;</span> &#123;</div><div class="line">     <span class="comment">// get status</span></div><div class="line">     response.status;</div><div class="line">     response.statusText;</div><div class="line">     response.headers.get(<span class="string">'Expires'</span>)</div><div class="line">     <span class="keyword">this</span>.$set(<span class="string">'someData'</span>,response.body)</div><div class="line">  &#125;,(response) =&gt; &#123;</div><div class="line">    <span class="comment">// error callback</span></div><div class="line">  &#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>从响应对象中获得一个 image并使用blob() 方法提取image的数据内容</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="comment">// GET /image.jpg</span></div><div class="line">  <span class="keyword">this</span>.$http.get(<span class="string">'/image.jpg'</span>).then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</div><div class="line">    <span class="comment">// resoleve to Blob</span></div><div class="line">    <span class="keyword">return</span> response.blob()</div><div class="line">  &#125;).then(<span class="function">(<span class="params">blob</span>) =&gt;</span> &#123;</div><div class="line">    use image Blob</div><div class="line">  &#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="6-拦截器（interceptors）"><a href="#6-拦截器（interceptors）" class="headerlink" title="6 拦截器（interceptors）"></a>6 拦截器（interceptors）</h4><p>处理请求的消息</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Vue.http.interceptors.push(<span class="function">(<span class="params">req,next</span>) =&gt;</span> &#123;</div><div class="line">  <span class="comment">// modify request</span></div><div class="line">  req.method = <span class="string">'POST'</span></div><div class="line">  <span class="comment">// continue to next interceptor</span></div><div class="line">  next();</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p>处理请求和响应的消息</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">Vue.http.interceptors.push(<span class="function">(<span class="params">req,next</span>) =&gt;</span> &#123;</div><div class="line">  <span class="comment">// modify request</span></div><div class="line">  req.method = <span class="string">'POST'</span></div><div class="line">  <span class="comment">// modify headers</span></div><div class="line">  request.headers.set(<span class="string">'X-CSRF-TOKEN'</span>, <span class="string">'TOKEN'</span>);</div><div class="line">  request.headers.set(<span class="string">'Authorization'</span>, <span class="string">'Bearer TOKEN'</span>);</div><div class="line">  <span class="comment">// allow cross domain cookie</span></div><div class="line">  request.credentials = <span class="literal">true</span>;</div><div class="line">  <span class="comment">// continue to next interceptor</span></div><div class="line">  next(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</div><div class="line">    <span class="comment">// modify response</span></div><div class="line">    res.body = <span class="string">''</span></div><div class="line">  &#125;);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p>返回一个响应消息并且停止处理、</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Vue.http.interceptors.push(<span class="function">(<span class="params">req,next</span>) =&gt;</span> &#123;</div><div class="line">  <span class="comment">// stop and return response</span></div><div class="line">  next(request.respondWith(body,&#123;</div><div class="line">    <span class="attr">status</span>: <span class="number">404</span>,</div><div class="line">    <span class="attr">statusText</span>: <span class="string">'Not Found'</span></div><div class="line">  &#125;));</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<h4 id="7-跨域"><a href="#7-跨域" class="headerlink" title="7 跨域"></a>7 跨域</h4><p>很多人认为 AJAX 只能在同域的情况下发送成功，很早的时候，由于浏览器安全策略，AJAX确实只能在同域的情况下发送。但是目前很多浏览器已经开始支持  <strong>XMLHttpRequest2</strong> ，XMLHttpRequest2引入了大量的新特性，例如跨域资源请求（CORS）、上传进度事件、支持二进制数据上传/下载等。</p>
-<p>这里初步了解下 vue-resource 中用到的 CORS 特性，以及 XMLHttpRequest2 的替代品 <strong>XDomainRequest</strong>  </p>
-<ul>
-<li><strong>XMLHttpRequest2 CORS</strong></li>
-</ul>
-<p>XMLHttpRequest2 是第二代 XMLHttpRequest 技术，提交 AJAX请求还是和普通的 XMLHttpRequest 请求一样，只是增加了一些新特性。</p>
-<p>在提交AJAX 跨域请求时，首先我们需要知道当前浏览器是否支持 XHR2，判断方法是使用 in 操作符检测当前 XHR实例对象是否包含 widthCredentials 属性，如果包含则支持 CORS。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> xhrCors = <span class="string">'widthCredentials'</span> <span class="keyword">in</span> <span class="keyword">new</span> XMLHttpRequest();</div></pre></td></tr></table></figure>
-<p>在支持 CORS 的情况下，还需要服务端启用 CORS 支持。</p>
-<p>假如我们想从 <a href="http://example.com" target="_blank" rel="external">http://example.com</a> 域中提交请求到 <a href="http://crossdomain.com" target="_blank" rel="external">http://crossdomain.com</a> 域，那么需要在 crossdomain.com 域中添加如下响应头：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Access-Control-Allow-Origion: http:<span class="comment">//example.com</span></div></pre></td></tr></table></figure>
-<p>如果 crossdomain.com 要允许所有异域都可以 AJAX 请求该域资源，则添加如下响应头</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Access-Control-Allow-Origion: *</div></pre></td></tr></table></figure>
-<p>服务端开启 CORS 支持后，在浏览器中我们就可以和提交普通的 AJAX 请求一样提交跨域请求了</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> xhrCors = <span class="string">'withCredentials'</span> <span class="keyword">in</span> <span class="keyword">new</span> XMLHttpRequest();</div><div class="line"><span class="built_in">console</span>.log(xhrCors);</div><div class="line"></div><div class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest()</div><div class="line">xhr.open(<span class="string">'GET'</span>,<span class="string">'http://www.crossdomain.com/hello.json'</span>)</div><div class="line">xhr.onload = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> data = <span class="built_in">JSON</span>.parse(<span class="keyword">this</span>.response)</div><div class="line">  <span class="comment">// ...</span></div><div class="line">&#125;</div><div class="line">xhr.send()</div></pre></td></tr></table></figure>
-<ul>
-<li><strong>XDomainRequest</strong></li>
-</ul>
-<p>如果想在 IE8、IE9中支持 CORS（IE10及以后版本支持 XHR2），我们可以使用 XDomainRequest（该属性目前已经废弃，不建议使用）。如果 vue-resource 不支持 XHR2，则会降级使用此种方式。</p>
-<h4 id="8-Promise"><a href="#8-Promise" class="headerlink" title="8 Promise"></a>8 Promise</h4><p>vue-resource 调用 action 方法执行后都会返回一个 Promise 对象，该 Promise 对象提供了 then, catch, finally 等常用方法来注册回调函数</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> promise = <span class="keyword">this</span>.$http.post(<span class="string">'http://example.com/book'</span>,&#123;</div><div class="line">  <span class="attr">cat</span>: <span class="number">1</span></div><div class="line">&#125;,&#123;</div><div class="line">  <span class="string">'headers'</span>: &#123;</div><div class="line">    <span class="string">'Content-Type'</span>: <span class="string">'x-www-form-urlencoded'</span></div><div class="line">  &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">promise.then(</div><div class="line">	  <span class="function"><span class="keyword">function</span>(<span class="params">res</span>)</span>&#123;<span class="string">'success callback'</span>&#125;,</div><div class="line">      <span class="function"><span class="keyword">function</span>(<span class="params">res</span>)</span>&#123;<span class="string">'error callback'</span>&#125;</div><div class="line">)</div><div class="line"></div><div class="line">promise.catch(<span class="function"><span class="keyword">function</span>(<span class="params">res</span>)</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'something wrong'</span>)</div><div class="line">&#125;)</div><div class="line"></div><div class="line">promise.finally(<span class="function"><span class="keyword">function</span>(<span class="params">res</span>)</span>&#123;</div><div class="line">  <span class="comment">// 执行失败或者成功都会进入这个函数</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise" target="_blank" rel="external">关于promise</a></p>
-<p><strong>注意</strong> 所有的回调函数的 this 都指向组件实例</p>
-<h4 id="9-如何发送JSONP请求"><a href="#9-如何发送JSONP请求" class="headerlink" title="9 如何发送JSONP请求"></a>9 如何发送JSONP请求</h4><p>首先，我们知道 JSONP 是利用 js 可以跨域的特性从服务端请求数据的，也就是说在跨域的情况下才有必要使用 jsonp 发送请求。vue-resource 提供了三种调用方式</p>
-<ul>
-<li>全局方法</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">Vue.http(&#123;</div><div class="line">  <span class="attr">url</span>: <span class="string">'..'</span>,</div><div class="line">  <span class="attr">params</span>: &#123;</div><div class="line">    <span class="attr">cat</span>: <span class="number">1</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">methods</span>: <span class="string">'JSONP'</span></div><div class="line">&#125;).then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</div><div class="line">  <span class="built_in">console</span>.log(res.data)</div><div class="line">&#125;).catch(<span class="function"><span class="params">e</span> =&gt;</span> &#123;</div><div class="line">  <span class="built_in">console</span>.log(e)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<ul>
-<li>实例的底层方法</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">this</span>.$http(&#123;</div><div class="line">    <span class="attr">url</span>:<span class="string">'http://example.com/books'</span>,</div><div class="line">    <span class="comment">//参数部分，将会拼接在 url 之后</span></div><div class="line">    params:&#123;</div><div class="line">        <span class="attr">cat</span>:<span class="string">'1'</span></div><div class="line">    &#125;,</div><div class="line">    <span class="attr">method</span>:<span class="string">'JSONP'</span></div><div class="line">&#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params">response</span>)</span>&#123;</div><div class="line">    <span class="comment">//response.data 为服务端返回的数据</span></div><div class="line">    <span class="built_in">console</span>.log(response.data);</div><div class="line">&#125;).catch(<span class="function"><span class="keyword">function</span>(<span class="params">response</span>)</span>&#123;</div><div class="line">    <span class="comment">//出错处理</span></div><div class="line">    <span class="built_in">console</span>.log(response)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<ul>
-<li>实例的快捷方法</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">this</span>.$http.jsonp(</div><div class="line">    <span class="string">'http://example.com/books'</span>,</div><div class="line">    <span class="comment">//参数部分，将会拼接在 url 之后</span></div><div class="line">    &#123;</div><div class="line">        <span class="attr">cat</span>:<span class="string">'1'</span></div><div class="line">    &#125;</div><div class="line">).then(<span class="function"><span class="keyword">function</span>(<span class="params">response</span>)</span>&#123;</div><div class="line">    <span class="comment">//response.data 为服务端返回的数据</span></div><div class="line">    <span class="built_in">console</span>.log(response.data);</div><div class="line">&#125;).catch(<span class="function"><span class="keyword">function</span>(<span class="params">response</span>)</span>&#123;</div><div class="line">    <span class="comment">//出错处理</span></div><div class="line">    <span class="built_in">console</span>.log(response)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p><strong>例子：模仿百度搜索</strong> </p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!--搜索框--&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">input</span> @<span class="attr">keydown.down</span>=<span class="string">"changeColor"</span> @<span class="attr">keydown.up.prevent</span>=<span class="string">"changeUpColor"</span>  @<span class="attr">keyup</span>=<span class="string">"get"</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">style</span>=<span class="string">"border: 1px solid indianred"</span> <span class="attr">v-model</span>=<span class="string">"search"</span> @<span class="attr">click</span>=<span class="string">"sendJsonp"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"(item,index) in lists"</span></span></div><div class="line">            <span class="attr">:class</span>=<span class="string">"['default',&#123;gray: index == now&#125;]"</span></div><div class="line">        &gt;<span class="tag">&lt;<span class="name">a</span> <span class="attr">:href</span>=<span class="string">"'http://www.baidu.com/s?wd='+item"</span> <span class="attr">target</span>=<span class="string">"_blank"</span> &gt;</span>&#123;&#123;item&#125;&#125;<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">v-show</span>=<span class="string">"lists.length==0"</span>&gt;</span>暂无数据……<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>上面是简单的HTML结构，下面加上 <code>vue</code> 的方法</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> app = <span class="keyword">new</span> Vue(&#123;</div><div class="line">       <span class="attr">el</span>: <span class="string">'#app'</span>,</div><div class="line">       <span class="attr">data</span>: &#123; </div><div class="line">           <span class="attr">search</span>: <span class="string">''</span>,</div><div class="line">        <span class="attr">lists</span>: [],</div><div class="line">           <span class="attr">now</span>: <span class="number">-1</span></div><div class="line">       &#125;,</div><div class="line">       <span class="attr">methods</span>: &#123;</div><div class="line">           get(e)&#123;</div><div class="line">        	<span class="comment">// 如果按下的是向上和向右的箭头，则结束事件</span></div><div class="line">            <span class="keyword">if</span>(event.keyCode==<span class="number">38</span> || event.keyCode==<span class="number">40</span>)&#123;<span class="keyword">return</span>&#125;;</div><div class="line">            <span class="keyword">this</span>.sendJsonp()</div><div class="line">            <span class="built_in">console</span>.log(<span class="string">'进入get'</span>);</div><div class="line">           &#125;,</div><div class="line">        changeColor()&#123;</div><div class="line">              <span class="keyword">this</span>.now++;</div><div class="line">        <span class="keyword">if</span>(<span class="keyword">this</span>.now == <span class="keyword">this</span>.lists.length)&#123; <span class="keyword">this</span>.now = <span class="number">0</span>&#125;;</div><div class="line">        <span class="keyword">this</span>.search = <span class="keyword">this</span>.lists[<span class="keyword">this</span>.now]</div><div class="line">           &#125;,</div><div class="line">        changeUpColor()&#123;</div><div class="line">         <span class="keyword">this</span>.now--;</div><div class="line">         <span class="keyword">if</span>(<span class="keyword">this</span>.now == <span class="number">-1</span>)&#123; <span class="keyword">this</span>.now = <span class="keyword">this</span>.lists.length<span class="number">-1</span>&#125;;</div><div class="line">         <span class="keyword">this</span>.search = <span class="keyword">this</span>.lists[<span class="keyword">this</span>.now]</div><div class="line">           &#125;</div><div class="line">       &#125;</div><div class="line">   &#125;)</div><div class="line"></div><div class="line">   <span class="built_in">window</span>.app = app;</div></pre></td></tr></table></figure>
-<p>如此一来一个简单的搜索服务就完成了。</p>
-<p><strong>注意</strong></p>
-<p><code>jsonp</code> 的请求方式暂时使用的是底层方法，快捷方法会报错，没有找到原因。</p>
-<h4 id="10-修改发送给服务器端的数据类型"><a href="#10-修改发送给服务器端的数据类型" class="headerlink" title="10 修改发送给服务器端的数据类型"></a>10 修改发送给服务器端的数据类型</h4><p>在默认情况下，对于 PUT、POST、PATCH、DELETE等请求，请求头中的 Content-Type 为 application/json，即JSON 类型。有时候我们需要将数据提交为指定类型，如 <code>application/x-www-form-urlencoded</code>、<code>mulitipart/form-data</code>、<code>text/plain</code>等。下面以 POST 请求为例</p>
-<ul>
-<li>全局配置</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Vue.http.headers.post[<span class="string">'Content-Type'</span>] = <span class="string">'application/x-www-form-urlencoded'</span></div></pre></td></tr></table></figure>
-<ul>
-<li>实例配置</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">this</span>.$http.post(<span class="string">'www.baidu.com'</span>,&#123;</div><div class="line">  <span class="attr">headers</span>: &#123;</div><div class="line">    <span class="string">'Content-Type'</span>: <span class="string">'multipart/form-data'</span></div><div class="line">  &#125;</div><div class="line">&#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;)</div></pre></td></tr></table></figure>
-<p><strong>注意：</strong> </p>
-<p>实例配置优先级永远高于全局配置。</p>
-<p> <code>$http.post</code> 方法变为 options 方法</p>
-<p>在跨域的情况下，对于非简单请求（PUT、DELETE、Content-Type 为 application/json），浏览器会在真实请求前，额外发起一次类型为 OPTIONS 的请求。只有服务器正确响应了 OPTIONS 请求后，浏览器才会发起真实请求。</p>
-<p>因此，为了在跨域的情况下使用 POST 提交 Content-Type 为 application/json 的数据或 PUT、DELETE 等非简单请求，首先服务端需要开启 CORS 支持，同时需要设置如下响应头：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Access-Control-Allow-Methods: POST, GET, PUT, DELETE, OPTIONS</div></pre></td></tr></table></figure>
-<p>初步阶段总结到这里，撒花~健身！</p>
-
-          
+<p>采用上面所述的方法</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/02/22/last-porblem/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -847,7 +866,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/06/那些年我们追过的插件/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/22/社区知识点@/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ChrisJx">
@@ -866,7 +885,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/02/06/那些年我们追过的插件/" itemprop="url">未命名</a></h1>
+                <a class="post-title-link" href="/2018/02/22/社区知识点@/" itemprop="url">社区项目小结</a></h1>
         
 
         <div class="post-meta">
@@ -878,8 +897,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-06T16:34:10+08:00">
-                2018-02-06
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-22T00:00:00+08:00">
+                2018-02-22
               </time>
             
 
@@ -888,6 +907,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/项目/" itemprop="url" rel="index">
+                    <span itemprop="name">项目</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -917,274 +958,15 @@
 
       
         
-          
-            <hr>
-<p>title: 插件<br>layout: post<br>date: 2018-2-22<br>comments: true<br>categories: js插件<br>tags: [插件]<br>keywords: 插件, js</p>
-<h2 id="description-生活总需要一些记录，也许我们无法成为“那样的人”，但是有些脚印是我们走过的，留在那里也很美丽！"><a href="#description-生活总需要一些记录，也许我们无法成为“那样的人”，但是有些脚印是我们走过的，留在那里也很美丽！" class="headerlink" title="description: 生活总需要一些记录，也许我们无法成为“那样的人”，但是有些脚印是我们走过的，留在那里也很美丽！"></a>description: 生活总需要一些记录，也许我们无法成为“那样的人”，但是有些脚印是我们走过的，留在那里也很美丽！</h2><h3 id="图片预览插件"><a href="#图片预览插件" class="headerlink" title="图片预览插件"></a>图片预览插件</h3><p> <a href="http://www.dowebok.com/192.html" target="_blank" rel="external">viewer.js</a><br> <a href="https://github.com/fengyuanchen/viewerjs" target="_blank" rel="external">github地址</a><br> 很傻瓜式地引入就可以使用，解决了当下图片预览时自己样式笨拙的缺点。虽然在实例化<code>Viewer</code> 对象上面还有很多坑，但是也是满足我们需求的一款插件。</p>
-<h3 id="图片剪裁插件"><a href="#图片剪裁插件" class="headerlink" title="图片剪裁插件"></a>图片剪裁插件</h3><p><a href="http://jcrop.org/" target="_blank" rel="external">图片裁剪插件</a></p>
-<p>对于头像的处理，折腾了半天终于在老师的帮助下搞定了这款插件的配置，虽然遇到了不少坑，API需要跨域才能访问，jcrop对象每次新建的时候都要手动销毁老的对象，我尽然到现在还记得。</p>
-<p>我们的html结构是</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"preview"</span>  <span class="attr">style</span>=<span class="string">'width:200px;height:200px;overflow: hidden'</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">id</span>=<span class="string">"x"</span> <span class="attr">name</span>=<span class="string">"x"</span> /&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">id</span>=<span class="string">"y"</span> <span class="attr">name</span>=<span class="string">"y"</span> /&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">id</span>=<span class="string">"w"</span> <span class="attr">name</span>=<span class="string">"w"</span> /&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">id</span>=<span class="string">"h"</span> <span class="attr">name</span>=<span class="string">"h"</span> /&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">id</span>=<span class="string">'img_src'</span> <span class="attr">name</span>=<span class="string">'src'</span>/&gt;</span> </div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"crop crop100"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 第一步引入jcrop2的安装包 </span></div><div class="line"><span class="comment">// 使用ajaxFileUploade 上传图片</span></div><div class="line">$(<span class="string">'body'</span>).on(<span class="string">'change'</span>,<span class="string">'#upload'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="comment">// ...清空原始的数据</span></div><div class="line">  $.ajaxFileUpload(&#123;</div><div class="line">    <span class="attr">url</span>: youUrl,</div><div class="line">    <span class="attr">secureuri</span>: <span class="literal">false</span>,</div><div class="line">    <span class="attr">fileElementId</span>: <span class="string">'upload'</span>,</div><div class="line">    <span class="attr">dataType</span>: <span class="string">'json'</span>,</div><div class="line">    <span class="attr">data</span>:&#123;&#125;,</div><div class="line">    <span class="attr">success</span>: <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</div><div class="line">		<span class="comment">// 创建stage, 假设是&lt;div class="prev-img"&gt;inset 到父元素中</span></div><div class="line">      	<span class="keyword">var</span> preview_img = $(<span class="string">'.prev-img'</span>)</div><div class="line">        imageCrop();<span class="comment">// 可以把stage当参数</span></div><div class="line">    &#125;</div><div class="line">  &#125;)</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">imageCrop</span>(<span class="params"></span>)</span>&#123;</div><div class="line">   <span class="comment">// 保证只有一个实例</span></div><div class="line">   <span class="keyword">if</span>(jcrop_api) jcrop_api.destroy();</div><div class="line">    preview_img.Jcrop(&#123;</div><div class="line">                <span class="attr">boxWidth</span>: <span class="number">200</span>,</div><div class="line">                <span class="attr">aspectRatio</span>: <span class="number">1</span></div><div class="line">            &#125;, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">                jcrop_api = <span class="keyword">this</span>;</div><div class="line">                <span class="built_in">console</span>.log(<span class="keyword">this</span>);</div><div class="line">                <span class="comment">// 计算初始位置</span></div><div class="line">                <span class="keyword">var</span> width = <span class="keyword">this</span>.ui.stage.width,</div><div class="line">                    height = <span class="keyword">this</span>.ui.stage.height;</div><div class="line"></div><div class="line">                <span class="comment">// 计算选区大小</span></div><div class="line">                <span class="keyword">var</span> x1 = <span class="number">0</span>,</div><div class="line">                    y1 = (height - width / <span class="number">2</span>) / <span class="number">2</span>,</div><div class="line">                    x2 = width,</div><div class="line">                    y2 = width / <span class="number">2</span>;</div><div class="line"></div><div class="line">                <span class="keyword">this</span>.newSelection();</div><div class="line">                <span class="keyword">this</span>.setSelect([x1, y1, x2, y2]);</div><div class="line">                <span class="comment">// 创建选区</span></div><div class="line"></div><div class="line">                <span class="keyword">this</span>.initComponent(<span class="string">'Thumbnailer'</span>,&#123;</div><div class="line">                    <span class="attr">width</span>:<span class="number">100</span>,</div><div class="line">                    <span class="attr">height</span>:<span class="number">100</span>,</div><div class="line">                    <span class="attr">thumb</span>:<span class="string">'.crop100'</span></div><div class="line">                &#125;);</div><div class="line">                <span class="comment">// 监听选区的变化</span></div><div class="line">                preview_img.parent().on(<span class="string">'cropend'</span>,<span class="function"><span class="keyword">function</span> (<span class="params">e,s,c</span>) </span>&#123;</div><div class="line">                    $(<span class="string">'#x'</span>).val(c.x);</div><div class="line">                    $(<span class="string">'#y'</span>).val(c.y);</div><div class="line">                    $(<span class="string">'#w'</span>).val(c.w);</div><div class="line">                    $(<span class="string">'#h'</span>).val(c.h);</div><div class="line">                    <span class="built_in">console</span>.log(c.x,c.y,c.w,c.h);</div><div class="line">                &#125;)</div><div class="line">            &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>以上只是简单的一个小应用， Jcrop中还有很多配置API等待我们开启。</p>
-<p>总结： 插件的api比较繁多，一个一个demo中去实践才能转化成自己的，要耐心地看英文的文档。对于官网的英文文档，自己是很急躁看不下去。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/06/社区知识点@/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ChrisJx">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Coding for more love!">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/02/06/社区知识点@/" itemprop="url">未命名</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-06T16:34:06+08:00">
-                2018-02-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <hr>
-<p>title: 社区项目小结<br>layout: post<br>date: 2018-2-22<br>comments: true<br>categories: 项目<br>tags: [项目, 社区]<br>keywords: 项目, 总结</p>
-<h2 id="description-生活总需要一些记录，也许我们无法成为“那样的人”，但是有些脚印是我们走过的，留在那里也很美丽！"><a href="#description-生活总需要一些记录，也许我们无法成为“那样的人”，但是有些脚印是我们走过的，留在那里也很美丽！" class="headerlink" title="description: 生活总需要一些记录，也许我们无法成为“那样的人”，但是有些脚印是我们走过的，留在那里也很美丽！"></a>description: 生活总需要一些记录，也许我们无法成为“那样的人”，但是有些脚印是我们走过的，留在那里也很美丽！</h2><p>社区的 <code>@</code> 实现一直是我的一个痛点，刚开始接触这个的时候，感觉如临大敌， 因为我找不到任何好的思路！哎，于是开始阅读凌哥的代码，果然凌哥原生的js思想非常厉害，封装了小型的 <code>@</code> 功能。</p>
+          <p>社区的 <code>@</code> 实现一直是我的一个痛点，刚开始接触这个的时候，感觉如临大敌， 因为我找不到任何好的思路！哎，于是开始阅读凌哥的代码，果然凌哥原生的js思想非常厉害，封装了小型的 <code>@</code> 功能。</p>
 <p>现在我自己也尝试根据博客的方法来进行封装：如下 ==&gt; 直播ing</p>
-<h4 id="准备什么"><a href="#准备什么" class="headerlink" title="准备什么"></a>准备什么</h4><p>demo环境建立在 <code>webkit</code> 内核中，暂时不兼容 IE， 我们需要用到两个新的对象 <code>selection</code> 和 <code>range</code> ，它们是关于选区和光标控制的对象。还有 <code>caret</code> 这个判断js光标位置的插件。</p>
-<p>简单梳理下HTML的结构</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- 文本输入框 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"demo"</span> <span class="attr">id</span>=<span class="string">"demo"</span> <span class="attr">contenteditable</span>=<span class="string">"true"</span> @<span class="attr">keydown.delete</span> = <span class="string">"deleteAt"</span> @<span class="attr">keydown.shift.229</span>=<span class="string">"keyIn($event)"</span> @<span class="attr">keydown.shift.50</span>=<span class="string">"keyIn($event)"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="comment">&lt;!-- 带有输入框的选人框 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"select-person"</span> <span class="attr">id</span>=<span class="string">"selectPerson"</span>  <span class="attr">v-if</span>=<span class="string">"showSelect"</span> <span class="attr">:style</span>=<span class="string">"&#123;'left': left,'top': top&#125;"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"searchPersonInput"</span> <span class="attr">ref</span>=<span class="string">"sIpt"</span> <span class="attr">v-model</span>=<span class="string">"personSearchText"</span> @<span class="attr">blur</span>=<span class="string">"missFocus"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"person-wrap"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"row"</span> @<span class="attr">click</span>=<span class="string">"sPersonDone(item)"</span> <span class="attr">v-for</span>=<span class="string">"(item,index) in atList"</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-1"</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"img-wrap"</span>&gt;</span></div><div class="line">                        <span class="tag">&lt;<span class="name">img</span> <span class="attr">:src</span>=<span class="string">"item.img"</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">                <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-2"</span>&gt;</span>&#123;&#123;item.name&#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>这是个异常简单的demo, 但是可以模拟了我们在平时的很多操作，关于 <code>selection</code> 和 <code>range</code> 对象了解地还不够深入，只是简单地卖个瓜。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> app = <span class="keyword">new</span> Vue(&#123;</div><div class="line">         <span class="attr">el</span>: <span class="string">'#app'</span>,</div><div class="line">         <span class="attr">data</span>: &#123;</div><div class="line">	         <span class="attr">showSelect</span>: <span class="literal">false</span>,</div><div class="line">	         <span class="attr">personSearchText</span>: <span class="string">''</span>,</div><div class="line">	         <span class="attr">atList</span>: [</div><div class="line">	         	&#123;<span class="attr">img</span>:<span class="string">'http://www.baidu.com'</span>,<span class="attr">name</span>: <span class="string">'小明'</span>&#125;,</div><div class="line">                &#123;<span class="attr">img</span>:<span class="string">'http://www.aiqiyi.com'</span>,<span class="attr">name</span>: <span class="string">'小红'</span>&#125;</div><div class="line">                ],</div><div class="line">             <span class="attr">left</span>: <span class="number">0</span>,</div><div class="line">             <span class="attr">top</span>: <span class="number">0</span></div><div class="line">         &#125;,</div><div class="line">         <span class="attr">methods</span>: &#123;</div><div class="line">         	<span class="comment">// 实现@选择</span></div><div class="line">	         keyIn(e)&#123;</div><div class="line">		        <span class="keyword">var</span> selection = getSelection();</div><div class="line">	         	<span class="keyword">var</span> ele = $(<span class="string">'#demo'</span>);</div><div class="line">	         	<span class="built_in">console</span>.log(e.shiftKey+ <span class="string">'=='</span> + e.keyCode)</div><div class="line">	         	<span class="built_in">console</span>.log(<span class="string">'按下了@键'</span>);</div><div class="line">                <span class="keyword">this</span>.showSelect = <span class="literal">true</span>;</div><div class="line">                <span class="comment">// 保存光标的信息</span></div><div class="line">                 lastSelection = &#123;</div><div class="line">                 	 <span class="attr">range</span>: selection.getRangeAt(<span class="number">0</span>),</div><div class="line">                     <span class="attr">offset</span>: selection.focusOffset,</div><div class="line">                     <span class="attr">selection</span>: selection</div><div class="line">                 &#125;</div><div class="line">                <span class="keyword">var</span> offset = ele.caret(<span class="string">'offset'</span>);</div><div class="line">		         <span class="built_in">console</span>.log(offset); <span class="comment">// 返回光标相对文档的位置&#123;height: 22, left: 149, top: 68&#125;</span></div><div class="line">                 <span class="keyword">this</span>.left = offset.left - <span class="number">10</span> +<span class="string">'px'</span>;</div><div class="line">                 <span class="keyword">this</span>.top = offset.top + <span class="number">23</span> + <span class="string">'px'</span>;</div><div class="line"></div><div class="line">                 <span class="comment">// 让搜索框获取焦点</span></div><div class="line">                 setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">                  $(<span class="string">'#searchPersonInput'</span>).focus()</div><div class="line">                  &#125;,<span class="number">1000</span>)</div><div class="line">		         <span class="keyword">return</span></div><div class="line">             &#125;,</div><div class="line">	         missFocus()&#123;</div><div class="line">	         	<span class="keyword">return</span></div><div class="line">             &#125;,</div><div class="line">             <span class="comment">// 设置要 @ 的人</span></div><div class="line">             <span class="comment">/*</span></div><div class="line">             *</div><div class="line">             * */</div><div class="line">	         sPersonDone(item)&#123;</div><div class="line">	         	<span class="keyword">var</span> ele = $(<span class="string">'#demo'</span>);</div><div class="line">                ele.focus();</div><div class="line">                 <span class="comment">// 保留之前的信息</span></div><div class="line">                 <span class="comment">// 挖坑，需要修改keyIn的代码，保存选取和光标信息和焦点离开之前光标的位置</span></div><div class="line">                 <span class="keyword">var</span> selection = lastSelection.selection</div><div class="line">                 <span class="keyword">var</span> range = lastSelection.range</div><div class="line">                 <span class="keyword">var</span> textNode = range.startContainer</div><div class="line">                 <span class="built_in">console</span>.log(range)</div><div class="line"></div><div class="line">                 <span class="comment">// 删除 @ 符号</span></div><div class="line">                 range.setStart(textNode, range.endOffset)</div><div class="line">                 range.setEnd(textNode, range.endOffset+<span class="number">1</span>)</div><div class="line">                 range.deleteContents()</div><div class="line"></div><div class="line">                 <span class="comment">// 生成显示的内容，包括一个span 和 空格</span></div><div class="line">                 <span class="keyword">var</span> spanNode1 = <span class="built_in">document</span>.createElement(<span class="string">'span'</span>)</div><div class="line">                 <span class="keyword">var</span> spanNode2 = <span class="built_in">document</span>.createElement(<span class="string">'span'</span>)</div><div class="line">                 spanNode1.className = <span class="string">'at-text'</span></div><div class="line">                 spanNode1.innerHTML = <span class="string">'@'</span> + item.name</div><div class="line">                 spanNode2.innerHTML = <span class="string">'&amp;nbsp'</span></div><div class="line"></div><div class="line">                 <span class="comment">// 把生成的内容打包放到 Fragment 中，并获取生成内容的最后一个节点，也就是空格</span></div><div class="line">                 <span class="keyword">var</span> frag = <span class="built_in">document</span>.createDocumentFragment(),</div><div class="line">                     node,</div><div class="line">                     lastNode</div><div class="line">                 frag.appendChild(spanNode1)</div><div class="line">		         node = spanNode2.firstChild</div><div class="line">		         lastNode = frag.appendChild(node)</div><div class="line">                 <span class="comment">/*while ((node = spanNode2.firstChild))&#123;</span></div><div class="line">                 	lastNode = frag.appendChild(node)</div><div class="line">                 &#125;*/</div><div class="line"></div><div class="line">                 <span class="comment">// 把frage中的内容放到range中</span></div><div class="line">                 range.insertNode(frag)</div><div class="line">                 selection.extend(lastNode, <span class="number">1</span>)</div><div class="line">                 selection.collapseToEnd()</div><div class="line"></div><div class="line">                 <span class="comment">// 删除选框</span></div><div class="line">                 <span class="keyword">this</span>.showSelect = <span class="literal">false</span></div><div class="line">	         	 <span class="keyword">return</span></div><div class="line">             &#125;,</div><div class="line">             deleteAt()&#123;</div><div class="line">	         	<span class="built_in">console</span>.log(<span class="string">'按下了删除键'</span>)</div><div class="line">                 <span class="comment">/*</span></div><div class="line">                 * 1. 当创建的时候默认会在 @xxx 后面加入一个空格符号</div><div class="line">                 * 所以当知道光标位于 @xxx 之后的第一个字符的时候，按下删除键应该将整个</div><div class="line">                 * @xxxx 全部删除</div><div class="line">                 *</div><div class="line">                 * 2. 当光标位于 @xxx中间的时候，也应该删除整个片段</div><div class="line">                 * */</div><div class="line">	             <span class="keyword">var</span> selection = getSelection();</div><div class="line">                 <span class="keyword">var</span> range  = selection.getRangeAt(<span class="number">0</span>)</div><div class="line">                 <span class="built_in">console</span>.log(selection)</div><div class="line">                 <span class="built_in">console</span>.log(range)</div><div class="line">                 <span class="keyword">var</span> removeNode = <span class="literal">null</span></div><div class="line">                 <span class="comment">// 光标紧跟在 @xxx之后</span></div><div class="line">                 <span class="keyword">if</span> (range.startOffset &lt;= <span class="number">1</span> &amp;&amp; range.startContainer.parentElement.className != <span class="string">'at-text'</span>)&#123;</div><div class="line">	                 <span class="built_in">console</span>.log(<span class="string">'第一种情况'</span>);</div><div class="line">	                 removeNode = range.startContainer.previousElementSibling</div><div class="line">                     <span class="built_in">console</span>.log(removeNode)</div><div class="line">                 &#125;</div><div class="line">                 <span class="keyword">if</span> (range.startContainer.parentElement.className == <span class="string">'at-text'</span>)&#123;</div><div class="line">                 	removeNode = range.startContainer.parentElement</div><div class="line">                 &#125;</div><div class="line">                 <span class="keyword">if</span> (removeNode)&#123;</div><div class="line">	                 $(<span class="string">'#demo'</span>)[<span class="number">0</span>].removeChild(removeNode)</div><div class="line">                 &#125;</div><div class="line">             &#125;</div><div class="line">         &#125;</div><div class="line">     &#125;)</div><div class="line"></div><div class="line">     <span class="built_in">window</span>.app = app;</div></pre></td></tr></table></figure>
-<p>具体的分析可以 <a href="https://segmentfault.com/a/1190000007846897" target="_blank" rel="external">参考这篇文章</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/06/chrome/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ChrisJx">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Coding for more love!">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/02/06/chrome/" itemprop="url">未命名</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-06T16:23:30+08:00">
-                2018-02-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <hr>
-<p>title: Chrome<br>layout: post<br>date: 2018-2-22<br>comments: true<br>categories: Chrome<br>tags: [Chrome, 调试, 浏览器]<br>keywords: Chrome, 调试, 浏览器</p>
-<h2 id="description-生活总需要一些记录，也许我们无法成为“那样的人”，但是有些脚印是我们走过的，留在那里也很美丽！"><a href="#description-生活总需要一些记录，也许我们无法成为“那样的人”，但是有些脚印是我们走过的，留在那里也很美丽！" class="headerlink" title="description: 生活总需要一些记录，也许我们无法成为“那样的人”，但是有些脚印是我们走过的，留在那里也很美丽！"></a>description: 生活总需要一些记录，也许我们无法成为“那样的人”，但是有些脚印是我们走过的，留在那里也很美丽！</h2><blockquote>
-<p>和chrome 打交道也快两年了，看似是我们的一位老朋友，但是他身上的不少特性我们还是不太清楚的，就平时用到的地方进行简单的记录总结。</p>
-</blockquote>
-<h4 id="Chrome-DevTools-代码覆盖率功能详解"><a href="#Chrome-DevTools-代码覆盖率功能详解" class="headerlink" title="Chrome DevTools 代码覆盖率功能详解"></a>Chrome DevTools 代码覆盖率功能详解</h4><p>直接在调试面板中输入 <code>Ctrl + Shift + P</code> 调起命令面板，输入 <code>show coverage</code> 然后开始刷新页面，进行代码覆盖率检测。</p>
-<p>优点：<br>1、移除死代码<br>2、针对性进行懒加载优化代码</p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/02/22/社区知识点@/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1279,7 +1061,7 @@
               
               <div class="site-state-item site-state-categories">
                 
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">分类</span>
                 
               </div>
@@ -1290,7 +1072,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>

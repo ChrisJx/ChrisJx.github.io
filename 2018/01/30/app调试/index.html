@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="和app调试的过程中，遇到两次”webview”作怪的问题，很明显在 QQ 的webview中可以很顺利的打开，但是在我们app中却很怪戾。  首先来一段 js 调用app中查看图片的code123456789101112131415161718192021222324252627function img_listen()&amp;#123;	$(&quot;.list-dynamic img&quot;).each(fun">
+<meta name="description" content="和app调试的过程中，遇到两次”webview”作怪的问题，很明显在 QQ 的webview中可以很顺利的打开，但是在我们app中却很怪戾。">
 <meta name="keywords" content="webview,app,调试,抓包">
 <meta property="og:type" content="article">
 <meta property="og:title" content="app调试">
 <meta property="og:url" content="http://yoursite.com/2018/01/30/app调试/index.html">
 <meta property="og:site_name" content="Coding for more love!">
-<meta property="og:description" content="和app调试的过程中，遇到两次”webview”作怪的问题，很明显在 QQ 的webview中可以很顺利的打开，但是在我们app中却很怪戾。  首先来一段 js 调用app中查看图片的code123456789101112131415161718192021222324252627function img_listen()&amp;#123;	$(&quot;.list-dynamic img&quot;).each(fun">
+<meta property="og:description" content="和app调试的过程中，遇到两次”webview”作怪的问题，很明显在 QQ 的webview中可以很顺利的打开，但是在我们app中却很怪戾。">
 <meta property="og:updated_time" content="2018-03-28T01:48:35.475Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="app调试">
-<meta name="twitter:description" content="和app调试的过程中，遇到两次”webview”作怪的问题，很明显在 QQ 的webview中可以很顺利的打开，但是在我们app中却很怪戾。  首先来一段 js 调用app中查看图片的code123456789101112131415161718192021222324252627function img_listen()&amp;#123;	$(&quot;.list-dynamic img&quot;).each(fun">
+<meta name="twitter:description" content="和app调试的过程中，遇到两次”webview”作怪的问题，很明显在 QQ 的webview中可以很顺利的打开，但是在我们app中却很怪戾。">
 
 
 
@@ -322,6 +322,7 @@
 
       
         <p>和app调试的过程中，遇到两次”webview”作怪的问题，很明显在 QQ 的webview中可以很顺利的打开，<br>但是在我们app中却很怪戾。</p>
+<a id="more"></a>
 <ul>
 <li>首先来一段 js 调用app中查看图片的code<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">img_listen</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	$(<span class="string">".list-dynamic img"</span>).each(<span class="function"><span class="keyword">function</span>(<span class="params">j</span>)</span>&#123;</div><div class="line">		$(<span class="string">"a[class='example']"</span>).removeAttr(<span class="string">"href"</span>).attr(<span class="string">'name'</span>,<span class="string">'#'</span>); <span class="comment">// 移除手样式</span></div><div class="line">		$$(<span class="keyword">this</span>).singleTap(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; <span class="comment">// 点击某个图片</span></div><div class="line">			<span class="keyword">var</span> imgarr = <span class="keyword">new</span> <span class="built_in">Array</span>(); <span class="comment">// 预存图片变量</span></div><div class="line">			<span class="keyword">var</span> data = <span class="keyword">new</span> <span class="built_in">Array</span>();</div><div class="line">			$(<span class="string">".list-dynamic img"</span>).each(<span class="function"><span class="keyword">function</span>(<span class="params">i</span>)</span>&#123; <span class="comment">// 转换图片的地址</span></div><div class="line">				<span class="keyword">if</span>($(<span class="keyword">this</span>).attr(<span class="string">"src"</span>).indexOf(<span class="string">'http'</span>)&gt;=<span class="number">0</span>)&#123;</div><div class="line">					imgarr[i] = $(<span class="keyword">this</span>).attr(<span class="string">"src"</span>);</div><div class="line">				&#125;<span class="keyword">else</span> <span class="keyword">if</span>($(<span class="keyword">this</span>).attr(<span class="string">"src"</span>).indexOf(<span class="string">'.com'</span>)&gt;=<span class="number">0</span>)&#123;</div><div class="line">					imgarr[i] = <span class="string">"http:"</span>+$(<span class="keyword">this</span>).attr(<span class="string">"src"</span>);</div><div class="line">				&#125;<span class="keyword">else</span>&#123;</div><div class="line">					imgarr[i] = WORK_DOMAIN+$(<span class="keyword">this</span>).attr(<span class="string">"src"</span>);</div><div class="line">				&#125;</div><div class="line">				imgarr[i] = imgarr[i].replace(<span class="string">"m_"</span>,<span class="string">""</span>);</div><div class="line">			&#125;)</div><div class="line">			data[<span class="number">0</span>] = j; <span class="comment">// 利用闭包存储图片的索引</span></div><div class="line">			data[<span class="number">1</span>] = imgarr.length;</div><div class="line">			<span class="keyword">var</span> imgarrstr = <span class="built_in">JSON</span>.stringify(imgarr); <span class="comment">// 数组转换成json字符串</span></div><div class="line">			data[<span class="number">2</span>] = imgarrstr;</div><div class="line">			<span class="keyword">var</span> json = <span class="built_in">JSON</span>.stringify(data); <span class="comment">// 再次转换</span></div><div class="line">			<span class="built_in">window</span>.jslistner.openImage(json); <span class="comment">// 调用app原生的方法打开图片</span></div><div class="line">			<span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">		&#125;);</div><div class="line">	&#125;);</div><div class="line">&#125;</div><div class="line">img_listen(); <span class="comment">// 页面加载后执行</span></div></pre></td></tr></table></figure>
 </li>
@@ -343,7 +344,7 @@
 <p><strong>思考：</strong><br>1、<code>webview</code> 中的调试一般通过打印或者抓包的方法来调试，效率比较低，不能通过直接调试样式或者打断点的方式进行<br>调试。所以inspect在浏览器中调试可以提高不少效率，但是踩得坑也不少。<br>2、所有的细节都需要 <strong>啃透</strong> ，没有花费时间 <em>*啃透</em> 的东西，都不属于自己的沉淀，只会沦为时间的过客。</p>
 <ul>
 <li>如果在 <code>inspect</code> 没有办法实现的情况下，可以通过抓包代理的方式来调试<blockquote>
-<p>实现的方式有些曲折，php_study 通过配置代理访问本地的项目(本地 host 配置) –&gt; 请求远端的服务器（已经做了跨域的处理） –&gt;<br>Fiddler 配置代理把电脑上的所有的请求都拦截，准确来说应该是 <strong>以这台电脑的ip</strong> 发送的所有请求，包括本地服务</p>
+<p>实现的方式有些曲折，php_study 通过配置代理访问本地的项目(本地 host 配置) –&gt; 请求远端的服务器（已经做了跨域的处理） –&gt;<br> Fiddler 配置代理把电脑上的所有的请求都拦截，准确来说应该是 <strong>以这台电脑的ip</strong> 发送的所有请求，包括本地服务</p>
 </blockquote>
 </li>
 </ul>
@@ -394,8 +395,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/01/25/IDE快捷键/" rel="prev" title="">
-                 <i class="fa fa-chevron-right"></i>
+              <a href="/2015/09/10/ajax通信/" rel="prev" title="ajax通信（一）">
+                ajax通信（一） <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -475,7 +476,7 @@
               
               <div class="site-state-item site-state-categories">
                 
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">分类</span>
                 
               </div>
@@ -486,7 +487,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>
