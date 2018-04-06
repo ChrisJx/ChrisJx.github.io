@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="社区的 @ 实现一直是我的一个痛点，刚开始接触这个的时候，感觉如临大敌， 因为我找不到任何好的思路！哎，于是开始阅读凌哥的代码，果然凌哥原生的js思想非常厉害，封装了小型的 @ 功能。 现在我自己也尝试根据博客的方法来进行封装：如下 ==&amp;gt; 直播ing 准备什么demo环境建立在 webkit 内核中，暂时不兼容 IE， 我们需要用到两个新的对象 selection 和 range ，它们是">
+<meta name="description" content="title: 社区项目小结layout: postdate: 2018-2-22comments: truecategories: 项目tags: [项目, 社区]keywords: 项目, 总结 description: 生活总需要一些记录，也许我们无法成为“那样的人”，但是有些脚印是我们走过的，留在那里也很美丽！社区的 @ 实现一直是我的一个痛点，刚开始接触这个的时候，感觉如临大敌， 因为我">
 <meta name="keywords">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Coding for more love!">
 <meta property="og:url" content="http://yoursite.com/2018/02/06/社区知识点@/index.html">
 <meta property="og:site_name" content="Coding for more love!">
-<meta property="og:description" content="社区的 @ 实现一直是我的一个痛点，刚开始接触这个的时候，感觉如临大敌， 因为我找不到任何好的思路！哎，于是开始阅读凌哥的代码，果然凌哥原生的js思想非常厉害，封装了小型的 @ 功能。 现在我自己也尝试根据博客的方法来进行封装：如下 ==&amp;gt; 直播ing 准备什么demo环境建立在 webkit 内核中，暂时不兼容 IE， 我们需要用到两个新的对象 selection 和 range ，它们是">
-<meta property="og:updated_time" content="2018-02-08T10:48:54.127Z">
+<meta property="og:description" content="title: 社区项目小结layout: postdate: 2018-2-22comments: truecategories: 项目tags: [项目, 社区]keywords: 项目, 总结 description: 生活总需要一些记录，也许我们无法成为“那样的人”，但是有些脚印是我们走过的，留在那里也很美丽！社区的 @ 实现一直是我的一个痛点，刚开始接触这个的时候，感觉如临大敌， 因为我">
+<meta property="og:updated_time" content="2018-04-06T03:48:27.549Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Coding for more love!">
-<meta name="twitter:description" content="社区的 @ 实现一直是我的一个痛点，刚开始接触这个的时候，感觉如临大敌， 因为我找不到任何好的思路！哎，于是开始阅读凌哥的代码，果然凌哥原生的js思想非常厉害，封装了小型的 @ 功能。 现在我自己也尝试根据博客的方法来进行封装：如下 ==&amp;gt; 直播ing 准备什么demo环境建立在 webkit 内核中，暂时不兼容 IE， 我们需要用到两个新的对象 selection 和 range ，它们是">
+<meta name="twitter:description" content="title: 社区项目小结layout: postdate: 2018-2-22comments: truecategories: 项目tags: [项目, 社区]keywords: 项目, 总结 description: 生活总需要一些记录，也许我们无法成为“那样的人”，但是有些脚印是我们走过的，留在那里也很美丽！社区的 @ 实现一直是我的一个痛点，刚开始接触这个的时候，感觉如临大敌， 因为我">
 
 
 
@@ -299,7 +299,9 @@
       
 
       
-        <p>社区的 <code>@</code> 实现一直是我的一个痛点，刚开始接触这个的时候，感觉如临大敌， 因为我找不到任何好的思路！哎，于是开始阅读凌哥的代码，果然凌哥原生的js思想非常厉害，封装了小型的 <code>@</code> 功能。</p>
+        <hr>
+<p>title: 社区项目小结<br>layout: post<br>date: 2018-2-22<br>comments: true<br>categories: 项目<br>tags: [项目, 社区]<br>keywords: 项目, 总结</p>
+<h2 id="description-生活总需要一些记录，也许我们无法成为“那样的人”，但是有些脚印是我们走过的，留在那里也很美丽！"><a href="#description-生活总需要一些记录，也许我们无法成为“那样的人”，但是有些脚印是我们走过的，留在那里也很美丽！" class="headerlink" title="description: 生活总需要一些记录，也许我们无法成为“那样的人”，但是有些脚印是我们走过的，留在那里也很美丽！"></a>description: 生活总需要一些记录，也许我们无法成为“那样的人”，但是有些脚印是我们走过的，留在那里也很美丽！</h2><p>社区的 <code>@</code> 实现一直是我的一个痛点，刚开始接触这个的时候，感觉如临大敌， 因为我找不到任何好的思路！哎，于是开始阅读凌哥的代码，果然凌哥原生的js思想非常厉害，封装了小型的 <code>@</code> 功能。</p>
 <p>现在我自己也尝试根据博客的方法来进行封装：如下 ==&gt; 直播ing</p>
 <h4 id="准备什么"><a href="#准备什么" class="headerlink" title="准备什么"></a>准备什么</h4><p>demo环境建立在 <code>webkit</code> 内核中，暂时不兼容 IE， 我们需要用到两个新的对象 <code>selection</code> 和 <code>range</code> ，它们是关于选区和光标控制的对象。还有 <code>caret</code> 这个判断js光标位置的插件。</p>
 <p>简单梳理下HTML的结构</p>
@@ -431,7 +433,7 @@
               
               <div class="site-state-item site-state-categories">
                 
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">分类</span>
                 
               </div>
@@ -442,7 +444,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>
@@ -475,7 +477,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#准备什么"><span class="nav-number">1.</span> <span class="nav-text">准备什么</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#description-生活总需要一些记录，也许我们无法成为“那样的人”，但是有些脚印是我们走过的，留在那里也很美丽！"><span class="nav-number">1.</span> <span class="nav-text">description: 生活总需要一些记录，也许我们无法成为“那样的人”，但是有些脚印是我们走过的，留在那里也很美丽！</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#准备什么"><span class="nav-number">1.0.1.</span> <span class="nav-text">准备什么</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

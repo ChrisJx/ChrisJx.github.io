@@ -228,7 +228,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/09/你不知道的js/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/22/代码技巧/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ChrisJx">
@@ -247,7 +247,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/02/09/你不知道的js/" itemprop="url">未命名</a></h1>
+                <a class="post-title-link" href="/2018/02/22/代码技巧/" itemprop="url">未命名</a></h1>
         
 
         <div class="post-meta">
@@ -259,8 +259,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-09T11:16:33+08:00">
-                2018-02-09
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-22T14:18:27+08:00">
+                2018-02-22
               </time>
             
 
@@ -299,7 +299,12 @@
       
         
           
-            
+            <hr>
+<p>title: 常用代码技巧<br>layout: post<br>date: 2018-2-22<br>comments: true<br>categories: trick<br>tags: [trick]<br>keywords: 技巧, trick</p>
+<h2 id="description-生活总需要一些记录，也许我们无法成为“那样的人”，但是有些脚印是我们走过的，留在那里也很美丽！"><a href="#description-生活总需要一些记录，也许我们无法成为“那样的人”，但是有些脚印是我们走过的，留在那里也很美丽！" class="headerlink" title="description: 生活总需要一些记录，也许我们无法成为“那样的人”，但是有些脚印是我们走过的，留在那里也很美丽！"></a>description: 生活总需要一些记录，也许我们无法成为“那样的人”，但是有些脚印是我们走过的，留在那里也很美丽！</h2><h4 id="处理axios获取到的数据"><a href="#处理axios获取到的数据" class="headerlink" title="处理axios获取到的数据"></a>处理axios获取到的数据</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> baseUrl = <span class="string">'http://api.nytimes.com/topstories/v2/'</span>;</div><div class="line"><span class="keyword">const</span> apiKey = <span class="string">'your_api_key'</span>;</div><div class="line"><span class="keyword">const</span> SECTIONS = <span class="string">"home, arts, automobiles"</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">buildUrl</span>(<span class="params">url</span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> baseUrl + url + <span class="string">'.json?api-key'</span> + apiKey </div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">const</span> vm = <span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="attr">el</span>: <span class="string">'#app'</span>,</div><div class="line">  <span class="attr">data</span>: &#123;</div><div class="line">    <span class="attr">results</span>: [],</div><div class="line">    <span class="attr">sections</span>: SECTIONS.split(<span class="string">','</span>),</div><div class="line">    <span class="attr">section</span>: <span class="string">'home'</span></div><div class="line">  &#125;,</div><div class="line">  mounted()&#123;</div><div class="line">    <span class="keyword">this</span>.getPosts(<span class="keyword">this</span>.section)</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">methods</span>: &#123;</div><div class="line">    getPost(section)&#123;</div><div class="line">      <span class="keyword">let</span> url = buildUrl(section)</div><div class="line">      axios.get(url).then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</div><div class="line">        <span class="keyword">this</span>.results = res.data.results</div><div class="line">      &#125;).catch(<span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</div><div class="line">        <span class="built_in">console</span>.log(err)</div><div class="line">      &#125;)</div><div class="line">    &#125;,</div><div class="line">    </div><div class="line">  &#125;,</div><div class="line">  <span class="attr">computed</span>: &#123;</div><div class="line">    processedPosts()&#123;</div><div class="line">      <span class="keyword">let</span> posts = <span class="keyword">this</span>.results;</div><div class="line">      </div><div class="line">      <span class="comment">// Add image_url attribute</span></div><div class="line">      posts.map(<span class="function"><span class="params">post</span> =&gt;</span> &#123;</div><div class="line">        <span class="keyword">let</span> imgObj = post.multimedia.find(<span class="function"><span class="params">media</span> =&gt;</span> media.format === <span class="string">'png'</span>)</div><div class="line">        post.image_url = imgObj ? imgObj.url : <span class="string">'http://placehold.it/300x200?text=N/A'</span></div><div class="line">      &#125;)</div><div class="line">      </div><div class="line">      <span class="comment">// put Array into Chunks</span></div><div class="line">      <span class="keyword">let</span> i, j, chunkedArray = [], chunk = <span class="number">4</span>;</div><div class="line">      <span class="keyword">for</span> (i = <span class="number">0</span>, j = <span class="number">0</span>; i &lt; posts.length; i += chunk, j++)&#123;</div><div class="line">        chunkedArray[j] = posts.slice(i, i+chunk)</div><div class="line">      &#125;</div><div class="line">      <span class="keyword">return</span> chunkedArray</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>对应的HTML中</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></div><div class="line">     <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"large-6 columns"</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">select</span> <span class="attr">v-model</span>=<span class="string">"section"</span>&gt;</span></div><div class="line">         <span class="tag">&lt;<span class="name">option</span> <span class="attr">v-for</span>=<span class="string">"section in sections"</span> <span class="attr">:value</span>=<span class="string">"section"</span>&gt;</span>&#123;&#123; section &#125;&#125;<span class="tag">&lt;/<span class="name">option</span>&gt;</span></div><div class="line">       <span class="tag">&lt;/<span class="name">select</span>&gt;</span></div><div class="line">     <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">     <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"medium-6 columns"</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">a</span> @<span class="attr">click</span>=<span class="string">"getPosts(section)"</span> <span class="attr">class</span>=<span class="string">"button expanded"</span>&gt;</span>Retrieve<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">     <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">   <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+
           
         
       
@@ -418,7 +423,9 @@
       
         
           
-            <blockquote>
+            <hr>
+<p>title: vue-resource使用<br>layout: post<br>date: 2018-2-22<br>comments: true<br>categories: vue-resource<br>tags: [vue-resource, ajax]<br>keywords: ajax通信</p>
+<h2 id="description-生活总需要一些记录，也许我们无法成为“那样的人”，但是有些脚印是我们走过的，留在那里也很美丽！"><a href="#description-生活总需要一些记录，也许我们无法成为“那样的人”，但是有些脚印是我们走过的，留在那里也很美丽！" class="headerlink" title="description: 生活总需要一些记录，也许我们无法成为“那样的人”，但是有些脚印是我们走过的，留在那里也很美丽！"></a>description: 生活总需要一些记录，也许我们无法成为“那样的人”，但是有些脚印是我们走过的，留在那里也很美丽！</h2><blockquote>
 <p>通过ajax 和服务端进行通信，是前后端交互最常用的方式，但又是问题出现最多的地方。下面我通过第三视角，来分析 <code>resource</code> 这个用来进行交互的插件。</p>
 </blockquote>
 <p>Vue.js 可以构建一个完全不依赖后端服务的应用，同时也可以与服务端进行数据交互来同步界面的动态更新。Vue 本身并没有提供与服务端通信的接口，但是通过插件的形式实现了基于AJAX、JSONP 等技术的服务端通信。</p>
@@ -911,7 +918,9 @@
       
         
           
-            <h3 id="图片预览插件"><a href="#图片预览插件" class="headerlink" title="图片预览插件"></a>图片预览插件</h3><p> <a href="http://www.dowebok.com/192.html" target="_blank" rel="external">viewer.js</a><br> <a href="https://github.com/fengyuanchen/viewerjs" target="_blank" rel="external">github地址</a><br> 很傻瓜式地引入就可以使用，解决了当下图片预览时自己样式笨拙的缺点。虽然在实例化<code>Viewer</code> 对象上面还有很多坑，但是也是满足我们需求的一款插件。</p>
+            <hr>
+<p>title: 插件<br>layout: post<br>date: 2018-2-22<br>comments: true<br>categories: js插件<br>tags: [插件]<br>keywords: 插件, js</p>
+<h2 id="description-生活总需要一些记录，也许我们无法成为“那样的人”，但是有些脚印是我们走过的，留在那里也很美丽！"><a href="#description-生活总需要一些记录，也许我们无法成为“那样的人”，但是有些脚印是我们走过的，留在那里也很美丽！" class="headerlink" title="description: 生活总需要一些记录，也许我们无法成为“那样的人”，但是有些脚印是我们走过的，留在那里也很美丽！"></a>description: 生活总需要一些记录，也许我们无法成为“那样的人”，但是有些脚印是我们走过的，留在那里也很美丽！</h2><h3 id="图片预览插件"><a href="#图片预览插件" class="headerlink" title="图片预览插件"></a>图片预览插件</h3><p> <a href="http://www.dowebok.com/192.html" target="_blank" rel="external">viewer.js</a><br> <a href="https://github.com/fengyuanchen/viewerjs" target="_blank" rel="external">github地址</a><br> 很傻瓜式地引入就可以使用，解决了当下图片预览时自己样式笨拙的缺点。虽然在实例化<code>Viewer</code> 对象上面还有很多坑，但是也是满足我们需求的一款插件。</p>
 <h3 id="图片剪裁插件"><a href="#图片剪裁插件" class="headerlink" title="图片剪裁插件"></a>图片剪裁插件</h3><p><a href="http://jcrop.org/" target="_blank" rel="external">图片裁剪插件</a></p>
 <p>对于头像的处理，折腾了半天终于在老师的帮助下搞定了这款插件的配置，虽然遇到了不少坑，API需要跨域才能访问，jcrop对象每次新建的时候都要手动销毁老的对象，我尽然到现在还记得。</p>
 <p>我们的html结构是</p>
@@ -1038,7 +1047,9 @@
       
         
           
-            <p>社区的 <code>@</code> 实现一直是我的一个痛点，刚开始接触这个的时候，感觉如临大敌， 因为我找不到任何好的思路！哎，于是开始阅读凌哥的代码，果然凌哥原生的js思想非常厉害，封装了小型的 <code>@</code> 功能。</p>
+            <hr>
+<p>title: 社区项目小结<br>layout: post<br>date: 2018-2-22<br>comments: true<br>categories: 项目<br>tags: [项目, 社区]<br>keywords: 项目, 总结</p>
+<h2 id="description-生活总需要一些记录，也许我们无法成为“那样的人”，但是有些脚印是我们走过的，留在那里也很美丽！"><a href="#description-生活总需要一些记录，也许我们无法成为“那样的人”，但是有些脚印是我们走过的，留在那里也很美丽！" class="headerlink" title="description: 生活总需要一些记录，也许我们无法成为“那样的人”，但是有些脚印是我们走过的，留在那里也很美丽！"></a>description: 生活总需要一些记录，也许我们无法成为“那样的人”，但是有些脚印是我们走过的，留在那里也很美丽！</h2><p>社区的 <code>@</code> 实现一直是我的一个痛点，刚开始接触这个的时候，感觉如临大敌， 因为我找不到任何好的思路！哎，于是开始阅读凌哥的代码，果然凌哥原生的js思想非常厉害，封装了小型的 <code>@</code> 功能。</p>
 <p>现在我自己也尝试根据博客的方法来进行封装：如下 ==&gt; 直播ing</p>
 <h4 id="准备什么"><a href="#准备什么" class="headerlink" title="准备什么"></a>准备什么</h4><p>demo环境建立在 <code>webkit</code> 内核中，暂时不兼容 IE， 我们需要用到两个新的对象 <code>selection</code> 和 <code>range</code> ，它们是关于选区和光标控制的对象。还有 <code>caret</code> 这个判断js光标位置的插件。</p>
 <p>简单梳理下HTML的结构</p>
@@ -1165,7 +1176,9 @@
       
         
           
-            <blockquote>
+            <hr>
+<p>title: Chrome<br>layout: post<br>date: 2018-2-22<br>comments: true<br>categories: Chrome<br>tags: [Chrome, 调试, 浏览器]<br>keywords: Chrome, 调试, 浏览器</p>
+<h2 id="description-生活总需要一些记录，也许我们无法成为“那样的人”，但是有些脚印是我们走过的，留在那里也很美丽！"><a href="#description-生活总需要一些记录，也许我们无法成为“那样的人”，但是有些脚印是我们走过的，留在那里也很美丽！" class="headerlink" title="description: 生活总需要一些记录，也许我们无法成为“那样的人”，但是有些脚印是我们走过的，留在那里也很美丽！"></a>description: 生活总需要一些记录，也许我们无法成为“那样的人”，但是有些脚印是我们走过的，留在那里也很美丽！</h2><blockquote>
 <p>和chrome 打交道也快两年了，看似是我们的一位老朋友，但是他身上的不少特性我们还是不太清楚的，就平时用到的地方进行简单的记录总结。</p>
 </blockquote>
 <h4 id="Chrome-DevTools-代码覆盖率功能详解"><a href="#Chrome-DevTools-代码覆盖率功能详解" class="headerlink" title="Chrome DevTools 代码覆盖率功能详解"></a>Chrome DevTools 代码覆盖率功能详解</h4><p>直接在调试面板中输入 <code>Ctrl + Shift + P</code> 调起命令面板，输入 <code>show coverage</code> 然后开始刷新页面，进行代码覆盖率检测。</p>
@@ -1266,7 +1279,7 @@
               
               <div class="site-state-item site-state-categories">
                 
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">分类</span>
                 
               </div>
@@ -1277,7 +1290,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>

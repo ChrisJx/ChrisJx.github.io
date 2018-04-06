@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="通过ajax 和服务端进行通信，是前后端交互最常用的方式，但又是问题出现最多的地方。下面我通过第三视角，来分析 resource 这个用来进行交互的插件。  Vue.js 可以构建一个完全不依赖后端服务的应用，同时也可以与服务端进行数据交互来同步界面的动态更新。Vue 本身并没有提供与服务端通信的接口，但是通过插件的形式实现了基于AJAX、JSONP 等技术的服务端通信。 vue-resourc">
+<meta name="description" content="title: vue-resource使用layout: postdate: 2018-2-22comments: truecategories: vue-resourcetags: [vue-resource, ajax]keywords: ajax通信 description: 生活总需要一些记录，也许我们无法成为“那样的人”，但是有些脚印是我们走过的，留在那里也很美丽！ 通过ajax 和服">
 <meta name="keywords">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Coding for more love!">
 <meta property="og:url" content="http://yoursite.com/2018/02/08/vue-resource/index.html">
 <meta property="og:site_name" content="Coding for more love!">
-<meta property="og:description" content="通过ajax 和服务端进行通信，是前后端交互最常用的方式，但又是问题出现最多的地方。下面我通过第三视角，来分析 resource 这个用来进行交互的插件。  Vue.js 可以构建一个完全不依赖后端服务的应用，同时也可以与服务端进行数据交互来同步界面的动态更新。Vue 本身并没有提供与服务端通信的接口，但是通过插件的形式实现了基于AJAX、JSONP 等技术的服务端通信。 vue-resourc">
-<meta property="og:updated_time" content="2018-02-08T10:48:54.163Z">
+<meta property="og:description" content="title: vue-resource使用layout: postdate: 2018-2-22comments: truecategories: vue-resourcetags: [vue-resource, ajax]keywords: ajax通信 description: 生活总需要一些记录，也许我们无法成为“那样的人”，但是有些脚印是我们走过的，留在那里也很美丽！ 通过ajax 和服">
+<meta property="og:updated_time" content="2018-04-06T03:56:27.771Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Coding for more love!">
-<meta name="twitter:description" content="通过ajax 和服务端进行通信，是前后端交互最常用的方式，但又是问题出现最多的地方。下面我通过第三视角，来分析 resource 这个用来进行交互的插件。  Vue.js 可以构建一个完全不依赖后端服务的应用，同时也可以与服务端进行数据交互来同步界面的动态更新。Vue 本身并没有提供与服务端通信的接口，但是通过插件的形式实现了基于AJAX、JSONP 等技术的服务端通信。 vue-resourc">
+<meta name="twitter:description" content="title: vue-resource使用layout: postdate: 2018-2-22comments: truecategories: vue-resourcetags: [vue-resource, ajax]keywords: ajax通信 description: 生活总需要一些记录，也许我们无法成为“那样的人”，但是有些脚印是我们走过的，留在那里也很美丽！ 通过ajax 和服">
 
 
 
@@ -299,7 +299,9 @@
       
 
       
-        <blockquote>
+        <hr>
+<p>title: vue-resource使用<br>layout: post<br>date: 2018-2-22<br>comments: true<br>categories: vue-resource<br>tags: [vue-resource, ajax]<br>keywords: ajax通信</p>
+<h2 id="description-生活总需要一些记录，也许我们无法成为“那样的人”，但是有些脚印是我们走过的，留在那里也很美丽！"><a href="#description-生活总需要一些记录，也许我们无法成为“那样的人”，但是有些脚印是我们走过的，留在那里也很美丽！" class="headerlink" title="description: 生活总需要一些记录，也许我们无法成为“那样的人”，但是有些脚印是我们走过的，留在那里也很美丽！"></a>description: 生活总需要一些记录，也许我们无法成为“那样的人”，但是有些脚印是我们走过的，留在那里也很美丽！</h2><blockquote>
 <p>通过ajax 和服务端进行通信，是前后端交互最常用的方式，但又是问题出现最多的地方。下面我通过第三视角，来分析 <code>resource</code> 这个用来进行交互的插件。</p>
 </blockquote>
 <p>Vue.js 可以构建一个完全不依赖后端服务的应用，同时也可以与服务端进行数据交互来同步界面的动态更新。Vue 本身并没有提供与服务端通信的接口，但是通过插件的形式实现了基于AJAX、JSONP 等技术的服务端通信。</p>
@@ -697,7 +699,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/02/09/你不知道的js/" rel="next" title="">
+              <a href="/2018/02/22/代码技巧/" rel="next" title="">
                 <i class="fa fa-chevron-left"></i> 
               </a>
             
@@ -797,7 +799,7 @@
               
               <div class="site-state-item site-state-categories">
                 
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">分类</span>
                 
               </div>
@@ -808,7 +810,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>
@@ -841,7 +843,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-安装"><span class="nav-number">1.</span> <span class="nav-text">1. 安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-参数配置"><span class="nav-number">2.</span> <span class="nav-text">2. 参数配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-全局配置"><span class="nav-number">3.</span> <span class="nav-text">3. 全局配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-基本HTTP调用"><span class="nav-number">4.</span> <span class="nav-text">4. 基本HTTP调用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-response-对象"><span class="nav-number">5.</span> <span class="nav-text">5. response 对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-拦截器（interceptors）"><span class="nav-number">6.</span> <span class="nav-text">6 拦截器（interceptors）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-跨域"><span class="nav-number">7.</span> <span class="nav-text">7 跨域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-Promise"><span class="nav-number">8.</span> <span class="nav-text">8 Promise</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-如何发送JSONP请求"><span class="nav-number">9.</span> <span class="nav-text">9 如何发送JSONP请求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-修改发送给服务器端的数据类型"><span class="nav-number">10.</span> <span class="nav-text">10 修改发送给服务器端的数据类型</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#description-生活总需要一些记录，也许我们无法成为“那样的人”，但是有些脚印是我们走过的，留在那里也很美丽！"><span class="nav-number">1.</span> <span class="nav-text">description: 生活总需要一些记录，也许我们无法成为“那样的人”，但是有些脚印是我们走过的，留在那里也很美丽！</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-安装"><span class="nav-number">1.0.1.</span> <span class="nav-text">1. 安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-参数配置"><span class="nav-number">1.0.2.</span> <span class="nav-text">2. 参数配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-全局配置"><span class="nav-number">1.0.3.</span> <span class="nav-text">3. 全局配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-基本HTTP调用"><span class="nav-number">1.0.4.</span> <span class="nav-text">4. 基本HTTP调用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-response-对象"><span class="nav-number">1.0.5.</span> <span class="nav-text">5. response 对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-拦截器（interceptors）"><span class="nav-number">1.0.6.</span> <span class="nav-text">6 拦截器（interceptors）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-跨域"><span class="nav-number">1.0.7.</span> <span class="nav-text">7 跨域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-Promise"><span class="nav-number">1.0.8.</span> <span class="nav-text">8 Promise</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-如何发送JSONP请求"><span class="nav-number">1.0.9.</span> <span class="nav-text">9 如何发送JSONP请求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-修改发送给服务器端的数据类型"><span class="nav-number">1.0.10.</span> <span class="nav-text">10 修改发送给服务器端的数据类型</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
